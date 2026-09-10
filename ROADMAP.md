@@ -164,7 +164,6 @@ Include only if the watch feasibility gate passes.
 - Optional microphone-based tempo experiments.
 - Cloud synchronization of history.
 - Social challenges.
-- Multi-musician or peer-to-peer synchronization.
 
 None of these belong in the initial implementation unless the roadmap is
 explicitly revised.
