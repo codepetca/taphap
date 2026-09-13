@@ -7,7 +7,7 @@
   "baselineCommit": "2e0310bc245525e82ace4110c103681e6facfe55",
   "phase1Exit": "NOT PASSED",
   "phase2": "not started",
-  "remainingBlocker": "Corrected physical partial-result path verified in one new Tap and Strum trial. Strum again contains an approximately one-second interval; awaiting owner recollection to distinguish skipped/held gesture from possible missed capture. Strum repeatability/phase acceptance remains unresolved; no merge or Phase 2.",
+  "remainingBlocker": "Latest owner-requested Strum retry is continuous and clean with comparable opening timing, materially strengthening repeatability evidence. Earlier long intervals remain historically unexplained; coordinator reassessing exact timestamp-repeatability gate. No merge or Phase 2 authorized by this observation alone.",
   "evidence": "docs/phase-1-core-feasibility.md",
   "reviewedSourceHashes": ".ai/evidence/phase1/source-revision-sha256.json",
   "changedOrAddedPathsFromGitBase": [
@@ -96,8 +96,9 @@
   "note": "Git-base delta includes 29-file inherited owner snapshot; baseline-preservation.json identifies the only three inherited files changed by this task. Final evidence-only commit adds this delivery file and updates review ledger.",
   "physicalEvidence": ".ai/evidence/phase1/physical-device-tests.json",
   "humanEvidence": ".ai/evidence/phase1/owner-observations.json",
-  "currentAssessmentPatch": "Reviewed correction installed; two new physical partial assessments verified and all eight older records unchanged.",
+  "currentAssessmentPatch": "Three physical schema-2 partial assessments verified; latest Strum retry has no irregular interval flags. All 10 earlier records preserved.",
   "currentPatchHashes": ".ai/evidence/phase1/assessment-source-sha256.json",
   "reviewedImplementationCommit": "4be17f7824d08c276fe36fd493d9ad78491de26e",
-  "targetedPhysicalEvidence": ".ai/evidence/phase1/targeted-owner-observations.json"
+  "targetedPhysicalEvidence": ".ai/evidence/phase1/targeted-owner-observations.json",
+  "strumRetryEvidence": ".ai/evidence/phase1/strum-retry-observations.json"
 }

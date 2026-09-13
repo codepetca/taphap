@@ -3,7 +3,7 @@
   "change": "Preserve trustworthy partial timing diagnostics without full score or landing when beat assignment is ambiguous.",
   "dataSchema": 2,
   "installationEvidence": "assessment-installation.json",
-  "physicalStatus": "Two new schema-2 physical trials saved partial assessments with reliable baselines, no runtime invalidations, and no full score or landing. All 8 older records unchanged. Strum omitted gesture versus capture uncertainty remains open.",
+  "physicalStatus": "Three new schema-2 physical records: Tap and two Strum partial assessments. Latest Strum has 65 continuous downstrokes with no long/short interval flags and stable clock. Earlier approximately one-second intervals remain historically unexplained; acceptance reassessment pending coordinator.",
   "replays": {
     "captured-strum": {
       "baseline": {
@@ -72,5 +72,6 @@
     "swiftPackageFailures": 0,
     "swiftPackageTests": 21
   },
-  "targetedPhysicalEvidence": "targeted-owner-observations.json"
+  "targetedPhysicalEvidence": "targeted-owner-observations.json",
+  "strumRetryEvidence": "strum-retry-observations.json"
 }

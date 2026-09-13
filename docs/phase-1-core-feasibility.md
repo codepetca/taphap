@@ -1,11 +1,12 @@
 # Phase 1 core audio and scoring feasibility
 
 Status: implemented locally; all 11 automated physical-iPhone tests passed.
-Owner listening confirmed silence and return. Phase exit **not yet passed**:
-the corrected build has now saved partial assessments from one further Tap
-and Strum trial, but Strum repeatability remains unresolved because both
-Strum recordings contain an approximately one-second input interval. Owner
-recollection of a skipped/held stroke is pending. Phase 2 has not begun.
+Owner listening confirmed silence and return. The reviewed correction has
+saved three physical partial assessments. The latest owner-requested Strum
+retry captured 65 continuous downstrokes with no irregular-interval flags,
+materially strengthening repeatability evidence. Phase acceptance is under
+reassessment; earlier Strum long intervals remain historically unexplained.
+No merge or Phase 2 advancement has occurred.
 
 ## Authority and preserved baseline
 
@@ -456,3 +457,36 @@ explain that interval but must be considered alongside the earlier Strum trace;
 a reply that strokes continued steadily would leave possible missed capture
 as a concrete issue to investigate. No new source work or repeated physical
 trial has been initiated while this observation is pending.
+
+
+## Owner-requested Strum retry — 2026-09-13
+
+The owner chose another Strum trial and reported completion. Read-only
+retrieval found one new schema-2 record and verified all ten prior records
+byte-for-byte unchanged. The reviewed app was not reinstalled or relaunched.
+See [Strum retry observations](../.ai/evidence/phase1/strum-retry-observations.json).
+
+The new trial captured 65 monotonic downstrokes. Opening fitted period was
+502.34 ms, phase 39.51 ms and residual RMS 11.80 ms. Inside silence the median
+spacing was 530.65 ms, standard deviation 13.23 ms and largest interval
+559.96 ms, with no long or short interval flags. All recorded successive
+intervals across the entire trial were also continuous, with no approximately
+one-second gap. Crossing brackets were median 8.32 ms, nearest-rank p95
+8.323 ms and maximum 16.64 ms. All 746 clock anchors remained consistent
+(maximum residual 0.006 ms); runtime invalidations were empty.
+
+The saved partial assessment correctly describes inputs spreading farther
+apart in silence. Beat assignment remains ambiguous, so landing and full
+score remain unavailable; that is not a failed performance requirement.
+Independent silent-interval recalculation matched the saved values within
+0.000001 ms, and all 50 reviewed source hashes remained unchanged.
+
+The three Strum opening residual RMS values are now 12.54, 13.18 and 11.80 ms;
+opening phases are 34.82, 26.18 and 39.51 ms. This clean continuous trial adds
+positive evidence for repeatable Strum timestamps. It does not retrospectively
+identify the cause of either earlier long interval, or rule out intermittent
+missed capture. The other four roadmap exit-bullet assessments above remain
+unchanged. The coordinator has been asked to reassess the remaining timestamp
+repeatability bullet against this new evidence, retaining the historical
+uncertainty explicitly. No additional trial quota or full-score requirement
+has been added, and no source change, merge or Phase 2 work followed.
