@@ -1,0 +1,20 @@
+{
+  "pr": "https://github.com/codepetca/taphap/pull/3",
+  "branch": "codex/phase-2-one-song-slice",
+  "base": "036e81dd5a0de971d6430a24f95560ee933714e5",
+  "reviewedImplementation": "680d87320dc50b4d9f2360d18bbd530252b7558e",
+  "localCheckpointDelivered": true,
+  "phase2ExitPassed": false,
+  "prState": "OPEN/DRAFT",
+  "merge": "not attempted; coordinator acceptance required",
+  "reviewLedger": ".ai/evidence/phase2/review-ledger.md",
+  "sourceManifest": ".ai/evidence/phase2/source-sha256.json",
+  "durablePrivateArchive": "/Users/stew/.codex/taphap-baselines/01a0989f-1811-7a53-825d-84d761c57044/phase2-evidence/",
+  "remainingExternalAcceptance": [
+    "Unlock paired iPhone; install reviewed separate game app and perform physical integration/Tap/down-Strum checks.",
+    "Observe repeated Strum with actual gesture notes; repair any reproducible capture failure.",
+    "Exercise VoiceOver direct touch and accessibility on device with appropriate users.",
+    "Observe musicians familiar with gap-click practice: unaided comprehension, voluntary retry, credible repeated results and meaningful preference over click-based exercise.",
+    "Coordinator verifies genuine Phase2 exit before ready/merge; no Phase3 yet."
+  ]
+}

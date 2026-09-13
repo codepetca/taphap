@@ -45,3 +45,36 @@ now finished; one batched correction begins. Add explicit comparison availabilit
 use loaded-plus-pending history for ordinary save failure, and cover scored
 attempts under unreadable/pending persistence with deterministic tests.
 Launches 2/5; initial 1/1 complete; targeted 0/3; final 0/1; fix batches 1/3.
+
+## Targeted wave — 14:26 UTC
+
+Correction `680d87320dc50b4d9f2360d18bbd530252b7558e` pushed to PR #3.
+All 28 package tests and two focused hosted iOS tests pass, including scored
+attempts under corrupt initial history and consecutive save failures. Terra/high
+reviews only correction and comparison/persistence interaction boundary.
+Launches 3/5; initial 1/1; targeted 1/3; final 0/1; fixes 1/3.
+Targeted individual deadline 14:46 UTC; unchanged session deadline 15:03:07 UTC.
+
+Terra/high targeted review completed 14:27 UTC, clean (about 1 minute).
+Seven focused GameCore tests passed; source hashes match. Final Sol/high
+cumulative integration review starts 14:27 UTC on `680d873`; individual deadline
+14:47 UTC. Launches 4/5; initial 1/1; targeted 1/3; final 1/1; fixes 1/3.
+No further source edits while final review is active. Overall 15:03:07 deadline
+and five-launch cap remain unchanged; no extension requested or consumed.
+
+## Closed — 14:30 UTC
+
+Final Sol/high cumulative review clean on `680d87320dc50b4d9f2360d18bbd530252b7558e`.
+Accepted P1 resolved across unreadable history, consecutive pending saves,
+successful retry and normal saved history. All 22 source hashes reverified.
+No remaining implementation finding. No further reviewer needed for evidence-only
+publication. Approximate elapsed session 12 minutes (14:18:07–14:30 UTC), all
+reviewers within 20-minute individual cap. No extension or budget reset.
+
+Final budget: launches 4/5; initial full-diff waves 1/1; targeted waves 1/3;
+final integration waves 1/1; remediation batches 1/3. Local verification:
+28 package tests; earlier 13 iOS core/integration and three UI flows retained;
+two affected hosted iOS tests pass after correction. Corrected signed build passes.
+GitHub: no configured checks, review threads or changes-requested reviews.
+PR stays OPEN/DRAFT: physical product loop, assistive use and actual musician
+product-test evidence remain external acceptance, not technical-review findings.

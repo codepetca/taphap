@@ -1,6 +1,8 @@
 # Phase 2: one-song playable slice
 
-Status: local implementation and verification complete; independent review pending. **Phase 2 has not
+Status: local implementation, verification and independent review complete.
+[Checkpoint PR #3](https://github.com/codepetca/taphap/pull/3) remains draft.
+Reviewed implementation: `680d87320dc50b4d9f2360d18bbd530252b7558e`. **Phase 2 has not
 passed its product gate.** This task delivers one draft checkpoint for coordinator
 acceptance. No Phase 3 or release work is included.
 
@@ -65,7 +67,7 @@ unvalidated-route records never supply a best/comparison.
 
 Unreadable history suppresses first/new/best/previous claims. Ordinary write failures
 use loaded-plus-pending attempts for comparisons, so a second unsaved attempt
-sees the first. The review correction passes 28 package tests and two focused
+sees the first. The independently reviewed correction passes 28 package tests and two focused
 iOS persistence/comparison tests, including scored attempts under both failures.
 
 Trial summaries live in Application Support/TapHap/history.json, schema 1,
@@ -183,3 +185,31 @@ voluntary retry, repeated-result trust and meaningful preference over click
 practice. Coordinator decides whether actual evidence supports the Phase 2 exit.
 If testers/device observation are unavailable, deliver the reviewed draft and
 this precise external acceptance list; do not infer a pass or begin Phase 3.
+
+## Delivery and review
+
+Initial Sol/high review found an unsupported comparison claim when history was
+unknown or pending. One correction batch added explicit availability and effective
+pending-history comparisons, with scored-attempt regression tests. Terra/high
+targeted and Sol/high final cumulative reviews are clean. Four reviewer launches,
+one correction batch, approximately 12 minutes elapsed; no budget extension.
+No configured GitHub checks or unresolved review threads exist.
+
+All 22 fixed source-manifest files match the reviewed implementation; all 49
+accepted Phase 1 files outside the extended package definition and all 18
+historical files remain unchanged. No phase merge occurred. Coordinator must
+verify actual Phase 2 external acceptance before marking ready or merging.
+
+Private logs, simulator records and build/result bundles are preserved in durable
+local storage outside this worktree:
+`/Users/stew/.codex/taphap-baselines/01a0989f-1811-7a53-825d-84d761c57044/phase2-evidence/`.
+Its private hash manifest remains outside git. The current signed app is under
+`build/Phase2Device/Build/Products/Debug-iphoneos/TapHapGame.app` in that archive.
+The phone remains unmodified by this task; last probe found it locked. The Mac
+also locked after direct visual checks, preventing further UI inspection; Reduce
+Motion and contrast were restored via simulator preference/CLI verification.
+
+Next concrete dependency: unlock the paired iPhone for installation and physical
+integration/input checks of this reviewed app, then supply the real musician and
+assistive-use observations in the protocol above. No external contact, purchase,
+release, Phase 3 dispatch or assertion of engagement has been made.
