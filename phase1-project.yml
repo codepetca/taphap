@@ -37,8 +37,11 @@ targets:
     platform: iOS
     sources:
       - path: Phase1LabTests
-        excludes: [Fixtures]
+        excludes: [Fixtures, AssessmentFixtures]
       - path: Phase1LabTests/Fixtures
+        type: folder
+        buildPhase: resources
+      - path: Phase1LabTests/AssessmentFixtures
         type: folder
         buildPhase: resources
       - path: Phase1LabIOSTests

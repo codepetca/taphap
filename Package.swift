@@ -11,7 +11,7 @@ let package = Package(
     ],
     targets: [
         .target(name: "Phase1Core", path: "Phase1Lab/Core"),
-        .testTarget(name: "Phase1CoreTests", dependencies: ["Phase1Core"], path: "Phase1LabTests", resources: [.copy("Fixtures")]),
+        .testTarget(name: "Phase1CoreTests", dependencies: ["Phase1Core"], path: "Phase1LabTests", resources: [.copy("Fixtures"), .copy("AssessmentFixtures")]),
         .target(
             name: "TapHapLab",
             path: "TapHapLab/Core"

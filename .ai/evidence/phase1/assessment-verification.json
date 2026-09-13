@@ -1,0 +1,74 @@
+{
+  "behavior": "runtime invalidations and unreliable capture suppress all timing metrics; scoreIssue is separate from invalidation. Observed spacing is descriptive and never an inferred beat count or landing.",
+  "change": "Preserve trustworthy partial timing diagnostics without full score or landing when beat assignment is ambiguous.",
+  "dataSchema": 2,
+  "physicalStatus": "previous app remains installed; targeted new-result check not yet performed",
+  "replays": {
+    "captured-strum": {
+      "baseline": {
+        "inputCount": 12,
+        "periodMS": 496.1748706293707,
+        "phaseMS": 34.820916666666754,
+        "residualRMSMS": 12.542838489630043
+      },
+      "kind": "partial",
+      "observedIntervals": {
+        "inputCount": 13,
+        "intervalCount": 12,
+        "intervalSDMS": 149.3925175928939,
+        "largestIntervalMS": 1070.5810000000006,
+        "longIntervalCount": 1,
+        "medianSpacingMS": 542.9629999999995,
+        "shortIntervalCount": 0
+      },
+      "scoreIssue": "ambiguousInput"
+    },
+    "captured-tap-a": {
+      "baseline": {
+        "inputCount": 12,
+        "periodMS": 498.63613286713286,
+        "phaseMS": -3.038333333333254,
+        "residualRMSMS": 12.58131221343188
+      },
+      "kind": "partial",
+      "observedIntervals": {
+        "inputCount": 14,
+        "intervalCount": 13,
+        "intervalSDMS": 21.185441559500273,
+        "largestIntervalMS": 582.3540000000005,
+        "longIntervalCount": 0,
+        "medianSpacingMS": 557.48,
+        "shortIntervalCount": 0
+      },
+      "scoreIssue": "ambiguousInput"
+    },
+    "captured-tap-b": {
+      "baseline": {
+        "inputCount": 12,
+        "periodMS": 501.2783811188811,
+        "phaseMS": -5.927749999999972,
+        "residualRMSMS": 13.602373976255743
+      },
+      "kind": "partial",
+      "observedIntervals": {
+        "inputCount": 14,
+        "intervalCount": 13,
+        "intervalSDMS": 18.02893395523222,
+        "largestIntervalMS": 599.0919999999988,
+        "longIntervalCount": 0,
+        "medianSpacingMS": 557.5159999999996,
+        "shortIntervalCount": 0
+      },
+      "scoreIssue": "ambiguousInput"
+    }
+  },
+  "reviewStatus": "PENDING; prior review does not cover new assessment code",
+  "verification": {
+    "iOSAudioTests": "unchanged; previous physical and simulator evidence retained",
+    "iOSSimulatorAffectedTests": 16,
+    "iOSSimulatorFailures": 0,
+    "signedBuildForTesting": "passed; NOT installed on physical iPhone",
+    "swiftPackageFailures": 0,
+    "swiftPackageTests": 21
+  }
+}

@@ -13,6 +13,7 @@ struct TrialRecord: Codable {
     let crossingBracketsMS: [Double]
     let invalidations: [TrialError]
     let score: TrialScore?
+    let assessment: TrialAssessment
     let anchorCount: Int
     let maximumClockResidualMS: Double
     let acousticObservation: String
@@ -25,6 +26,7 @@ final class LabModel: ObservableObject {
     @Published var status = "Engineering lab. Listen for the pulse, then continue through silence."
     @Published var progress = 0.0
     let audio = LabAudioPlayer()
+    private(set) var lastAssessment: TrialAssessment?
     private var events: [InputEvent] = []
     private var anchors: [AudioAnchor] = []
     private var crossingBracketsMS: [Double] = []
@@ -56,6 +58,7 @@ final class LabModel: ObservableObject {
         starting = true
         startGeneration += 1
         let generation = startGeneration
+        lastAssessment = nil
         events = []; anchors = []; crossingBracketsMS = []; invalidations = []; progress = 0
         do {
             try audio.start()
@@ -106,15 +109,13 @@ final class LabModel: ObservableObject {
         guard running || starting else { return }
         starting = false; startGeneration += 1
         running = false; timer?.invalidate(); timer = nil
-        var score: TrialScore?
-        do {
-            guard let map = audio.map else { throw invalidations.first ?? TrialError.invalidClock }
-            score = try Scorer.score(events:events,map:map,invalidations:invalidations)
-        }
-        catch { if let reason = error as? TrialError, !invalidations.contains(reason) { invalidations.append(reason) } }
-        let record = TrialRecord(schema:1,wallClockRecordedAt:Date(),mode:mode,route:audio.route,
+        let assessment: TrialAssessment
+        if let map = audio.map { assessment = Assessor.assess(events:events,map:map,invalidations:invalidations) }
+        else { assessment = .invalid(invalidations.first ?? .invalidClock) }
+        lastAssessment = assessment
+        let record = TrialRecord(schema:2,wallClockRecordedAt:Date(),mode:mode,route:audio.route,
                                  scheduledHostSeconds:audio.scheduledHostSeconds,events:events,anchors:anchors,
-                                 crossingBracketsMS:crossingBracketsMS,invalidations:invalidations,score:score,
+                                 crossingBracketsMS:crossingBracketsMS,invalidations:invalidations,score:assessment.score,assessment:assessment,
                                  anchorCount:audio.anchorCount,maximumClockResidualMS:audio.maximumClockResidualMS,
                                  acousticObservation:"unobserved; render progression is not an acoustic pass")
         audio.stop()
@@ -124,9 +125,7 @@ final class LabModel: ObservableObject {
             let encoder = JSONEncoder(); encoder.outputFormatting = [.prettyPrinted,.sortedKeys]; encoder.dateEncodingStrategy = .iso8601
             let file = folder.appendingPathComponent("trial-\(UUID().uuidString).json")
             try encoder.encode(record).write(to:file,options:.atomic)
-            if let score {
-                status = "\(score.diagnosis.capitalized) · consistency \(String(format:"%.1f",score.consistencyMS)) ms · drift \(String(format:"%+.1f",score.tempoDriftMSPerBeat)) ms/beat · landing \(String(format:"%+.1f",score.reentryMS)) ms. Saved locally."
-            } else { status = "Invalid: \(invalidations.map(\.rawValue).joined(separator:", ")). Diagnostic saved locally." }
+            status = assessment.summary + " Diagnostic saved locally."
             print("PHASE1_RECORD \(file.lastPathComponent) anchors=\(record.anchorCount) inputs=\(events.count) invalid=\(invalidations.map(\.rawValue))")
         } catch { status = "Could not save trial: \(error)" }
     }

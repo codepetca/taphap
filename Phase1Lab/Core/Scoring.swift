@@ -25,9 +25,7 @@ public enum Scorer {
         let intercept = my-slope*mx
         return (intercept, slope, sd(zip(x,y).map { $1-intercept-slope*$0 }))
     }
-    public static func score(events: [InputEvent], map: BeatMap, invalidations: [TrialError] = []) throws -> TrialScore {
-        try map.validate()
-        if let invalidation = invalidations.first { throw invalidation }
+    static func validateEvents(_ events: [InputEvent]) throws {
         guard !events.isEmpty else { throw TrialError.missingInput }
         guard events.allSatisfy({ [$0.trackSeconds,$0.hostSeconds,$0.observedHostSeconds].allSatisfy(\.isFinite)
             && $0.hostSeconds >= 0 && $0.observedHostSeconds >= $0.hostSeconds
@@ -35,23 +33,38 @@ public enum Scorer {
               zip(events,events.dropFirst()).allSatisfy({ $0.trackSeconds < $1.trackSeconds && $0.hostSeconds < $1.hostSeconds }),
               Set(events.map(\.mode)).count == 1 else { throw TrialError.malformedInput }
         guard events.allSatisfy({ $0.mode == .tap ? $0.direction == nil : $0.direction == .down }) else { throw TrialError.invalidDirection }
+    }
+
+    static func openingPhase(events: [InputEvent], map: BeatMap) throws -> Double {
         // Fit phase only from the independently mapped audible section. Do not derive a beat map from touches.
         let opening = events.filter { $0.trackSeconds >= map.seconds(map.baselineStartBeat)-0.24 && $0.trackSeconds < map.seconds(map.gapStartBeat)-0.24 }
         guard opening.count >= 8 else { throw TrialError.missingInput }
         let offsets = opening.map { $0.trackSeconds-map.seconds(map.nearestBeat(to: $0.trackSeconds)) }.sorted()
-        let phase = offsets[offsets.count/2]
+        return offsets[offsets.count/2]
+    }
+
+    static func assignedOffsets(events: [InputEvent], map: BeatMap, range: ClosedRange<Int>, phase: Double) throws -> [Int: Double] {
         var assigned: [Int: Double] = [:]
         for event in events {
             let adjusted = event.trackSeconds-phase
             let index = map.nearestBeat(to: adjusted)
-            guard index >= map.baselineStartBeat && index <= map.returnBeat+2 else { continue }
+            guard range.contains(index) else { continue }
             let left = index > 0 ? map.seconds(index)-map.seconds(index-1) : 0.5
             let right = index+1 < map.beats.count ? map.seconds(index+1)-map.seconds(index) : left
             guard abs(adjusted-map.seconds(index)) < min(left,right)*0.45 else { throw TrialError.ambiguousInput }
             guard assigned[index] == nil else { throw TrialError.duplicateInput }
             assigned[index] = event.trackSeconds-map.seconds(index)
         }
-        guard (map.baselineStartBeat...map.returnBeat+2).allSatisfy({ assigned[$0] != nil }) else { throw TrialError.missingInput }
+        guard range.allSatisfy({ assigned[$0] != nil }) else { throw TrialError.missingInput }
+        return assigned
+    }
+
+    public static func score(events: [InputEvent], map: BeatMap, invalidations: [TrialError] = []) throws -> TrialScore {
+        try map.validate()
+        if let invalidation = invalidations.first { throw invalidation }
+        try validateEvents(events)
+        let phase = try openingPhase(events: events, map: map)
+        let assigned = try assignedOffsets(events: events, map: map, range: map.baselineStartBeat...map.returnBeat+2, phase: phase)
         let baseline = (map.baselineStartBeat..<map.gapStartBeat).map { assigned[$0]! }
         let base = fit(baseline)
         guard abs(base.slope) <= 0.005, base.jitter <= 0.04 else { throw TrialError.unstableBaseline }

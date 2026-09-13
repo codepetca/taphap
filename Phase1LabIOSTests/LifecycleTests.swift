@@ -19,7 +19,10 @@ final class LifecycleTests: XCTestCase {
             try XCTUnwrap(arm)()
             XCTAssertFalse(model.running,notification.rawValue)
             XCTAssertFalse(model.audio.engine.isRunning)
-            XCTAssertTrue(model.status.contains("Invalid:"),model.status)
+            XCTAssertEqual(model.lastAssessment?.kind,.invalid)
+            XCTAssertNil(model.lastAssessment?.baseline)
+            XCTAssertNil(model.lastAssessment?.observedIntervals)
+            XCTAssertNil(model.lastAssessment?.score)
         }
     }
     func testMediaServicesResetRebuildsObjectsAndNextTrialRenders() async throws {

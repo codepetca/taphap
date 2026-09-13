@@ -290,8 +290,9 @@ ambiguous, and explain the unavailable measure separately. Do not simply widen
 the nearest-beat threshold or assume away omitted/duplicate strokes. Replay
 normalized versions of these recordings plus explicit phase-wrap and
 missed/duplicate fixtures locally before asking for another targeted physical
-result check. This recommendation has been reported before modifying source
-or the installed app; no scoring change is included in this evidence update.
+result check. This recommendation was reported before modifying source. The local
+correction below is now implemented and tested; the installed phone app has
+not been changed.
 
 The acoustic-loop criterion is now observed. Full Phase 1 remains open because
 real trials have not demonstrated useful trustworthy scoring, and Strum
@@ -310,3 +311,55 @@ requires JavaScript). Public API references:
 
 Local implementation details and measured results above are evidence from this
 lab, not claims that Apple guarantees acoustic timing or scoring validity.
+
+## Local correction after physical feedback — review and device check pending
+
+`Assessor` now separates full scores, partial diagnostics, and invalid capture.
+`Scorer` keeps the exact same 45%-of-beat assignment limit; shared validation
+and assignment helpers preserve all prior deterministic full-score results.
+The correction never invents missed beats, unwraps a phase slip, or assigns a
+landing from ambiguous observations.
+
+When a one-to-one audible baseline is valid but later assignment fails, the
+lab retains that baseline and the median/spread of actual successive inputs
+inside full digital silence. At least six intervals are required. Intervals
+under half or over one-and-a-half of the audible period flag possible extra
+or missed input; these are descriptive warnings, not corrected beat counts.
+A contaminated clock, route/lifecycle interruption, malformed event, wrong
+direction, or untrustworthy audible baseline prevents partial timing claims.
+An ambiguous Strum crossing detected during capture remains fully invalid;
+it is distinct from ambiguity discovered later by beat assignment.
+
+The three normalized physical replays now yield partial results:
+
+- Tap 1: opening 499 ms; silent median spacing 557 ms; inputs farther apart;
+  landing unavailable, no full score.
+- Tap 2: opening 501 ms; silent median spacing 558 ms; inputs farther apart;
+  landing unavailable, no full score.
+- Strum 1: opening 496 ms; uneven spacing with a possible missed/extra input;
+  landing unavailable, no full score.
+
+The persisted diagnostic schema is version 2. Runtime `invalidations` remain
+separate from `assessment.scoreIssue`; `score` is absent for partial and invalid
+results. Old version-1 records are preserved as historical evidence.
+Normalized replay fixtures contain track-relative values and an artificial
+host epoch, with no original identity, wall time, route name, or record ID.
+
+Verification: 21 Swift package tests passed (all 7 inherited tests included),
+16 affected iOS simulator tests passed, and the new signed device build passed.
+Unchanged audio-render tests retain the earlier physical evidence. Commands:
+
+```sh
+swift test
+xcodegen generate --spec phase1-project.yml
+xcodebuild -project TapHapPhase1.xcodeproj -scheme TapHapPhase1 -destination 'platform=iOS Simulator,id=A313A055-3B36-49D8-8A93-1D7C139EAA29' -derivedDataPath build/Phase1AssessmentSimulator -skip-testing:TapHapPhase1Tests/AudioTests -resultBundlePath build/Phase1AssessmentTests.xcresult test
+xcodebuild -project TapHapPhase1.xcodeproj -scheme TapHapPhase1 -destination 'generic/platform=iOS' -derivedDataPath build/Phase1AssessmentDevice build-for-testing
+```
+
+See [assessment verification](../.ai/evidence/phase1/assessment-verification.json)
+and [current patch hashes](../.ai/evidence/phase1/assessment-source-sha256.json).
+This is a local, reviewable correction, not a phase-exit pass. The earlier review
+covers the previous implementation only. Additional review authorization is
+required by the existing bounded review ledger before further independent
+review. Coordinator will arrange a targeted physical check after review and
+before replacing the installed lab. No quota of repeat trials is imposed.

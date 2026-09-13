@@ -1,0 +1,389 @@
+{
+  "provenance": "Physical feasibility capture normalized to track-relative microsecond precision and an artificial host epoch; no identity, date, route name or original host epoch.",
+  "events": [
+    {
+      "trackSeconds": 0.619222,
+      "hostSeconds": 1000.619222,
+      "observedHostSeconds": 1000.638496,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 1.393063,
+      "hostSeconds": 1001.393063,
+      "observedHostSeconds": 1001.4035,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 2.000521,
+      "hostSeconds": 1002.000521,
+      "observedHostSeconds": 1002.023712,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 2.483228,
+      "hostSeconds": 1002.483228,
+      "observedHostSeconds": 1002.504031,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 2.990715,
+      "hostSeconds": 1002.990715,
+      "observedHostSeconds": 1003.001255,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 3.506607,
+      "hostSeconds": 1003.506607,
+      "observedHostSeconds": 1003.523643,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 4.022477,
+      "hostSeconds": 1004.022477,
+      "observedHostSeconds": 1004.033862,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 4.480114,
+      "hostSeconds": 1004.480114,
+      "observedHostSeconds": 1004.498913,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 5.012638,
+      "hostSeconds": 1005.012638,
+      "observedHostSeconds": 1005.031829,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 5.495231,
+      "hostSeconds": 1005.495231,
+      "observedHostSeconds": 1005.516051,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 6.002801,
+      "hostSeconds": 1006.002801,
+      "observedHostSeconds": 1006.020513,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 6.485449,
+      "hostSeconds": 1006.485449,
+      "observedHostSeconds": 1006.495236,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 7.009636,
+      "hostSeconds": 1007.009636,
+      "observedHostSeconds": 1007.028377,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 7.475663,
+      "hostSeconds": 1007.475663,
+      "observedHostSeconds": 1007.496503,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 7.991476,
+      "hostSeconds": 1007.991476,
+      "observedHostSeconds": 1008.014217,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 8.490733,
+      "hostSeconds": 1008.490733,
+      "observedHostSeconds": 1008.509687,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 8.989992,
+      "hostSeconds": 1008.989992,
+      "observedHostSeconds": 1009.00875,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 9.522522,
+      "hostSeconds": 1009.522522,
+      "observedHostSeconds": 1009.541434,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 10.038417,
+      "hostSeconds": 1010.038417,
+      "observedHostSeconds": 1010.057263,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 10.604224,
+      "hostSeconds": 1010.604224,
+      "observedHostSeconds": 1010.630243,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 11.186578,
+      "hostSeconds": 1011.186578,
+      "observedHostSeconds": 1011.205373,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 11.744058,
+      "hostSeconds": 1011.744058,
+      "observedHostSeconds": 1011.754464,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 12.309825,
+      "hostSeconds": 1012.309825,
+      "observedHostSeconds": 1012.324868,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 12.842343,
+      "hostSeconds": 1012.842343,
+      "observedHostSeconds": 1012.852736,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 13.383165,
+      "hostSeconds": 1013.383165,
+      "observedHostSeconds": 1013.402114,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 13.94072,
+      "hostSeconds": 1013.94072,
+      "observedHostSeconds": 1013.951542,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 14.456547,
+      "hostSeconds": 1014.456547,
+      "observedHostSeconds": 1014.471685,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 15.030761,
+      "hostSeconds": 1015.030761,
+      "observedHostSeconds": 1015.04948,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 15.604785,
+      "hostSeconds": 1015.604785,
+      "observedHostSeconds": 1015.620748,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 16.13728,
+      "hostSeconds": 1016.13728,
+      "observedHostSeconds": 1016.147692,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 16.686459,
+      "hostSeconds": 1016.686459,
+      "observedHostSeconds": 1016.696985,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 17.210693,
+      "hostSeconds": 1017.210693,
+      "observedHostSeconds": 1017.229425,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 17.926265,
+      "hostSeconds": 1017.926265,
+      "observedHostSeconds": 1017.945159,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 18.508737,
+      "hostSeconds": 1018.508737,
+      "observedHostSeconds": 1018.527313,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 19.016218,
+      "hostSeconds": 1019.016218,
+      "observedHostSeconds": 1019.026176,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 19.523759,
+      "hostSeconds": 1019.523759,
+      "observedHostSeconds": 1019.542831,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 19.998044,
+      "hostSeconds": 1019.998044,
+      "observedHostSeconds": 1020.008556,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 20.49728,
+      "hostSeconds": 1020.49728,
+      "observedHostSeconds": 1020.507784,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 21.021468,
+      "hostSeconds": 1021.021468,
+      "observedHostSeconds": 1021.040159,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 21.487385,
+      "hostSeconds": 1021.487385,
+      "observedHostSeconds": 1021.506378,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 22.003228,
+      "hostSeconds": 1022.003228,
+      "observedHostSeconds": 1022.026388,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 22.544039,
+      "hostSeconds": 1022.544039,
+      "observedHostSeconds": 1022.554477,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 23.010044,
+      "hostSeconds": 1023.010044,
+      "observedHostSeconds": 1023.025552,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 23.500874,
+      "hostSeconds": 1023.500874,
+      "observedHostSeconds": 1023.524108,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 24.033386,
+      "hostSeconds": 1024.033386,
+      "observedHostSeconds": 1024.052153,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 24.482694,
+      "hostSeconds": 1024.482694,
+      "observedHostSeconds": 1024.501504,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 24.990261,
+      "hostSeconds": 1024.990261,
+      "observedHostSeconds": 1025.00068,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 25.481179,
+      "hostSeconds": 1025.481179,
+      "observedHostSeconds": 1025.500002,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 25.963809,
+      "hostSeconds": 1025.963809,
+      "observedHostSeconds": 1025.982688,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 26.513037,
+      "hostSeconds": 1026.513037,
+      "observedHostSeconds": 1026.531799,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 27.003997,
+      "hostSeconds": 1027.003997,
+      "observedHostSeconds": 1027.018671,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 27.494901,
+      "hostSeconds": 1027.494901,
+      "observedHostSeconds": 1027.516972,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 27.98586,
+      "hostSeconds": 1027.98586,
+      "observedHostSeconds": 1027.996526,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 28.526725,
+      "hostSeconds": 1028.526725,
+      "observedHostSeconds": 1028.545782,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 29.026077,
+      "hostSeconds": 1029.026077,
+      "observedHostSeconds": 1029.04476,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 29.508615,
+      "hostSeconds": 1029.508615,
+      "observedHostSeconds": 1029.526859,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 30.049466,
+      "hostSeconds": 1030.049466,
+      "observedHostSeconds": 1030.059899,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 30.532075,
+      "hostSeconds": 1030.532075,
+      "observedHostSeconds": 1030.542726,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 31.014716,
+      "hostSeconds": 1031.014716,
+      "observedHostSeconds": 1031.024515,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 31.538924,
+      "hostSeconds": 1031.538924,
+      "observedHostSeconds": 1031.557791,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 32.013211,
+      "hostSeconds": 1032.013211,
+      "observedHostSeconds": 1032.029022,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 32.529096,
+      "hostSeconds": 1032.529096,
+      "observedHostSeconds": 1032.539508,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 33.020015,
+      "hostSeconds": 1033.020015,
+      "observedHostSeconds": 1033.038747,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 33.585805,
+      "hostSeconds": 1033.585805,
+      "observedHostSeconds": 1033.604514,
+      "mode": "tap"
+    }
+  ]
+}

@@ -56,3 +56,26 @@ Human-evidence update: owner-observations.json records the actual capture
 metrics and current scoring limitation. It does not weaken the phase gate or
 change the reviewed source. Any subsequent scoring fix needs focused validation
 and proportionate review of the changed behavior.
+
+## Physical-feedback remediation batch 2 — pending review
+
+The owner’s three trials exposed a result-model limitation. Batch 2 preserves
+reliable audible baseline and observed-interval facts when beat assignment
+fails, while withholding landing/full score. Captured ambiguity and clock or
+lifecycle invalidations still suppress all timing claims. Normalized physical
+replays and phase-wrap, missed/duplicate, invalid-clock and baseline-failure
+cases are covered. Local verification: 21 Swift tests and 16 affected iOS
+simulator tests passed; signed build-for-testing passed. The phone app has not
+been replaced. See assessment-verification.json and assessment-source-sha256.json.
+
+This code is **not covered by the earlier clean review**. Source manifest
+source-revision-sha256.json remains the historical manifest of reviewed commit
+71b695d; assessment-source-sha256.json identifies the current unreviewed patch.
+Used budget remains 4/5 launches, 1 initial wave, 2/3 fix batches, 1/3 targeted
+waves and 1/1 final integration. At 03:36 UTC, 47 wall-clock minutes have elapsed
+since the 02:49 session start, including the owner’s physical-testing interval.
+No reviewer is being launched. Requested proposal through coordinator: one
+focused Sol/high review of assessment/contamination/replays, then one bounded
+Terra/high cumulative integration review. This requires explicit extension to
+6 total launches, a second final integration wave, and additional elapsed time.
+No budget reset, implicit extension, or extra reviewer has occurred.

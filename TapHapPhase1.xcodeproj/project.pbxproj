@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02FF9E59C2AE39C7D57E1A46 /* Assessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BA5514276A74C8773F7693 /* Assessment.swift */; };
 		0DD128AD6855DAE0B206BBAA /* PROVENANCE.md in Resources */ = {isa = PBXBuildFile; fileRef = F5BF0520AE19A2E34BB4EAB4 /* PROVENANCE.md */; };
 		3429FB79D19D040BAC3734D7 /* Phase1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7175C954505FB4BDDCE64337 /* Phase1App.swift */; };
 		53584DEB03DBB1C5338B5D52 /* Fixtures in Resources */ = {isa = PBXBuildFile; fileRef = A49A05E2A8D259EF6D0538EF /* Fixtures */; };
@@ -16,7 +17,9 @@
 		8A7C2B9790E3BB39DB883DC1 /* AssetRevision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF06F02F923BEDCDA095DB3 /* AssetRevision.swift */; };
 		947E724DCF217A400131893F /* beat-map.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FE585559610D88E8A556F /* beat-map.json */; };
 		9B686562936DECE84F3D7295 /* AudioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B891D4F8160F1D059754A1B2 /* AudioTests.swift */; };
+		9C6EA703C5235D5AFF052A09 /* AssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE61EAFC0BEAC8C7AEC4B89 /* AssessmentTests.swift */; };
 		A042D0C57F963D25E62FF8DB /* LifecycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97792FD8CB67F4C18DEFCB /* LifecycleTests.swift */; };
+		C4086FBC353B5C312E083622 /* AssessmentFixtures in Resources */ = {isa = PBXBuildFile; fileRef = D18A1CE4B84EEA8552BE0BE0 /* AssessmentFixtures */; };
 		CC3FC83BC8460D941F3EA4A3 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770127488FFFA6E05A566927 /* AudioPlayer.swift */; };
 		EAB42BD2E818D019FA48A583 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3FDFC0E916E71B6054A4 /* CoreTests.swift */; };
 		EE947A7D4F94A63181E721FA /* LabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BA387BAC078F3E74D7B0E7 /* LabModel.swift */; };
@@ -35,12 +38,14 @@
 
 /* Begin PBXFileReference section */
 		0A97792FD8CB67F4C18DEFCB /* LifecycleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifecycleTests.swift; sourceTree = "<group>"; };
+		22BA5514276A74C8773F7693 /* Assessment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assessment.swift; sourceTree = "<group>"; };
 		25BF200394F9A15DFEC1335F /* TapHapPhase1Tests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TapHapPhase1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B777A826E32FB24DF096405 /* ClockworkGarden.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ClockworkGarden.wav; sourceTree = "<group>"; };
 		3FB58140B63271FCC21EA138 /* Scoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scoring.swift; sourceTree = "<group>"; };
 		46CFC770FB897BDB2F1C339A /* TouchSurface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchSurface.swift; sourceTree = "<group>"; };
 		4C1FE585559610D88E8A556F /* beat-map.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "beat-map.json"; sourceTree = "<group>"; };
 		5BDF99E79E40992E994EE778 /* Timing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timing.swift; sourceTree = "<group>"; };
+		5BE61EAFC0BEAC8C7AEC4B89 /* AssessmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentTests.swift; sourceTree = "<group>"; };
 		5DF06F02F923BEDCDA095DB3 /* AssetRevision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetRevision.swift; sourceTree = "<group>"; };
 		7175C954505FB4BDDCE64337 /* Phase1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phase1App.swift; sourceTree = "<group>"; };
 		770127488FFFA6E05A566927 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
@@ -49,6 +54,7 @@
 		A4685C1CD99E63F86E26D5E9 /* TapHapPhase1.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TapHapPhase1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A49A05E2A8D259EF6D0538EF /* Fixtures */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fixtures; path = Phase1LabTests/Fixtures; sourceTree = SOURCE_ROOT; };
 		B891D4F8160F1D059754A1B2 /* AudioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTests.swift; sourceTree = "<group>"; };
+		D18A1CE4B84EEA8552BE0BE0 /* AssessmentFixtures */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AssessmentFixtures; path = Phase1LabTests/AssessmentFixtures; sourceTree = SOURCE_ROOT; };
 		F5BF0520AE19A2E34BB4EAB4 /* PROVENANCE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PROVENANCE.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +80,7 @@
 		7BE3060F0B22C6A142AB64D6 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				22BA5514276A74C8773F7693 /* Assessment.swift */,
 				5DF06F02F923BEDCDA095DB3 /* AssetRevision.swift */,
 				3FB58140B63271FCC21EA138 /* Scoring.swift */,
 				5BDF99E79E40992E994EE778 /* Timing.swift */,
@@ -108,6 +115,7 @@
 		9664E7B318FA5AE7C62BCA9E /* Phase1LabTests */ = {
 			isa = PBXGroup;
 			children = (
+				5BE61EAFC0BEAC8C7AEC4B89 /* AssessmentTests.swift */,
 				8ADD3FDFC0E916E71B6054A4 /* CoreTests.swift */,
 			);
 			path = Phase1LabTests;
@@ -116,6 +124,7 @@
 		E6B033C1D862EA6B36BF4D39 = {
 			isa = PBXGroup;
 			children = (
+				D18A1CE4B84EEA8552BE0BE0 /* AssessmentFixtures */,
 				A49A05E2A8D259EF6D0538EF /* Fixtures */,
 				8DFFFFED6CBC98AA81901A0C /* App */,
 				7BE3060F0B22C6A142AB64D6 /* Core */,
@@ -220,6 +229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4086FBC353B5C312E083622 /* AssessmentFixtures in Resources */,
 				53584DEB03DBB1C5338B5D52 /* Fixtures in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02FF9E59C2AE39C7D57E1A46 /* Assessment.swift in Sources */,
 				8A7C2B9790E3BB39DB883DC1 /* AssetRevision.swift in Sources */,
 				CC3FC83BC8460D941F3EA4A3 /* AudioPlayer.swift in Sources */,
 				EE947A7D4F94A63181E721FA /* LabModel.swift in Sources */,
@@ -245,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C6EA703C5235D5AFF052A09 /* AssessmentTests.swift in Sources */,
 				9B686562936DECE84F3D7295 /* AudioTests.swift in Sources */,
 				EAB42BD2E818D019FA48A583 /* CoreTests.swift in Sources */,
 				A042D0C57F963D25E62FF8DB /* LifecycleTests.swift in Sources */,
