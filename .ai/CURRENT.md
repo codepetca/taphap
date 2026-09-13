@@ -23,7 +23,9 @@ authority and delivery boundaries.
 - Repository: canonical product documentation, a separate Phase 1 audio/scoring
   lab, and the frozen historical feasibility lab.
 - Status: Phase 0 ratified; Phase 1 feasibility gate accepted for the tested
-  iPhone built-in speaker, checkpoint PR #2 merge pending. Phase 2 not started.
+  iPhone built-in speaker, checkpoint PR #2 merged to main as `036e81d`.
+  Phase 2 one-song vertical slice is active in its owning execution task;
+  actual musician product acceptance remains pending.
 - Authority: owner explicitly authorizes implementation/verification through
   Phases 1–3 and checkpoint commits/PRs/merges once each genuine phase gate passes.
   See coordination state for current evidence and exact exclusions.
@@ -77,8 +79,8 @@ Do not revive these without an explicit product-direction revision:
 
 - Repository: `codepetca/taphap`
 - Default branch: `main`
-- Source checkout branch: `codex/phase-1-feasibility-lab`; active Phase 1 delivery
-  branch `codex/phase-1-core-feasibility` in its isolated execution worktree.
+- Source checkout branch: `main`, synchronized to Phase 1 merge `036e81d`.
+  Phase 2 executes separately in worktree `21e6`; see coordination state.
 - Authorized implementation stack: native Swift and SwiftUI.
 - Existing experimental stack: iOS 26 lab, XcodeGen project description, and a
   Swift package for portable core tests.

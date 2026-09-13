@@ -10,6 +10,8 @@ let package = Package(
         .library(name: "Phase1Core", targets: ["Phase1Core"])
     ],
     targets: [
+        .target(name: "GameCore", dependencies: ["Phase1Core"], path: "TapHapGame/Core"),
+        .testTarget(name: "GameCoreTests", dependencies: ["GameCore", "Phase1Core"], path: "TapHapGameTests", resources: [.copy("Fixtures")]),
         .target(name: "Phase1Core", path: "Phase1Lab/Core"),
         .testTarget(name: "Phase1CoreTests", dependencies: ["Phase1Core"], path: "Phase1LabTests", resources: [.copy("Fixtures"), .copy("AssessmentFixtures")]),
         .target(

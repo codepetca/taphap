@@ -1,0 +1,24 @@
+{
+  "song": "Afterglow",
+  "beatsVerified": 64,
+  "maximumAttackOffsetFrames": 1,
+  "maximumAttackOffsetMS": 0.020833333333333332,
+  "peakPCM": 23544,
+  "clippedSamples": 0,
+  "audioSHA256": "094b8c1881da20eb5e5548ee1fab07dc1d185b1c416603c1796d47c4d82ac13a",
+  "catalogSHA256": "a94044a62bafc461ea7dee24d5201a714f85362b92955c8f3895887cbd8c985a",
+  "challenges": [
+    {
+      "id": "first-light",
+      "gapSeconds": 4.0
+    },
+    {
+      "id": "stay-a-little",
+      "gapSeconds": 6.0
+    },
+    {
+      "id": "into-the-blue",
+      "gapSeconds": 8.0
+    }
+  ]
+}

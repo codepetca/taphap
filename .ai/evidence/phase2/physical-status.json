@@ -1,0 +1,17 @@
+{
+  "status": "not-tested",
+  "device": "iPhone 16",
+  "probe": "Read-only CoreDevice lock-state probe connected successfully; passcodeRequired true, unlockedSinceBoot true.",
+  "installation": "Not attempted while locked. Existing Phase 1 apps/records untouched.",
+  "signedBuild": "Final implementation app and tests build successfully with existing signing; no signing/account changes.",
+  "acceptanceNeeded": [
+    "Install reviewed product app after phone unlock; run physical integration and real Tap/down-Strum loop.",
+    "Observe potential missed Strum capture with actual gesture notes.",
+    "Observe unaided musician comprehension, voluntary retry, score trust and preference relative to familiar click gap practice.",
+    "Exercise VoiceOver direct touch and device accessibility foundations with actual users."
+  ],
+  "limitations": [
+    "Simulator occurrence fixtures are not physical gestures or acoustic-latency measurements.",
+    "Only built-in speaker feasibility was accepted in Phase 1; no other route fairness claim."
+  ]
+}

@@ -53,8 +53,8 @@ only with careful dirty-state/inherited-file reconciliation.
 | Phase | Status | Gate |
 | --- | --- | --- |
 | 0 | Ratified | Explicit implementation authority |
-| 1 | Feasibility gate accepted; checkpoint merge pending | All five exit bullets supported for tested iPhone 16 built-in speaker; final acceptance rationale below |
-| 2 | Not started | Phase 1 pass/merge, then reliable understandable song slice plus observed musician engagement comparison with click practice |
+| 1 | Complete; PR #2 merged | All five exit bullets accepted for tested iPhone 16 built-in speaker; exact evidence and limitations retained |
+| 2 | Active execution; product gate pending | Build reliable understandable one-song slice, then observed musician engagement comparison with click practice |
 | 3 | Not started | Phase 2 pass, then baseline/daily/checkpoint/transfer/history/accessibility and deterministic/usability evidence |
 | 4+ | Unauthorized | Do not dispatch |
 
@@ -256,3 +256,65 @@ guidance/evidence, verifies final PR checks/review state and merges existing
 checkpoint under standing authority. Coordinator then verifies actual merge,
 preserves dirty source/coordination changes during synchronization, and dispatches
 one Phase 2 vertical-slice task. No Phase 2 implementation before integration.
+
+## Integrated Phase 1 — current ready state
+
+PR #2 verified MERGED at `036e81dd5a0de971d6430a24f95560ee933714e5`,
+2026-09-13T13:49:25Z, final head `0942331ad9b0dae200aed76a4669e9816ef75c0b`.
+Merged tree matches accepted checkpoint; all 50 reviewed implementation hashes
+match `4be17f7`. Acceptance artifact: `phase1/phase-exit-acceptance.json` under
+evidence. GitHub had no configured checks or unresolved reviews/threads.
+Owning Phase 1 goal COMPLETE; task archived after coordinator merge verification.
+Correction: after task archival, execution worktree 844e and its ignored raw
+outputs were found absent. The branch and committed evidence remain. See recovery
+record below; do not assume task archival preserves a worktree.
+
+Source checkout is now clean on `main`, coordinator clean/detached at same
+merge before current coordination updates. Source's 29 inherited files were
+rechecked unchanged immediately before synchronization; no additional owner
+edits existed. Preserved Git stashes (not popped because changes are represented
+in merged checkpoint): source `0768ff5add76e984e1fe860059ac2f9eba832d20`,
+coordinator `5626b0ade37239fe7d6a0894d2663bbef2a9d759`. Original archival snapshot
+and coordinator-pre-phase1-sync archive retained outside checkout under local
+`/Users/stew/.codex/taphap-baselines/01a0989f-1811-7a53-825d-84d761c57044/`.
+No explicit deletion command was issued, but task archival was followed by
+execution-worktree removal. Both primary/coordinator checkouts verified clean at
+merge and all source hashes verified, without rerunning unchanged checks.
+
+Ready to dispatch one Phase 2 one-song vertical-slice task from merged main.
+Carry forward native song-game visual contract, honest partial scoring, local
+history compatibility, accessibility foundations and unresolved historical
+Strum observation; no Phase 3 before actual Phase 2 product/exit evidence.
+
+
+## Active Phase 2 and raw-record recovery — latest authoritative state
+
+Execution task `01a09b0a-c71a-7251-af94-79ffe54c11ef`, **Build TapHap Phase 2
+one-song game slice**, project `5973b045-8468-4b64-9a9b-dd9bd10d8401`, local,
+worktree `/Users/stew/.codex/worktrees/21e6/taphap`. Created once from main;
+setup client ID resolved. Child confirmed tool-backed goal ACTIVE, initially
+clean HEAD exactly `036e81dd5a0de971d6430a24f95560ee933714e5`, required guidance
+read, and accepted-merge ancestry. Current compact wait cursor
+`9738cdd5-3024-4c8e-b9c4-2c85a1dc4eee:1`.
+
+Bounded work: separate native product target, original one-song/three-challenge
+selection/play/result flow, Tap/Strum, honest scoring, retry/next/PBs and
+compatible local history, accessibility and applicable checks. Fresh bounded
+hq-pr-review ledger belongs to that task. Real musician comprehension, retry,
+trust and comparison with click practice are still required for Phase 2 exit;
+no Phase 3 before evidence and checkpoint integration. No owner action now.
+Heartbeat `coordinate-taphap-mvp-phases` resumed ACTIVE at its existing 15-minute
+cadence, quiet unless a meaningful transition or action is needed.
+
+Archival recovery: Phase 1 working folder 844e disappeared after task archival.
+Committed sanitized evidence and implementation remain in merged main. Read-only
+copy from the unchanged phone app recovered all 11 saved JSON records: five
+zero-input lifecycle records and six human trials (three Tap, three Strum).
+Latest Strum has 65 events, 746 anchors, and saved assessment exactly matching
+committed strum-retry observations. A fresh SHA-256 manifest accompanies the
+copy in durable local storage outside worktrees:
+`/Users/stew/.codex/taphap-baselines/01a0989f-1811-7a53-825d-84d761c57044/phase1-device-recovery/`.
+Original raw build/test/install logs are not recovered; committed summaries
+and task history remain. No claim of complete raw-log retention. Phase 2 owner
+was told to preserve unique ignored evidence outside disposable worktrees before
+archival. Phone records were copied only, without installation or app changes.

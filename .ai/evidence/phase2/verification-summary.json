@@ -1,0 +1,48 @@
+{
+  "status": "Local implementation checks passed; physical/product acceptance pending",
+  "toolchain": "Xcode 26.6 (17F113)",
+  "packageTests": {
+    "passed": 27,
+    "failed": 0,
+    "includesInherited": 21
+  },
+  "iosTests": {
+    "coreAndIntegrationPassed": 13,
+    "uiFlowPassed": 3,
+    "failed": 0,
+    "simulator": "iPhone 17 Pro / iOS 26.5",
+    "increaseContrast": true
+  },
+  "render": {
+    "anchors": 1021,
+    "maximumHostSampleMismatchMS": 0.017583346382403497,
+    "durationSeconds": 34,
+    "stages": [
+      "playing",
+      "warning",
+      "silent",
+      "returned"
+    ],
+    "zeroInputResult": "invalid, no score",
+    "physicalAcousticClaim": false
+  },
+  "verified": [
+    "Three maps and Tap/down-Strum deterministic scoring",
+    "Preparation cancellation, lifecycle/reset retry, backward/nonfinite clock rejection",
+    "Full software occurrence fixture captured against actual audio clock and reloaded from disk",
+    "Persistence atomic round trip, unknown/corrupt history preservation, failed write and multiple pending-save retry",
+    "Choose-play-result-retry-next, history after terminate/relaunch",
+    "Maximum Dynamic Type navigation, play/end/retry",
+    "Accessibility audit: contrast, labels, hit regions, trait, text clipping and element detection on preparation",
+    "Strum reference frame unchanged on entering silence; four automated downward gestures; input evidence still to inspect",
+    "Offline by bundled-only operation and no networking source, SDK, permission, account or backend"
+  ],
+  "signedDeviceBuild": "passed",
+  "historicalAppTestBuild": "passed",
+  "limits": [
+    "No actual Phase 2 musician/product observation",
+    "Phone locked at read-only probe; product app not installed",
+    "VoiceOver direct-touch configuration tested programmatically; actual assistive use pending",
+    "Software timestamp and simulator gesture tests are not physical capture repeatability or acoustic-latency evidence"
+  ]
+}

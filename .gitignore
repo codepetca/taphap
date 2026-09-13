@@ -6,3 +6,6 @@ xcuserdata/
 
 # Private raw Phase 1 device/signing logs; publish only sanitized summaries.
 .ai/evidence/phase1/local/
+
+# Private Phase 2 device, signing, and test data.
+.ai/evidence/phase2/local/

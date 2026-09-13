@@ -1,0 +1,76 @@
+import Foundation
+#if SWIFT_PACKAGE
+import Phase1Core
+#endif
+
+/// Equality is intentionally strict: no cross-device, route, mode, map or assistance claims.
+public struct ComparisonKey: Codable, Equatable, Sendable {
+    public let content: String
+    public let challenge: String
+    public let mode: InputMode
+    public let device: String
+    public let system: String
+    public let route: String
+    public let sampleRate: Double
+    public let bufferDuration: Double
+    public let outputLatency: Double
+    public let assistance: String
+    public let scoringVersion: Int
+    public init(content: String, challenge: String, mode: InputMode, device: String, system: String,
+                route: String, sampleRate: Double, bufferDuration: Double, outputLatency: Double, assistance: String) {
+        self.content=content; self.challenge=challenge; self.mode=mode; self.device=device; self.system=system
+        self.route=route; self.sampleRate=sampleRate; self.bufferDuration=bufferDuration
+        self.outputLatency=outputLatency; self.assistance=assistance; scoringVersion=1
+    }
+    public var validatedRoute: Bool { route == "Speaker" }
+}
+public struct SavedTrial: Codable, Identifiable, Sendable {
+    public let id: UUID
+    public let date: Date
+    public let key: ComparisonKey
+    public let assessment: TrialAssessment
+    public let completed: Bool
+    public init(id: UUID = UUID(), date: Date = Date(), key: ComparisonKey, assessment: TrialAssessment, completed: Bool) {
+        self.id=id; self.date=date; self.key=key; self.assessment=assessment; self.completed=completed
+    }
+    /// Personal best is explicitly closest landing, not an invented composite grade.
+    public var landingMagnitude: Double? {
+        guard completed, key.validatedRoute, assessment.kind == .scored,
+              assessment.invalidation == nil, let score=assessment.score,
+              score.reentryMS.isFinite else { return nil }
+        return abs(score.reentryMS)
+    }
+}
+public struct TrialHistory: Codable, Sendable {
+    public var schema = 1
+    public private(set) var trials: [SavedTrial] = []
+    public init() {}
+    public mutating func append(_ trial: SavedTrial) {
+        guard !trials.contains(where: { $0.id == trial.id }) else { return }
+        trials.append(trial)
+    }
+    public func compatible(with trial: SavedTrial) -> [SavedTrial] {
+        trials.filter { $0.id != trial.id && $0.key == trial.key && $0.landingMagnitude != nil }
+    }
+    public func previous(with trial: SavedTrial) -> SavedTrial? { compatible(with:trial).last }
+    public func best(with trial: SavedTrial) -> SavedTrial? {
+        compatible(with:trial).min { $0.landingMagnitude! < $1.landingMagnitude! }
+    }
+}
+public enum HistoryError: Error { case unreadable, unsupportedSchema }
+public struct HistoryStore: Sendable {
+    public let url: URL
+    public init(url: URL) { self.url=url }
+    public func load() throws -> TrialHistory {
+        guard FileManager.default.fileExists(atPath:url.path) else { return TrialHistory() }
+        let history: TrialHistory
+        do { history = try JSONDecoder().decode(TrialHistory.self,from:Data(contentsOf:url)) }
+        catch { throw HistoryError.unreadable }
+        guard history.schema == 1 else { throw HistoryError.unsupportedSchema }
+        return history
+    }
+    public func save(_ history: TrialHistory) throws {
+        try FileManager.default.createDirectory(at:url.deletingLastPathComponent(),withIntermediateDirectories:true)
+        try JSONEncoder().encode(history).write(to:url,options:.atomic)
+    }
+}
