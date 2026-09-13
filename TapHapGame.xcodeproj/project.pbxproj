@@ -11,15 +11,21 @@
 		07C7532A633CE12C2E4B58D1 /* Afterglow.wav in Resources */ = {isa = PBXBuildFile; fileRef = DBE40D77116993E1D9B7A64C /* Afterglow.wav */; };
 		1B39B3CC9E66D8F94F95F269 /* ContentRevision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ED703CD9AD6A72BFFDF56E /* ContentRevision.swift */; };
 		24CBC7A4462B196CDE591DE3 /* ResultCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791A0CEF55931B7113C92BBE /* ResultCopy.swift */; };
+		267F3F9D90B51C445539156D /* Tidepool.wav in Resources */ = {isa = PBXBuildFile; fileRef = A4397ED43D060D3FD29021D7 /* Tidepool.wav */; };
 		27DEE80F232B327D5AEA9CDC /* TapHapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4543C8A7AA3C744519027A1D /* TapHapApp.swift */; };
+		292F5A3A546BF11790AE66B6 /* training-catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = 29D4DDB0D1A2CFBEE8907D47 /* training-catalog.json */; };
+		2F4685552E384136B1962F8D /* TrainingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F419655E95513C7E155F36 /* TrainingTests.swift */; };
 		3C305D992AA2EC01DC0BD7A4 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4E34039D7879CFE4360CF3 /* GameModel.swift */; };
 		519FF87792E1DEBDD9432DBF /* IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41970EDB35E47D16ECC1A8B /* IntegrationTests.swift */; };
 		53E345335E55F0320A807414 /* Fixtures in Resources */ = {isa = PBXBuildFile; fileRef = BFD4AF487E016913AE80CE4B /* Fixtures */; };
 		7475484973CB1F93135D986B /* PROVENANCE.md in Resources */ = {isa = PBXBuildFile; fileRef = 99225D31C3D8716E4F013198 /* PROVENANCE.md */; };
+		7D4F74954C21948FA439B50A /* Lantern.wav in Resources */ = {isa = PBXBuildFile; fileRef = 24F16182B92A4EB977DE56F2 /* Lantern.wav */; };
 		A869F1A74A5FAC63926A3481 /* Assessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1199851876874E3FBCC988E4 /* Assessment.swift */; };
 		B361050EA668BD20EE98F6A0 /* Timing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8DE42DA50A410115C9CE0D /* Timing.swift */; };
 		C1D598471C29144B89A0F4B1 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B7036937301E7CC1A0FF69 /* Challenge.swift */; };
 		C8C1682D26E70FF8F11A533A /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0FE81292A31FD6841AA1BA /* GameTests.swift */; };
+		E51EDBBB10BC5BFB439ED3FA /* PaperKite.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7681D0DE8E7E83CDFF818652 /* PaperKite.wav */; };
+		E60132B14B06B3711A1C278F /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = F514D095623E2FAA5203A0CA /* Training.swift */; };
 		F03519E41155956FFE7FC996 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A29B19E6AB5B0957AD7015F /* AudioPlayer.swift */; };
 		F4927AD39F6A4993323E214E /* FlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00A3D299CB7920EB15B8D61 /* FlowTests.swift */; };
 		F6B29F21E2CEC56169656528 /* catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = EA2DBE806B838332CA0086EE /* catalog.json */; };
@@ -49,6 +55,8 @@
 		1199851876874E3FBCC988E4 /* Assessment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assessment.swift; sourceTree = "<group>"; };
 		1A29B19E6AB5B0957AD7015F /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		241DDD7C3AAB8AB626D92F62 /* TapHapGameUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TapHapGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F16182B92A4EB977DE56F2 /* Lantern.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Lantern.wav; sourceTree = "<group>"; };
+		29D4DDB0D1A2CFBEE8907D47 /* training-catalog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "training-catalog.json"; sourceTree = "<group>"; };
 		4543C8A7AA3C744519027A1D /* TapHapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapHapApp.swift; sourceTree = "<group>"; };
 		487FF0E7F325D4EA2E6E58AC /* Scoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scoring.swift; sourceTree = "<group>"; };
 		54A63C2EBEC95A26535F971C /* TapHapGame.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TapHapGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,17 +64,21 @@
 		56B7036937301E7CC1A0FF69 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		5C0FE81292A31FD6841AA1BA /* GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
 		66ED703CD9AD6A72BFFDF56E /* ContentRevision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRevision.swift; sourceTree = "<group>"; };
+		7681D0DE8E7E83CDFF818652 /* PaperKite.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = PaperKite.wav; sourceTree = "<group>"; };
 		791A0CEF55931B7113C92BBE /* ResultCopy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCopy.swift; sourceTree = "<group>"; };
 		7BAD5C1D96D56BA4CCCC37BD /* TapHapGameTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TapHapGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DEE5D5BDFC40BF0E48A3DF2 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		99225D31C3D8716E4F013198 /* PROVENANCE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PROVENANCE.md; sourceTree = "<group>"; };
+		A4397ED43D060D3FD29021D7 /* Tidepool.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Tidepool.wav; sourceTree = "<group>"; };
 		B1CB45D9E8DE6A93BE940558 /* TouchSurface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchSurface.swift; sourceTree = "<group>"; };
 		BFD4AF487E016913AE80CE4B /* Fixtures */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fixtures; path = TapHapGameTests/Fixtures; sourceTree = SOURCE_ROOT; };
+		D2F419655E95513C7E155F36 /* TrainingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingTests.swift; sourceTree = "<group>"; };
 		DB4E34039D7879CFE4360CF3 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		DBE40D77116993E1D9B7A64C /* Afterglow.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Afterglow.wav; sourceTree = "<group>"; };
 		E00A3D299CB7920EB15B8D61 /* FlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowTests.swift; sourceTree = "<group>"; };
 		E41970EDB35E47D16ECC1A8B /* IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTests.swift; sourceTree = "<group>"; };
 		EA2DBE806B838332CA0086EE /* catalog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = catalog.json; sourceTree = "<group>"; };
+		F514D095623E2FAA5203A0CA /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
 		FF8DE42DA50A410115C9CE0D /* Timing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,7 +88,11 @@
 			children = (
 				DBE40D77116993E1D9B7A64C /* Afterglow.wav */,
 				EA2DBE806B838332CA0086EE /* catalog.json */,
+				24F16182B92A4EB977DE56F2 /* Lantern.wav */,
+				7681D0DE8E7E83CDFF818652 /* PaperKite.wav */,
 				99225D31C3D8716E4F013198 /* PROVENANCE.md */,
+				A4397ED43D060D3FD29021D7 /* Tidepool.wav */,
+				29D4DDB0D1A2CFBEE8907D47 /* training-catalog.json */,
 			);
 			name = Resources;
 			path = TapHapGame/Resources;
@@ -86,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				5C0FE81292A31FD6841AA1BA /* GameTests.swift */,
+				D2F419655E95513C7E155F36 /* TrainingTests.swift */,
 			);
 			path = TapHapGameTests;
 			sourceTree = "<group>";
@@ -162,6 +179,7 @@
 				56B7036937301E7CC1A0FF69 /* Challenge.swift */,
 				7DEE5D5BDFC40BF0E48A3DF2 /* History.swift */,
 				791A0CEF55931B7113C92BBE /* ResultCopy.swift */,
+				F514D095623E2FAA5203A0CA /* Training.swift */,
 			);
 			name = Core;
 			path = TapHapGame/Core;
@@ -273,8 +291,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				07C7532A633CE12C2E4B58D1 /* Afterglow.wav in Resources */,
+				7D4F74954C21948FA439B50A /* Lantern.wav in Resources */,
 				7475484973CB1F93135D986B /* PROVENANCE.md in Resources */,
+				E51EDBBB10BC5BFB439ED3FA /* PaperKite.wav in Resources */,
+				267F3F9D90B51C445539156D /* Tidepool.wav in Resources */,
 				F6B29F21E2CEC56169656528 /* catalog.json in Resources */,
+				292F5A3A546BF11790AE66B6 /* training-catalog.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +317,7 @@
 			files = (
 				C8C1682D26E70FF8F11A533A /* GameTests.swift in Sources */,
 				519FF87792E1DEBDD9432DBF /* IntegrationTests.swift in Sources */,
+				2F4685552E384136B1962F8D /* TrainingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +345,7 @@
 				27DEE80F232B327D5AEA9CDC /* TapHapApp.swift in Sources */,
 				B361050EA668BD20EE98F6A0 /* Timing.swift in Sources */,
 				FDFB15934958864600374B0F /* TouchSurface.swift in Sources */,
+				E60132B14B06B3711A1C278F /* Training.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

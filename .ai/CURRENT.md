@@ -2,6 +2,24 @@
 
 Read this file at the start of every AI-assisted session.
 
+## Current design guidance pass — 2026-09-13
+
+Implementation and technical verification are complete in draft PR #4; phase
+acceptance remains pending. Owner requested OcuOtter-derived native design
+principles before the walkthrough. This pass adds the
+[UI standard](../docs/UI-UX-GUIDELINES.md) and
+[flow gap assessment](../docs/phase-3-design-gaps.md) only. No app changes or phone
+automation; coordinator owns the next alignment step and first-use observation.
+
+## Phase 3 task-local work — 2026-09-13
+
+Phase 3 implementation is active on the accepted Phase 2 merge `f4ab0fe`.
+This task owns the bounded training MVP and its checkpoint PR; coordinator
+retains phase acceptance, integration synchronization, and archival. Read
+[training implementation and verification](../docs/phase-3-training-mvp.md).
+The coordinator's worktree coordination file is authoritative for current
+ownership; this task does not edit it. No Phase 4/release work is authorized.
+
 ## Current authorization and state — 2026-09-13
 
 - Owner authorized functional Roadmap Phases 1–3, in-scope checkpoint commits,

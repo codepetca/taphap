@@ -107,7 +107,7 @@ final class GameTests: XCTestCase {
         XCTAssertThrowsError(try store.load()); XCTAssertEqual(try Data(contentsOf:store.url),bad)
         let blocked=HistoryStore(url:store.url.appendingPathComponent("impossible.json"))
         XCTAssertThrowsError(try blocked.save(history)); XCTAssertEqual(try Data(contentsOf:store.url),bad)
-        history.schema=2; try JSONEncoder().encode(history).write(to:store.url)
+        history.schema=99; try JSONEncoder().encode(history).write(to:store.url)
         XCTAssertThrowsError(try store.load())
     }
     func testInterruptionsSuppressAllMetricsAcrossChallenges() throws {

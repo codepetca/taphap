@@ -56,9 +56,37 @@ struct GameView: View {
                     Text(model.mode == .tap ? "One finger. Tap the song’s steady pulse." : "Swipe down across the center string on each pulse. Lift between strokes.")
                         .font(.subheadline).fixedSize(horizontal:false,vertical:true)
                 }
-                Text("CHOOSE YOUR SILENCE").font(.caption.weight(.bold))
+                VStack(alignment:.leading,spacing:12) {
+                    Text(model.chapter).font(.title2.weight(.bold))
+                    if let gap=model.reliableGap { Text(gap).font(.subheadline) }
+                    Text("Start with three short baseline trials. Daily practice takes about four minutes: warm up, stretch twice, then focus on your next step. Retests use the same benchmark; transfer uses a separate song.").font(.subheadline)
+                    primary(model.trainingActionTitle,id:"training") { model.beginTraining() }.disabled(!model.trainingAvailable)
+                    if model.history.training.active(mode:model.mode) != nil {
+                        Button("Restart this session from step one") { model.restartTraining() }.frame(minHeight:44)
+                        Text("Restarting keeps all attempts in history. Only the new complete session counts.").font(.caption)
+                    }
+                    Text("A new chapter needs two strong practice days at the current level. Practice days use a fixed UTC calendar; opening the app earns nothing.").font(.caption)
+                }.padding(20).background(.white.opacity(0.7),in:RoundedRectangle(cornerRadius:22))
+                if !model.history.training.runs.filter({ $0.complete && $0.mode == model.mode }).isEmpty {
+                    DisclosureGroup("Your training history") {
+                        ForEach(model.history.training.runs.filter { $0.complete && $0.mode == model.mode }.reversed()) { run in
+                            VStack(alignment:.leading,spacing:8) {
+                                Text(run.kind.rawValue.capitalized).font(.headline)
+                                Text(Date(timeIntervalSince1970:Double(run.day)*86400),style:.date).font(.caption).environment(\.timeZone,TimeZone(secondsFromGMT:0)!)
+                                Text(model.summary(for:run)).font(.subheadline).fixedSize(horizontal:false,vertical:true)
+                            }.padding(.vertical,8).fixedSize(horizontal:false,vertical:true).accessibilityIdentifier("training-run-\(run.kind.rawValue)")
+                        }
+                    }.accessibilityIdentifier("trainingHistory")
+                }
+                #if DEBUG && targetEnvironment(simulator)
+                if GameModel.uiFixture {
+                    Text("SOFTWARE UI FIXTURE · not real training").font(.headline)
+                    Button("Advance test day") { model.advanceFixtureDay() }.frame(minHeight:44).accessibilityIdentifier("advanceFixtureDay")
+                }
+                #endif
+                Text("FREE PRACTICE").font(.caption.weight(.bold))
                 if let catalog=model.catalog {
-                    ForEach(Array(catalog.challenges.enumerated()),id:\.element.id) { index,challenge in
+                    ForEach(Array(catalog.challenges.prefix(3).enumerated()),id:\.element.id) { index,challenge in
                         Button { model.choose(index) } label: {
                             HStack(spacing:16) {
                                 Text(String(format:"%02d",index+1)).font(.title2.monospacedDigit().weight(.light))
@@ -112,6 +140,12 @@ struct GameView: View {
                 ScrollView {
                     VStack(alignment:.leading,spacing:18) {
                         Text(model.challenge?.title ?? "Afterglow").font(.subheadline.weight(.semibold))
+                        if let run=model.currentTrainingRun {
+                            Text("\(run.kind.rawValue.capitalized) · step \(run.trialIDs.count+1) of \(run.challenges.count)").font(.headline)
+                        }
+                        Text(model.challenge?.pattern == "spaced" ? "Play every other pulse: play, leave one, play, leave one. Keep that same spacing throughout the song." : "Play once on each steady pulse.").font(.body)
+                        Toggle("I’m using outside timing help",isOn:$model.outsideHelp)
+                        Text("Turn this on for a metronome, another player, or any timing cue. Assisted attempts are saved without training progress or records.").font(.caption)
                         Text(stageTitle).font(.largeTitle.weight(.bold)).fixedSize(horizontal:false,vertical:true)
                         Text(stageMessage).font(.body).fixedSize(horizontal:false,vertical:true)
                         surface.frame(height:260)
@@ -147,14 +181,20 @@ struct GameView: View {
         case .warning: return "Keep your own pulse when the sound fades."
         case .silent: return "Trust the rhythm you brought with you."
         case .returned: return "Meet the song where it is. Play through the ending."
-        default: return model.mode == .tap ? "Tap with one finger, lifting on every pulse." : "Swipe downward across the center string. Lift, then begin above it again."
+        default: if model.challenge?.pattern == "spaced" { return "Play, leave one pulse, play, leave one. Keep the same spacing in silence." }; return model.mode == .tap ? "Tap with one finger, lifting on every pulse." : "Swipe downward across the center string. Lift, then begin above it again."
         }
     }
     private var result: some View {
         ScrollView {
             VStack(alignment:.leading,spacing:24) {
-                Text("AFTERGLOW · \(model.mode.rawValue.uppercased())").font(.caption.weight(.bold))
+                Text("\(model.challenge?.songTitle.uppercased() ?? "SONG") · \(model.mode.rawValue.uppercased())").font(.caption.weight(.bold))
                 if let trial=model.result {
+                    if !model.canRetrySave, let reward=trial.reward, model.history.trials.contains(where: { $0.id == trial.id }) {
+                        Text("\(reward.grade) · \(reward.stars) of 3 stars").font(.title2.weight(.bold))
+                        if reward.perfectLanding { Text("Perfect landing").font(.headline) }
+                        Text("Stars combine landing, consistency and drift. Three stars require all three within the tightest tolerances.").font(.caption)
+                    }
+                    if let run=model.currentTrainingRun { Text(model.summary(for:run)).font(.body).accessibilityIdentifier("trainingSummary") }
                     let copy=ResultCopy(trial.assessment)
                     Text(copy.title).font(.largeTitle.weight(.bold)).accessibilityIdentifier("resultTitle")
                     Text(copy.message).font(.title3)
@@ -185,8 +225,12 @@ struct GameView: View {
                     }
                 } else { Text("The song couldn’t start.").font(.largeTitle.weight(.bold)) }
                 messages
-                primary("Play it again",id:"retry") { model.retry() }
-                Button("Next challenge →") { model.next() }.font(.headline).frame(maxWidth:.infinity,minHeight:48).accessibilityIdentifier("next")
+                if let run=model.currentTrainingRun {
+                    primary(run.complete ? "Back to your training" : "Continue session",id:"continueTraining") { model.continueTraining() }.disabled(model.canRetrySave)
+                } else {
+                    primary("Play it again",id:"retry") { model.retry() }
+                    Button("Next challenge →") { model.next() }.font(.headline).frame(maxWidth:.infinity,minHeight:48).accessibilityIdentifier("next")
+                }
             }.padding(24)
         }.accessibilityIdentifier("resultScreen")
     }
