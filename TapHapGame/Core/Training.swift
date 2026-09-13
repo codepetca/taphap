@@ -58,8 +58,8 @@ public struct TrainingState: Codable, Sendable {
         return completed.contains(where: { $0.kind == .daily && $0.day == day }) ? nil : .daily
     }
     public mutating func begin(mode: InputMode, date: Date, trials: [SavedTrial], content: TrainingContent) -> TrainingRun? {
-        let today=day(at:date)
         if let current=active(mode:mode) { return current }
+        let today=day(at:date)
         guard let kind=due(mode:mode,day:today) else { return nil }
         let level=earnedLevel(mode:mode,trials:trials,content:content)
         let placement=today.isMultiple(of:2) ? 0 : 1

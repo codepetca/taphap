@@ -79,6 +79,7 @@ final class TrainingTests: XCTestCase {
         let reloaded=try JSONDecoder().decode(TrainingState.self,from:JSONEncoder().encode(state))
         XCTAssertEqual(reloaded.active(mode:.tap)?.trialIDs,[first.id])
         XCTAssertEqual(state.begin(mode:.tap,date:date(102),trials:[first],content:content)?.id,run.id)
+        XCTAssertEqual(state.latestDay,100) // Resuming does not invent a later saved session day.
         let changed=SavedTrial(key:GameTests().key(latency:0.021),assessment:first.assessment,completed:true,training:TrainingAttempt(runID:run.id,step:1))
         XCTAssertFalse(state.accept(changed,runID:run.id))
         state.abandon(mode:.tap)
@@ -162,7 +163,7 @@ final class TrainingTests: XCTestCase {
         defer { try? FileManager.default.removeItem(at:root) }
         try FileManager.default.createDirectory(at:root,withIntermediateDirectories:true)
         let store=HistoryStore(url:root.appendingPathComponent("history.json"))
-        for mutation in 0..<6 {
+        for mutation in 0..<7 {
             var object=original, training=original["training"] as! [String:Any]
             var runs=training["runs"] as! [[String:Any]]
             switch mutation {
@@ -171,13 +172,43 @@ final class TrainingTests: XCTestCase {
             case 2: runs[1]["challenges"]=Array(repeating:"first-light",count:4)
             case 3: runs[1]["abandoned"]=true
             case 4: runs[1]["day"]=99
-            default: runs[1]["content"]=["benchmark":"v1","training":"new-content"]
+            case 5: runs[1]["content"]=["benchmark":"v1","training":"new-content"]
+            default: training["latestDay"]=2000000
             }
             training["runs"]=runs; object["training"]=training
             let bytes=try JSONSerialization.data(withJSONObject:object)
             try bytes.write(to:store.url)
             XCTAssertThrowsError(try store.load(),"Mutation \(mutation)")
             XCTAssertEqual(try Data(contentsOf:store.url),bytes)
+        }
+    }
+
+    func testEveryRejectedAttemptKeepsAValidPlanAssociation() throws {
+        var history=TrialHistory()
+        let run=history.training.begin(mode:.tap,date:date(100),trials:[],content:content)!
+        let association=TrainingAttempt(runID:run.id,step:0)
+        let good=try trial("first-light",association:association)
+        for _ in 0..<2 {
+            history.append(SavedTrial(key:good.key,assessment:.invalid(.interruption),completed:false,training:association))
+        }
+        try history.validate() // Multiple genuine failed attempts can refer to the same unfinished step.
+        history.append(good); XCTAssertTrue(history.training.accept(good,runID:run.id))
+        try history.validate()
+        let original=try JSONSerialization.jsonObject(with:JSONEncoder().encode(history)) as! [String:Any]
+        for mutation in 0..<5 {
+            var object=original, records=original["trials"] as! [[String:Any]]
+            var rejected=records[0], binding=rejected["training"] as! [String:Any]
+            var key=rejected["key"] as! [String:Any]
+            switch mutation {
+            case 0: binding["runID"]=UUID().uuidString
+            case 1: binding["step"] = -1
+            case 2: binding["step"]=3
+            case 3: key["challenge"]="stay-a-little"
+            default: key["content"]="other-map-revision"
+            }
+            rejected["training"]=binding; rejected["key"]=key; records[0]=rejected; object["trials"]=records
+            let raw=try JSONSerialization.data(withJSONObject:object)
+            XCTAssertThrowsError(try JSONDecoder().decode(TrialHistory.self,from:raw))
         }
     }
 

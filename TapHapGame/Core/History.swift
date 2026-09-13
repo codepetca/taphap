@@ -62,8 +62,17 @@ public struct TrialHistory: Codable, Sendable {
         guard schema == 2, Set(trials.map(\.id)).count == trials.count,
               Set(training.runs.map(\.id)).count == training.runs.count else { throw HistoryError.unreadable }
         if let latest=training.latestDay {
-            guard (-719000...2900000).contains(latest), latest >= (training.runs.map(\.day).max() ?? latest) else { throw HistoryError.unreadable }
+            guard (-719000...2900000).contains(latest), latest == training.runs.map(\.day).max() else { throw HistoryError.unreadable }
         } else if !training.runs.isEmpty { throw HistoryError.unreadable }
+        for trial in trials {
+            if let association=trial.training {
+                guard let run=training.runs.first(where: { $0.id == association.runID }),
+                      run.challenges.indices.contains(association.step),
+                      trial.key.mode == run.mode,
+                      trial.key.challenge == run.challenges[association.step],
+                      trial.key.content == run.content.revision(for:trial.key.challenge) else { throw HistoryError.unreadable }
+            }
+        }
         var consumed=Set<UUID>(), replay=TrainingState()
         var priorDay: Int?
         for run in training.runs {

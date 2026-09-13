@@ -26,7 +26,8 @@ sessions compare with that same song's reference. Benchmark and transfer errors
 are never subtracted from one another or presented as general musicianship.
 
 The UTC day convention is fixed, with a persisted nondecreasing day high-water
-mark. Changing timezone cannot reopen a day; backward clock travel cannot
+mark equal to the newest created session day. Resuming an older plan does not
+advance this marker or move its original day. Changing timezone cannot reopen a day; backward clock travel cannot
 reissue an earlier day. An offline app cannot verify a deliberately advanced
 system clock. Clock travel in tests proves software scheduling only. A session
 belongs to its start day and keeps its exact plan across relaunches. Finishing
@@ -87,8 +88,8 @@ New trials carry their persisted session ID and step; legacy/free-practice
 records have no association and cannot be attached retroactively. Each plan
 pins benchmark/training content identities. Changed content blocks the saved
 step and requires restarting the session, preserving earlier attempts. The
-history loader replays canonical scheduling and plans, verifies monotonic day
-bounds and unique run/step links, and rejects impossible completed-abandoned or
+history loader replays canonical scheduling and plans, verifies the latest created-session day
+and every run/step link, including rejected attempts, and rejects impossible completed-abandoned or
 out-of-order progress.
 
 Unknown/corrupt history is preserved and disables writes and training; ordinary
@@ -104,7 +105,7 @@ only enabled audio route. No other-device/route fairness claim is made.
 
 ## Verification status
 
-Completed software checks: 36 portable tests, independent PCM/map verification,
+Completed software checks: 37 portable tests, independent PCM/map verification,
 initial 21-test native integration run, focused new-map rendered Strum fixture,
 and a complete simulator baseline → relaunch/resume → three daily sessions →
 later checkpoint → reserved transfer journey. Focused in-flight training tests
@@ -114,7 +115,10 @@ Atomic save failure/retry and unknown-history native tests pass. The actual
 backed-up Phase 2 history also migrates with all ten trial objects unchanged,
 zero invented sessions, and the source file untouched.
 
-Native large-text preparation accessibility audit and navigation pass. Screens
+Native large-text preparation accessibility audit and navigation pass. The
+oldest baseline summary is reachable at normal and maximum Dynamic Type; the
+full journey asserts the known 60.0 ms synthetic checkpoint change. UTC history
+dates and expanded summary layout were visually checked. Screens
 are inspected alongside actual navigation and result assertions, not accepted
 from screenshots alone. The initial full-journey UI test failed because its
 control tap did not reliably scroll into view; the corrected test passes. Raw

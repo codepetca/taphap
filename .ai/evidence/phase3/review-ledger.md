@@ -41,3 +41,18 @@ migration recheck passes. Added focused comparison-text and oldest-history
 reachability assertions, including largest Dynamic Type; their UI rerun is
 pending. Targeted review launch 3: Sol/high, only correction and interaction
 boundaries; launches used 3/5, fix batches 1/3. Human exit observation still open.
+
+Targeted launch 3 completed in about 6 minutes (clock checked16:35:30UTC).
+The reviewer mistook the total-session start16:14 for its own start around16:30
+and described a20minute cap; actual tool timestamps show no individual timeout.
+Two further structural checks accepted: newest-created-session day equality,
+and valid associations for unconsumed/rejected attempts. A legitimate existing
+resume path advanced the day marker without a new run; batch2 changes that path
+before enforcing equality. All attempted references, including failed retries,
+now require an existing run and valid step/mode/challenge/content.
+
+Batch2:37 portable tests pass; native later-day resume/lifecycle/storage recheck
+in progress. Launch4 will be one targeted Sol/high correction review; launch5
+reserved for final cumulative integration. Fix batches used2/3, launches3/5.
+Oldest-history and largest-text UI checks passed (165.218s); sanitized screenshots
+are synthetic examples, not human longitudinal evidence.
