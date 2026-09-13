@@ -1,0 +1,46 @@
+{
+  "reviewedImplementation": "1ae7aa6",
+  "portableTests": 37,
+  "initialNativeIntegrationTests": 21,
+  "focusedNativeTrainingTests": 3,
+  "completeSimulatorJourney": {
+    "passed": true,
+    "durationSeconds": 165.218,
+    "includes": [
+      "relaunch and resume",
+      "three distinct simulated practice days",
+      "later checkpoint",
+      "separate reserved transfer",
+      "known synthetic 60.0 ms checkpoint difference",
+      "oldest history at normal and maximum Dynamic Type"
+    ]
+  },
+  "physicalChecks": {
+    "allFourPassedCumulatively": true,
+    "initialRun": "Two storage checks passed; render invalidated by backgrounding during owner-reported interference and subsequent armed checks could not start. Raw failures retained.",
+    "unchangedControlledRetry": {
+      "newSpacedStrumRenderSeconds": 53.884,
+      "armedLifecycleSeconds": 2.264,
+      "failures": 0
+    }
+  },
+  "assets": "Independent PCM/maps and original benchmark hashes verified",
+  "actualHistoryMigration": {
+    "trialsUnchanged": 10,
+    "inventedSessions": 0,
+    "sourceUntouched": true
+  },
+  "review": {
+    "clean": true,
+    "launches": 5,
+    "fixBatches": 2,
+    "wallSeconds": 1780
+  },
+  "claimLimits": [
+    "Synthetic inputs and simulated days verify software, not human improvement",
+    "Genuine first-use baseline/daily/checkpoint comprehension remains unobserved",
+    "Phase 2 broad musician/click comparison remains deferred",
+    "Actual VoiceOver use remains unobserved; full accessibility and supported-device review are Phase 4"
+  ],
+  "rawEvidence": "Durable private phase3-evidence archive outside disposable worktree; raw identifiers and traces excluded from git"
+}

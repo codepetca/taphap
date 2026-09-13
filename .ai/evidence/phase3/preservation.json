@@ -4,5 +4,19 @@
   "existingTrialCount": 10,
   "backedUpFiles": 11,
   "rawArchive": "Durable private phase3-evidence/preinstall-game; identifiers and raw traces excluded from git",
-  "historicalSourceChanged": false
+  "historicalSourceChanged": false,
+  "frozenHistoricalFilesVerifiedUnchanged": 18,
+  "acceptedPhase1SourceTestsAssetsUnchanged": true,
+  "actualSchema1Migration": {
+    "trialObjectsPreserved": 10,
+    "inventedTrainingRuns": 0,
+    "sourceBytesUntouched": true
+  },
+  "phoneUpdatedGameOnly": true,
+  "phase1AppRestored": false,
+  "posttestReadOnlyBackup": true,
+  "posttestFiles": 11,
+  "allPreexistingFilesByteIdentical": true,
+  "normalGameRelaunchedWithoutFixtureFlags": true,
+  "reviewedSourceFilesVerifiedUnchanged": 33
 }

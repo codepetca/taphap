@@ -122,8 +122,19 @@ dates and expanded summary layout were visually checked. Screens
 are inspected alongside actual navigation and result assertions, not accepted
 from screenshots alone. The initial full-journey UI test failed because its
 control tap did not reliably scroll into view; the corrected test passes. Raw
-failure evidence is retained. The signed app builds; final physical checks and
-review closure remain pending. No phone update has been installed yet.
+failure evidence is retained. The signed app builds and is installed on the tested iPhone. All four focused
+physical checks passed across the initial run and controlled retry: new spaced
+Strum map on the real render clock, five armed-training invalidation cases,
+atomic session/step persistence, and unknown-history protection. The initial
+render run was invalidated by backgrounding during reported owner interference;
+its failures remain preserved. The two affected tests passed unchanged on retry.
+All ten existing real trials and ten diagnostic files remain byte-identical after
+installation/testing. The normal game was relaunched without fixture flags.
+
+Technical review is closed clean on implementation `1ae7aa6`: five reviewer
+launches, two correction batches, 29 minutes 40 seconds. All 33 reviewed source
+hashes remain unchanged. See the [review ledger](../.ai/evidence/phase3/review-ledger.md)
+and [verification record](../.ai/evidence/phase3/verification.json).
 
 The simulator-only UI fixture has isolated temporary storage and a visible
 software-fixture label; it never writes real game history and scripted input
