@@ -165,14 +165,9 @@ struct GameView: View {
                                 .font(.largeTitle.weight(.bold))
                             Text("Compared with how you played before the silence.").font(.footnote)
                         }.padding(24).frame(maxWidth:.infinity,alignment:.leading).background(accent,in:RoundedRectangle(cornerRadius:24))
-                        if let magnitude=trial.landingMagnitude {
-                            if let best=model.history.best(with:trial), let previousBest=best.landingMagnitude {
-                                Text(magnitude < previousBest ? "New closest landing for this challenge." : "Closest compatible landing: \(String(format:"%.0f",previousBest)) ms from your opening pulse.").font(.headline)
-                            } else { Text("Your first verified landing in these conditions.").font(.headline) }
-                            if let previous=model.history.previous(with:trial), let last=previous.landingMagnitude {
-                                Text("Previous compatible attempt: \(String(format:"%.0f",last)) ms from your opening pulse.").font(.subheadline)
-                            }
-                        }
+                        let comparison=model.comparison(for:trial)
+                        if let headline=comparison.headline { Text(headline).font(.headline) }
+                        if let previous=comparison.previous { Text(previous).font(.subheadline) }
                         DisclosureGroup("Understand this result") {
                             VStack(alignment:.leading,spacing:12) {
                                 Text("Consistency: \(score.consistencyMS,specifier:"%.1f") ms of variation around your timing trend. Lower is more even.")

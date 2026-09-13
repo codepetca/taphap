@@ -74,3 +74,24 @@ public struct HistoryStore: Sendable {
         try JSONEncoder().encode(history).write(to:url,options:.atomic)
     }
 }
+
+/// Comparison statements require a known history, even if this attempt itself is valid.
+public struct LandingComparison: Equatable, Sendable {
+    public let headline: String?
+    public let previous: String?
+    public init(trial: SavedTrial, history: TrialHistory, historyAvailable: Bool) {
+        guard let magnitude=trial.landingMagnitude else { headline=nil; previous=nil; return }
+        guard historyAvailable else {
+            headline="Earlier results couldn’t be read. Personal-best comparisons are unavailable."
+            previous=nil; return
+        }
+        if let best=history.best(with:trial), let bestMagnitude=best.landingMagnitude {
+            headline = magnitude < bestMagnitude
+                ? "New closest landing for this challenge."
+                : "Closest compatible landing: \(String(format:"%.0f",bestMagnitude)) ms from your opening pulse."
+        } else { headline="Your first verified landing in these conditions." }
+        if let prior=history.previous(with:trial), let last=prior.landingMagnitude {
+            previous="Previous compatible attempt: \(String(format:"%.0f",last)) ms from your opening pulse."
+        } else { previous=nil }
+    }
+}

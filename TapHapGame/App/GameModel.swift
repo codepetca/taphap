@@ -135,15 +135,21 @@ final class GameModel: ObservableObject {
         let assessment=Assessor.assess(events:events,map:challenge.map,invalidations:reason.map { [$0] } ?? [])
         if let key {
             let trial=SavedTrial(key:key,assessment:assessment,completed:reason == nil && session.progress == 1)
-            result=trial
-            var updated=pendingSave ?? history; updated.append(trial)
-            if historyWritable {
-                pendingSave=updated
-                retrySave()
-            }
+            persist(trial)
             saveDiagnostics(trial)
         }
         screen="result"
+    }
+    func comparison(for trial: SavedTrial) -> LandingComparison {
+        LandingComparison(trial:trial,history:pendingSave ?? history,historyAvailable:historyWritable)
+    }
+    /// Retain ordinary failed saves in effective history. Unknown initial history stays unknown.
+    func persist(_ trial: SavedTrial) {
+        result=trial
+        guard historyWritable else { return }
+        var updated=pendingSave ?? history; updated.append(trial)
+        pendingSave=updated
+        retrySave()
     }
     func retrySave() {
         guard historyWritable, let pendingSave else { return }

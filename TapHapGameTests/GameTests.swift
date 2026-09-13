@@ -81,6 +81,19 @@ final class GameTests: XCTestCase {
         XCTAssertEqual(partialAssessment.kind,.partial)
         XCTAssertNil(SavedTrial(key:key(),assessment:partialAssessment,completed:true).landingMagnitude)
     }
+    func testUnavailableHistoryCannotClaimFirstOrBestAndPendingHistoryCompares() throws {
+        let map=try catalog().challenges[0].map
+        let first=SavedTrial(key:key(),assessment:Assessor.assess(events:events(map,landing:0.02),map:map),completed:true)
+        let second=SavedTrial(key:key(),assessment:Assessor.assess(events:events(map,landing:0.01),map:map),completed:true)
+        let unknown=LandingComparison(trial:first,history:TrialHistory(),historyAvailable:false)
+        XCTAssertEqual(unknown.headline,"Earlier results couldn’t be read. Personal-best comparisons are unavailable.")
+        XCTAssertNil(unknown.previous)
+        var effective=TrialHistory(); effective.append(first); effective.append(second)
+        let comparison=LandingComparison(trial:second,history:effective,historyAvailable:true)
+        XCTAssertEqual(comparison.headline,"New closest landing for this challenge.")
+        XCTAssertEqual(comparison.previous,"Previous compatible attempt: 20 ms from your opening pulse.")
+        XCTAssertEqual(LandingComparison(trial:first,history:TrialHistory(),historyAvailable:true).headline,"Your first verified landing in these conditions.")
+    }
     func testPersistenceRoundTripFailureAndCorruptionPreservation() throws {
         let root=FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
         defer { try? FileManager.default.removeItem(at:root) }

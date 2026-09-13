@@ -67,6 +67,38 @@ final class IntegrationTests: XCTestCase {
         XCTAssertFalse(model.canRetrySave); XCTAssertEqual(model.history.trials.count,2)
         XCTAssertEqual(try model.store.load().trials.count,2)
     }
+    func scoredTrial(_ model: GameModel, landing: Double) throws -> SavedTrial {
+        let map=model.catalog!.challenges[0].map
+        let events=map.beats.indices.map { index in
+            let time=map.seconds(index)+0.04+(index >= map.gapStartBeat ? landing : 0)
+            return InputEvent(trackSeconds:time,hostSeconds:100+time,observedHostSeconds:100+time+0.01,mode:.tap)
+        }
+        let key=ComparisonKey(content:"fixture-v1",challenge:"first-light",mode:.tap,device:"fixture",system:"26",route:"Speaker",sampleRate:48000,bufferDuration:0.005,outputLatency:0.015,assistance:"direct-touch")
+        let result=SavedTrial(key:key,assessment:Assessor.assess(events:events,map:map),completed:true)
+        XCTAssertNotNil(result.landingMagnitude)
+        return result
+    }
+    func testScoredAttemptsRespectUnknownHistoryAndConsecutivePendingSaves() throws {
+        let store=makeModel().store
+        try FileManager.default.createDirectory(at:store.url.deletingLastPathComponent(),withIntermediateDirectories:true)
+        let corrupt=Data("unreadable earlier history".utf8); try corrupt.write(to:store.url)
+        let unknown=GameModel(store:store), first=try scoredTrial(unknown,landing:0.02)
+        unknown.persist(first)
+        XCTAssertEqual(unknown.comparison(for:first).headline,"Earlier results couldn’t be read. Personal-best comparisons are unavailable.")
+        XCTAssertNil(unknown.comparison(for:first).previous)
+        XCTAssertEqual(try Data(contentsOf:store.url),corrupt)
+        let pending=makeModel(), second=try scoredTrial(pending,landing:0.01)
+        let obstruction=pending.store.url.deletingLastPathComponent()
+        try Data("storage obstruction".utf8).write(to:obstruction)
+        pending.persist(first); pending.persist(second)
+        XCTAssertEqual(pending.history.trials.count,0); XCTAssertTrue(pending.canRetrySave)
+        let expected=pending.comparison(for:second)
+        XCTAssertEqual(expected.headline,"New closest landing for this challenge.")
+        XCTAssertEqual(expected.previous,"Previous compatible attempt: 20 ms from your opening pulse.")
+        try FileManager.default.removeItem(at:obstruction); pending.retrySave()
+        XCTAssertEqual(pending.history.trials.count,2)
+        XCTAssertEqual(pending.comparison(for:second),expected)
+    }
     func testSyntheticOccurrenceTimestampsProduceDurableFullScore() async throws {
         let model=makeModel(); model.choose(0); model.start()
         let map=model.challenge!.map

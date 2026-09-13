@@ -2,7 +2,7 @@
   "status": "Local implementation checks passed; physical/product acceptance pending",
   "toolchain": "Xcode 26.6 (17F113)",
   "packageTests": {
-    "passed": 27,
+    "passed": 28,
     "failed": 0,
     "includesInherited": 21
   },
@@ -34,15 +34,24 @@
     "Choose-play-result-retry-next, history after terminate/relaunch",
     "Maximum Dynamic Type navigation, play/end/retry",
     "Accessibility audit: contrast, labels, hit regions, trait, text clipping and element detection on preparation",
-    "Strum reference frame unchanged on entering silence; four automated downward gestures; input evidence still to inspect",
+    "Strum reference frame unchanged on entering silence; four automated downward gestures produced four down-crossings, max16.667ms bracket",
     "Offline by bundled-only operation and no networking source, SDK, permission, account or backend"
   ],
-  "signedDeviceBuild": "passed",
+  "signedDeviceBuild": "passed on reviewed revision",
   "historicalAppTestBuild": "passed",
   "limits": [
     "No actual Phase 2 musician/product observation",
     "Phone locked at read-only probe; product app not installed",
     "VoiceOver direct-touch configuration tested programmatically; actual assistive use pending",
     "Software timestamp and simulator gesture tests are not physical capture repeatability or acoustic-latency evidence"
-  ]
+  ],
+  "fixedRevision": "2fec7fc57f7346ecc6be1e1f7df7a95fdb5859b8",
+  "reducedMotion": "Enabled using Simulator Settings, game selection/preparation/play/return exercised and visually inspected; no repeating pulse, fixed surface retained. Original off setting restored after check.",
+  "screenshotNote": "Full-score software-fixture screenshot predates only a wording simplification: final caption reads Compared with how you played before the silence. No timing or layout change.",
+  "batch1": {
+    "reason": "Truthful comparisons under unreadable history and pending saves",
+    "packageTests": 28,
+    "affectedIOSTests": 2,
+    "failures": 0
+  }
 }

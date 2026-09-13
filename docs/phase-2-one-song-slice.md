@@ -63,6 +63,11 @@ input mode, hardware model, OS, route, sample rate, IO duration, reported output
 latency, assistance and scoring version. Partial, invalid, incomplete and
 unvalidated-route records never supply a best/comparison.
 
+Unreadable history suppresses first/new/best/previous claims. Ordinary write failures
+use loaded-plus-pending attempts for comparisons, so a second unsaved attempt
+sees the first. The review correction passes 28 package tests and two focused
+iOS persistence/comparison tests, including scored attempts under both failures.
+
 Trial summaries live in Application Support/TapHap/history.json, schema 1,
 written atomically. Failed writes show Save again, preserve earlier history and
 retain pending attempts in memory; corrupt/unknown history is preserved and
@@ -102,7 +107,7 @@ xcodebuild -project TapHapGame.xcodeproj -scheme TapHapGame -destination 'platfo
 xcodebuild -project TapHapGame.xcodeproj -scheme TapHapGame -destination 'generic/platform=iOS' -derivedDataPath build/Phase2Device build-for-testing DEVELOPMENT_TEAM="$TAPHAP_EXISTING_TEAM"
 ```
 
-Local results: 27 package tests, 13 iOS core/integration tests and three UI tests
+Local results: initially 27 package tests, 13 iOS core/integration tests and three UI tests
 passed. Signed iPhone app/test and frozen historical app/test builds passed.
 The repeated final touch test captured four of four simulator down-crossings,
 with maximum crossing bracket 16.667 ms; it was deliberately ended and unscored.
@@ -116,6 +121,11 @@ including play/end/retry navigation. Direct visual inspection covered selection,
 Tap/Strum preparation and play, silence, unscored result and large-text layouts.
 The four-gesture local diagnostic check is in [Strum simulator evidence](../.ai/evidence/phase2/strum-simulator.json).
 The active Strum reference frame is asserted unchanged at silence entry.
+Reduce Motion was enabled in Simulator Settings; selection, preparation,
+play and return were exercised and visually inspected. The surface remained
+fixed and there was no repeating pulse. Original simulator motion/contrast
+settings were restored. The software-score screenshot predates only the final
+caption simplification to “Compared with how you played before the silence.”
 Preparation accessibility audit passed contrast, element detection, hit regions,
 labels, traits and clipped-text checks. This does not certify actual VoiceOver
 musician use, which remains an external acceptance observation.
