@@ -312,7 +312,7 @@ requires JavaScript). Public API references:
 Local implementation details and measured results above are evidence from this
 lab, not claims that Apple guarantees acoustic timing or scoring validity.
 
-## Local correction after physical feedback — review and device check pending
+## Correction after physical feedback — reviewed; device check pending
 
 `Assessor` now separates full scores, partial diagnostics, and invalid capture.
 `Scorer` keeps the exact same 45%-of-beat assignment limit; shared validation
@@ -358,8 +358,24 @@ xcodebuild -project TapHapPhase1.xcodeproj -scheme TapHapPhase1 -destination 'ge
 
 See [assessment verification](../.ai/evidence/phase1/assessment-verification.json)
 and [current patch hashes](../.ai/evidence/phase1/assessment-source-sha256.json).
-This is a local, reviewable correction, not a phase-exit pass. The earlier review
-covers the previous implementation only. Additional review authorization is
-required by the existing bounded review ledger before further independent
-review. Coordinator will arrange a targeted physical check after review and
-before replacing the installed lab. No quota of repeat trials is imposed.
+This correction has passed the owner-approved extended review: focused Sol/high
+and cumulative Terra/high found no new implementation blockers on commit
+`4be17f7824d08c276fe36fd493d9ad78491de26e`. Both finished within the
+20-minute individual and 30-minute additional total caps; exact activity
+timestamps are in the review ledger. No additional reviewer or review reset
+occurred. The corrected physical result path and Strum repeatability still
+need a targeted check. No quota of repeat trials is imposed, and no phase-exit
+pass or merge follows from technical review alone.
+
+
+Installation attempt after completed reviews: the phone still listed as
+paired/available, but both its lock-state query and installation failed with
+CoreDevice error 4000 and Network.NWError 54, “Connection reset by peer.”
+This does not prove that the phone is locked. The corrected build was not
+installed and the existing app/records were not replaced. Wake/unlock and
+restore the connection (USB if necessary), then install the existing signed
+build in `build/Phase1AssessmentDevice/Build/Products/Debug-iphoneos/`.
+One Tap and one further down-Strum trial are the next targeted checks of the
+changed result path and Strum repeatability; the acoustic loop is already
+owner-confirmed. No additional source or review work is required for this
+unchanged revision before that device check.

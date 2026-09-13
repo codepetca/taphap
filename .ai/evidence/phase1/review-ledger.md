@@ -79,3 +79,47 @@ focused Sol/high review of assessment/contamination/replays, then one bounded
 Terra/high cumulative integration review. This requires explicit extension to
 6 total launches, a second final integration wave, and additional elapsed time.
 No budget reset, implicit extension, or extra reviewer has occurred.
+
+## Explicit owner-approved review extension
+
+Owner answered “yes” to coordinator’s concrete two-review proposal for
+`4be17f7824d08c276fe36fd493d9ad78491de26e`. This extends the existing
+ledger to six total launches and a second final integration wave. It does not
+reset prior usage or authorize further review beyond these two launches.
+
+Extension start: 2026-09-13 03:44:25 UTC.
+Hard deadline: 2026-09-13 04:14:25 UTC.
+Additional elapsed allowance: 30 minutes total; each reviewer remains capped
+at 20 minutes. Reviewer 5: clean read-only Sol/high assessment, contamination
+and replay review. Reviewer 6: clean read-only Terra/high cumulative integration,
+after the first wave and any safe batched fixes/affected verification. No
+concurrent edits during review; no extra reviewer if further findings remain.
+
+Launching focused review 5/6; fix batches remain 2/3; targeted waves 2/3.
+
+## Completed approved extension — actual activity timestamps
+
+Authoritative local task `SubAgentActivity` start/completion events establish:
+
+| Reviewer | Started UTC | Completed UTC | Elapsed | Result |
+| --- | --- | --- | --- | --- |
+| 5, Sol/high focused assessment | 2026-09-13 03:44:39.310 | 2026-09-13 03:47:34.843 | 2m55.533s | No actionable findings |
+| 6, Terra/high final integration | 2026-09-13 03:48:23.399 | 2026-09-13 04:05:15.418 | 16m52.019s | No new implementation blockers |
+
+Both reviewed `4be17f7824d08c276fe36fd493d9ad78491de26e`; all 50
+assessment-source-sha256.json entries match. Review scope included preserving
+45% assignment, withholding ambiguous landing/full score, invalidation
+precedence, validated audible baseline, descriptive interval evidence,
+normalized replays, persistence and cumulative inherited preservation.
+No remediation was needed after these reviews and no tests were repeated.
+
+Extension elapsed from 03:44:25.861 to 04:05:15.418 was 20m49.557s, inside
+30 minutes and the 04:14:25.861 hard deadline. Both reviewers finished inside
+20 minutes. Final-result message delivery and compact status summaries lagged
+actual completion; that lag is not treated as a running reviewer or timeout.
+No replacement or seventh reviewer was launched.
+
+Final budget: 6/6 authorized launches, 1 initial wave, 2/3 fix batches,
+2/3 targeted waves, 2/2 explicitly authorized final integration waves.
+The implementation review is clean. The corrected physical result path and
+Strum between-trial repeatability remain evidence gates; no merge/Phase 2.

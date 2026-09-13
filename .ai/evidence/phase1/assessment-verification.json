@@ -2,7 +2,7 @@
   "behavior": "runtime invalidations and unreliable capture suppress all timing metrics; scoreIssue is separate from invalidation. Observed spacing is descriptive and never an inferred beat count or landing.",
   "change": "Preserve trustworthy partial timing diagnostics without full score or landing when beat assignment is ambiguous.",
   "dataSchema": 2,
-  "physicalStatus": "previous app remains installed; targeted new-result check not yet performed",
+  "physicalStatus": "Reviewed signed build installation attempted but blocked by CoreDevice4000 / Network.NWError54 connection reset by peer. Phone still lists paired/available; lock state could not be read. Previous installed app and records not replaced. Corrected-result physical check pending.",
   "replays": {
     "captured-strum": {
       "baseline": {
@@ -62,7 +62,7 @@
       "scoreIssue": "ambiguousInput"
     }
   },
-  "reviewStatus": "PENDING; prior review does not cover new assessment code",
+  "reviewStatus": "CLEAN: focused Sol/high and final Terra/high on 4be17f7824d08c276fe36fd493d9ad78491de26e; all 50 hashes matched, both finished within explicit extension.",
   "verification": {
     "iOSAudioTests": "unchanged; previous physical and simulator evidence retained",
     "iOSSimulatorAffectedTests": 16,
