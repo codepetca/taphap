@@ -1,7 +1,8 @@
 # Phase 1 core audio and scoring feasibility
 
-Status: implemented locally; phase exit **not yet passed**. Physical playback
-and musician input observations remain mandatory. Phase 2 has not begun.
+Status: implemented locally; all 11 automated physical-iPhone tests passed.
+Phase exit **not yet passed**: human listening and repeated Tap/Strum
+observations remain mandatory. Phase 2 has not begun.
 
 ## Authority and preserved baseline
 
@@ -174,13 +175,13 @@ xcodebuild -project TapHapPhase1.xcodeproj -scheme TapHapPhase1 -destination "pl
 xcrun devicectl device install app --device "$TAPHAP_DEVICE_ID" build/Phase1Device/Build/Products/Debug-iphoneos/TapHapPhase1.app --timeout 45 --json-output build/device-install.json
 ```
 
-The physical test attempt could not begin: Xcode reported that the developer
+The initial physical test attempt could not begin: Xcode reported that the developer
 disk image could not be mounted. CoreDevice reports paired/connected, developer
 mode enabled, but DDI services unavailable. Direct installation failed with CoreDevice error 12040 / MobileDevice
 `0xe80000e2`, explicitly `kAMDMobileImageMounterDeviceLocked`: the device is
 locked. A separate lock-state query confirmed `passcodeRequired: true`. The
-next device action is to unlock the paired iPhone and leave it awake while
-the existing signed build is installed and the automated tests run.
+owner subsequently unlocked the phone, which resolved installation and test
+execution. No signing, account, system configuration or source change was needed.
 A separate unattended simulator launch traversed the full track, saved 681
 clock observations locally, and correctly produced `missingInput` with no
 score. The static surface and post-trial invalid result were visually inspected.
@@ -189,8 +190,24 @@ This exercises the app record path, not physical contact or acoustic output.
 No physical audible loop, actual Tap/Strum trial, route repeatability, or
 acoustic re-entry has been marked passed.
 
-After device services are available, rerun the automated iOS tests on the phone
-and launch the installed lab. A human observer must then:
+On resumption, the existing signed build installed successfully and all 11
+physical-iPhone tests passed in 38.737 seconds. The speaker route ran at 48 kHz
+with 5 ms I/O buffers. The full render-clock run collected 643 anchors, crossed
+all five boundaries and measured a maximum host/sample progression mismatch of
+0.003917 ms. Reported output latency was 15.354 ms; it was recorded, not
+subtracted or claimed as measured acoustic latency. See
+[physical-device test evidence](../.ai/evidence/phase1/physical-device-tests.json).
+
+```sh
+xcodebuild -project TapHapPhase1.xcodeproj -scheme TapHapPhase1 -destination "platform=iOS,id=$TAPHAP_DEVICE_UDID" -derivedDataPath build/Phase1Device -resultBundlePath build/Phase1PhysicalUnlocked.xcresult test-without-building
+xcrun devicectl device process launch --device "$TAPHAP_DEVICE_ID" --terminate-existing ca.codepet.taphap.phase1
+```
+
+The lab was launched successfully without automatic playback and left ready
+for owner input. The test harness creates zero-input invalidation records;
+a pre-owner local snapshot distinguishes those from actual human trials.
+No repeat of these passed tests is needed absent a relevant change.
+A human observer must now:
 
 1. Use the built-in speaker at a comfortable audible level. Record route and
    device, input mode, session, and listening observations. Do not change volume

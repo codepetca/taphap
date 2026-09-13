@@ -42,6 +42,11 @@ within the 45-minute total and 20-minute per-reviewer caps. No extra review
 wave is warranted for unchanged source.
 
 GitHub reports no configured checks. No external review or approval is claimed.
-Physical tests did not begin because the paired iPhone is locked. Acoustic
-loop and real Tap/Strum repeatability remain unobserved. No phase-exit pass,
+Initial physical tests were blocked by the locked phone. After owner unlock,
+installation and all 11 automated physical tests passed on the unchanged
+reviewed source; see physical-device-tests.json. Acoustic loop and real
+Tap/Strum repeatability remain unobserved. No phase-exit pass,
 merge, or Phase 2 advancement is recorded.
+
+Physical evidence update only: no implementation change and no new review wave.
+The existing source review remains valid.

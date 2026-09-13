@@ -7,7 +7,7 @@
   "baselineCommit": "2e0310bc245525e82ace4110c103681e6facfe55",
   "phase1Exit": "NOT PASSED",
   "phase2": "not started",
-  "remainingBlocker": "Unlock paired iPhone and keep awake for installation/automated device tests; then observe audible loop and repeatable Tap/Strum trials under documented protocol.",
+  "remainingBlocker": "Observed audible-to-silent-to-audible loop and repeated physical Tap/Strum trials on the intended route. iPhone installation and all 11 automated physical tests now pass; lab launched ready for owner.",
   "evidence": "docs/phase-1-core-feasibility.md",
   "reviewedSourceHashes": ".ai/evidence/phase1/source-revision-sha256.json",
   "changedOrAddedPathsFromGitBase": [
@@ -93,5 +93,6 @@
     "scripts/generate-phase1-track.py",
     "scripts/verify-phase1-assets.py"
   ],
-  "note": "Git-base delta includes 29-file inherited owner snapshot; baseline-preservation.json identifies the only three inherited files changed by this task. Final evidence-only commit adds this delivery file and updates review ledger."
+  "note": "Git-base delta includes 29-file inherited owner snapshot; baseline-preservation.json identifies the only three inherited files changed by this task. Final evidence-only commit adds this delivery file and updates review ledger.",
+  "physicalEvidence": ".ai/evidence/phase1/physical-device-tests.json"
 }
