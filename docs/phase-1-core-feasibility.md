@@ -430,3 +430,29 @@ silent interval. Event records alone cannot distinguish a skipped/held gesture
 from missed capture. The owner has been asked whether they recall skipping or
 holding a stroke. No additional trial quota, source change, phase-exit pass,
 merge, or Phase 2 advancement follows from these observations.
+
+
+## Roadmap exit-gate assessment after targeted trials
+
+This maps the five actual Phase 1 exit bullets, not an added trial quota or
+player-performance threshold. A correctly withheld uncertain landing with
+trustworthy partial diagnostics is valid scoring behavior. The owner does not
+need to earn a full score for the phase to pass.
+
+| Roadmap exit bullet | Evidence and assessment |
+| --- | --- |
+| Audio fades and returns on the mapped timeline without pause, seek, or drift. | Supported for the built-in speaker lab: sample-indexed envelope, offline traversal of all 1,632,000 frames with zero silent energy and unchanged post-return PCM, and physical render progression across every boundary. Maximum automated physical host/sample residual was 0.003917 ms. These measurements establish the digital timeline; they are not independent acoustic latency measurements. |
+| Identical simulated inputs receive stable results. | Supported: 22 recorded fixtures across both modes; successful scores repeated ten times for exact equality. Corrected assessment tests preserve full scores and deterministic partial/invalid outcomes. |
+| Deliberate acceleration, deceleration, jitter, and phase shifts produce the expected diagnosis. | Supported in both modes by the recorded fixtures: acceleration/deceleration produce opposite expected drift and re-entry signs, jitter is diagnosed, and the shifted fixture yields 90 ms phase/re-entry with zero drift. Missing/duplicate and contamination fixtures remain distinct from trustworthy results. |
+| Tap and Strum timestamps are repeatable enough for musician-credible scoring. | Partially supported, unresolved overall. Three Tap opening fits have residual RMS 11.36–13.60 ms and periods 495.15–501.28 ms. Two Strum fits have residual RMS 12.54/13.18 ms and phases 34.82/26.18 ms, with actual coalesced crossing timestamps and measured interpolation brackets. However, both Strum traces contain a roughly one-second interval, and no full gesture trace or independent contact observation distinguishes omitted gesture from missed capture. Similar baseline statistics alone do not settle capture completeness. Owner recollection is pending; no full-score requirement is imposed. |
+| A physical-device run confirms the complete audible-to-silent-to-audible loop. | Supported: owner explicitly confirmed that music became silent then returned, alongside physical render evidence. This conclusion covers the tested iPhone built-in speaker route. Other audio routes have not been validated. |
+
+Current recommendation: **hold Phase 1 acceptance and merge pending resolution
+of the Strum capture uncertainty**. Four exit bullets are supported within the
+recorded device/route scope; the timestamp-repeatability bullet remains open.
+The proposed physical protocol is a means of collecting evidence, not an
+additional exit gate. A reply confirming a remembered skipped gesture would
+explain that interval but must be considered alongside the earlier Strum trace;
+a reply that strokes continued steadily would leave possible missed capture
+as a concrete issue to investigate. No new source work or repeated physical
+trial has been initiated while this observation is pending.
