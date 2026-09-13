@@ -3,7 +3,7 @@
   "change": "Preserve trustworthy partial timing diagnostics without full score or landing when beat assignment is ambiguous.",
   "dataSchema": 2,
   "installationEvidence": "assessment-installation.json",
-  "physicalStatus": "Reviewed signed correction installed and launched without autorun. All 8 prior records preserved byte-for-byte. Awaiting one Tap and further down-Strum targeted result/repeatability check.",
+  "physicalStatus": "Two new schema-2 physical trials saved partial assessments with reliable baselines, no runtime invalidations, and no full score or landing. All 8 older records unchanged. Strum omitted gesture versus capture uncertainty remains open.",
   "replays": {
     "captured-strum": {
       "baseline": {
@@ -71,5 +71,6 @@
     "signedBuildForTesting": "passed; installed on physical iPhone after completed review",
     "swiftPackageFailures": 0,
     "swiftPackageTests": 21
-  }
+  },
+  "targetedPhysicalEvidence": "targeted-owner-observations.json"
 }

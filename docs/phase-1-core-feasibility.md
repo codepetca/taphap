@@ -2,8 +2,10 @@
 
 Status: implemented locally; all 11 automated physical-iPhone tests passed.
 Owner listening confirmed silence and return. Phase exit **not yet passed**:
-all three physical input trials produced ambiguous scores, and between-trial
-Strum repeatability remains unverified. Phase 2 has not begun.
+the corrected build has now saved partial assessments from one further Tap
+and Strum trial, but Strum repeatability remains unresolved because both
+Strum recordings contain an approximately one-second input interval. Owner
+recollection of a skipped/held stroke is pending. Phase 2 has not begun.
 
 ## Authority and preserved baseline
 
@@ -312,7 +314,7 @@ requires JavaScript). Public API references:
 Local implementation details and measured results above are evidence from this
 lab, not claims that Apple guarantees acoustic timing or scoring validity.
 
-## Correction after physical feedback — reviewed; device check pending
+## Correction after physical feedback — reviewed; targeted device results below
 
 `Assessor` now separates full scores, partial diagnostics, and invalid capture.
 `Scorer` keeps the exact same 45%-of-beat assignment limit; shared validation
@@ -390,3 +392,41 @@ network-settings changes were needed. See
 [installation evidence](../.ai/evidence/phase1/assessment-installation.json).
 The connection blocker is resolved; one Tap and one further down-Strum trial
 are pending to exercise the corrected physical result path and repeatability.
+
+
+## Targeted owner trials on the reviewed correction — 2026-09-13
+
+After the owner reported completing one Tap and one Strum trial, read-only
+retrieval found exactly two new schema-2 records. All eight prior records
+remained byte-for-byte unchanged. Both new records contain partial assessments
+with no runtime invalidation and no full score or landing. All 50 reviewed
+source hashes remain unchanged. See
+[targeted observations](../.ai/evidence/phase1/targeted-owner-observations.json).
+
+| Measurement | Tap 3 | Strum 2 |
+| --- | ---: | ---: |
+| Captured inputs | 63 | 64 downstrokes |
+| Opening fitted period | 495.15 ms | 503.31 ms |
+| Opening residual RMS | 11.36 ms | 13.18 ms |
+| Silent median input spacing | 549.03 ms | 533.95 ms |
+| Largest silent interval | 582.28 ms | 1030.34 ms |
+| Silent interval standard deviation | 22.68 ms | 137.48 ms |
+| Maximum host/sample clock residual | 0.004875 ms | 0.005417 ms |
+| Full-score assignment issue | missingInput | ambiguousInput |
+
+The saved Tap assessment supports descriptive slower spacing during silence.
+Its full-score missing-input classification is a failed beat assignment, not
+proof that the owner physically omitted a tap. The Strum assessment correctly
+flags uneven spacing and possible missing/extra input instead of attributing
+all variation to tempo slowdown. Independent recalculation of silent interval
+count, median, population standard deviation and maximum matched both saved
+assessments within 0.000001 ms. This verifies the corrected physical assessment
+and persistence path; it does not establish subjective display acceptance.
+
+Strum crossing brackets were median 8.32 ms, nearest-rank p95 16.64 ms and
+maximum 33.28 ms (the first stroke). Both Strum trials had similar opening
+residual RMS (12.54 and 13.18 ms), but each included one roughly one-second
+silent interval. Event records alone cannot distinguish a skipped/held gesture
+from missed capture. The owner has been asked whether they recall skipping or
+holding a stroke. No additional trial quota, source change, phase-exit pass,
+merge, or Phase 2 advancement follows from these observations.
