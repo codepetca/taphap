@@ -17,11 +17,11 @@
       },
       {
         "test": "ChoosePlayResultRetryNextAndDurableHistory",
-        "evidence": "Immediate start-button existence assertion failed after Retry. Subsequent start/end/next/history and relaunch checks succeeded. Supposed no-input traversal contained 65 unattributed Tap events, so it is not clean unattended evidence."
+        "evidence": "Immediate start-button existence assertion failed after Retry. Subsequent start/end/next/history and relaunch checks succeeded. Supposed no-input traversal contained 65 owner Tap events (later confirmed), so it is not clean unattended evidence."
       },
       {
         "test": "StrumSurfaceAcceptsRepeatedDownwardGestures",
-        "evidence": "Surface disappeared after three captured events because multipleTouches invalidated the attempt. Input provenance pending; not established as an implementation defect."
+        "evidence": "Surface disappeared after three captured events because multipleTouches invalidated the attempt. Owner later confirmed playing during these checks. Unattended follow-up captured all four automated down gestures; no reproducible implementation defect established."
       }
     ]
   },

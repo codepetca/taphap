@@ -206,7 +206,7 @@ local storage outside this worktree:
 Its private hash manifest remains outside git. The current signed app is under
 `build/Phase2Device/Build/Products/Debug-iphoneos/TapHapGame.app` in that archive.
 The phone was subsequently unlocked and the reviewed game installed successfully.
-See `.ai/evidence/phase2/physical-integration.json` for the incomplete physical run.
+See `.ai/evidence/phase2/physical-integration.json` for the initial failures and completed follow-up checks.
 
 ## Physical continuation — 2026-09-13
 
