@@ -1,29 +1,47 @@
-# Phase 1 local checkpoint review
+# Phase 1 checkpoint review
 
-Authority: owner now permits commits, pushes, PRs and merges for completed
-Phases 1–3, after genuine phase gates. Physical gate pending. No PR or commit
-created by this task yet. Review prepares the local checkpoint.
+[Draft PR #2](https://github.com/codepetca/taphap/pull/2), branch
+`codex/phase-1-core-feasibility`. Owner authorization permits draft checkpoint
+commits, pushes and PRs while physical acceptance is pending. Merge and Phase 2
+advancement require the genuine physical phase exit gate; neither is approved
+by technical review alone. The PR remains draft and unmerged.
+
+Reviewed implementation commit:
+`71b695d48f26e7680da29df3566a38664ec2a8ba`.
+The final evidence-only commit updates this ledger and delivery metadata; it
+does not change the reviewed implementation or its source manifest.
 
 Risk: high (foundational audio/time-domain/scoring architecture).
-Topology: one initial wave, Sol high for timing/concurrency/failure correctness;
-Terra high for architecture/coverage/compatibility. Reviewers read only.
-Budget: <=2 concurrent, <=5 launches, <=3 fix batches/targeted waves,
-<=1 final integration, <=45 minutes total, <=20 minutes per reviewer.
+Used HQ PR Review skill. Reviewers inspected only and did not edit or approve.
 
-Started 2026-09-13 02:49 UTC. Launches 3/5; initial waves 1/1; fix batches 1/3;
-targeted waves 1/3; final waves 0/1. Results pending.
+| Wave | Reviewer | Result |
+| --- | --- | --- |
+| Initial, timing/failure correctness | GPT-5.6 Sol, high | Two P1 lifecycle findings accepted |
+| Initial, architecture/coverage/compatibility | GPT-5.6 Terra, high | No actionable findings |
+| Targeted remediation | GPT-5.6 Sol, high | Both P1 findings resolved; no new blockers |
+| Final cumulative integration | GPT-5.6 Terra, high | No new blockers; 44/44 final source hashes match; historical lab preserved |
 
-Initial wave complete: Terra found no actionable findings. Sol identified two
-P1 lifecycle defects: startup ignored environmental invalidations until armed;
-media-services reset retained orphaned engine/player objects. Both accepted.
-Fix batch 1/3 latches startup invalidations with a generation check, rebuilds
-audio objects after reset, and adds notification-before-arm and reset/restart
-iOS tests. Targeted review pending validation.
+One remediation batch resolved both findings:
 
-Targeted Sol review launched after 11 iOS tests and the final 2 lifecycle
-tests passed. Final signed build also passed. No code changes while reviewing.
+- Preparation-time environmental notifications now cancel the current startup
+  generation; a delayed arm cannot resurrect an invalid trial. All five
+  monitored notifications are tested before arming.
+- A media-services reset rebuilds the engine/player and clears their old
+  configuration before retry. Reset followed by a new render is tested.
 
-Targeted Sol review completed clean: both P1 defects resolved; no new blocking
-findings. Initial Terra review was clean. Final integration review will inspect
-the cumulative baseline-plus-Phase1 checkpoint before handoff. Physical gate
-remains open independently of review.
+Validation: 13 Swift package tests, 11 iOS simulator tests, 2 final focused
+lifecycle tests, signed device build-for-testing, historical app/test build,
+asset verification and final unattended app diagnostic path passed. See
+[verification summary](verification-summary.json) and
+[phase evidence](../../../docs/phase-1-core-feasibility.md).
+
+Review-session budget used: 4/5 reviewer launches, 1/1 initial wave, 1/3 fix
+batches, 1/3 targeted waves, 1/1 final integration wave; at most 2 concurrent.
+Started 2026-09-13 02:49 UTC; completed approximately 03:02 UTC (13 minutes),
+within the 45-minute total and 20-minute per-reviewer caps. No extra review
+wave is warranted for unchanged source.
+
+GitHub reports no configured checks. No external review or approval is claimed.
+Physical tests did not begin because the paired iPhone is locked. Acoustic
+loop and real Tap/Strum repeatability remain unobserved. No phase-exit pass,
+merge, or Phase 2 advancement is recorded.
