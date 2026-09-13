@@ -1,0 +1,11 @@
+{
+  "bundle": "ca.codepet.taphap.phase1",
+  "installation": "succeeded",
+  "launch": "succeeded without autorun",
+  "localTime": "2026-09-13 09:28 America/Toronto",
+  "lockStateBeforeInstall": "passcodeRequired=false",
+  "physicalResultCheck": "pending owner Tap and further down-Strum",
+  "previousConnectionReset": "resolved after owner reported phone on; no transport/account/signing changes needed",
+  "priorRecordsPreservedByteForByte": 8,
+  "sourceCommit": "4be17f7824d08c276fe36fd493d9ad78491de26e"
+}

@@ -379,3 +379,14 @@ One Tap and one further down-Strum trial are the next targeted checks of the
 changed result path and Strum repeatability; the acoustic loop is already
 owner-confirmed. No additional source or review work is required for this
 unchanged revision before that device check.
+
+
+Subsequent owner-on attempt on 2026-09-13 at 09:28 America/Toronto succeeded:
+lock-state query returned unlocked, the existing reviewed signed assessment
+build installed, and the lab launched without autorun. All eight prior trial
+records (five lifecycle-test records and three owner trials) were verified
+byte-for-byte unchanged after the update. No pairing, account, signing, or
+network-settings changes were needed. See
+[installation evidence](../.ai/evidence/phase1/assessment-installation.json).
+The connection blocker is resolved; one Tap and one further down-Strum trial
+are pending to exercise the corrected physical result path and repeatability.

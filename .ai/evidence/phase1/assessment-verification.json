@@ -2,7 +2,8 @@
   "behavior": "runtime invalidations and unreliable capture suppress all timing metrics; scoreIssue is separate from invalidation. Observed spacing is descriptive and never an inferred beat count or landing.",
   "change": "Preserve trustworthy partial timing diagnostics without full score or landing when beat assignment is ambiguous.",
   "dataSchema": 2,
-  "physicalStatus": "Reviewed signed build installation attempted but blocked by CoreDevice4000 / Network.NWError54 connection reset by peer. Phone still lists paired/available; lock state could not be read. Previous installed app and records not replaced. Corrected-result physical check pending.",
+  "installationEvidence": "assessment-installation.json",
+  "physicalStatus": "Reviewed signed correction installed and launched without autorun. All 8 prior records preserved byte-for-byte. Awaiting one Tap and further down-Strum targeted result/repeatability check.",
   "replays": {
     "captured-strum": {
       "baseline": {
@@ -67,7 +68,7 @@
     "iOSAudioTests": "unchanged; previous physical and simulator evidence retained",
     "iOSSimulatorAffectedTests": 16,
     "iOSSimulatorFailures": 0,
-    "signedBuildForTesting": "passed; NOT installed on physical iPhone",
+    "signedBuildForTesting": "passed; installed on physical iPhone after completed review",
     "swiftPackageFailures": 0,
     "swiftPackageTests": 21
   }

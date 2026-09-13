@@ -7,7 +7,7 @@
   "baselineCommit": "2e0310bc245525e82ace4110c103681e6facfe55",
   "phase1Exit": "NOT PASSED",
   "phase2": "not started",
-  "remainingBlocker": "Restore device connection (wake/unlock/reconnect phone), install already-reviewed signed assessment build, then one targeted Tap and further down-Strum trial to assess corrected result and repeatability. Acoustic loop already confirmed; no new full-score claims.",
+  "remainingBlocker": "Owner one Tap and further down-Strum targeted result check, then assess corrected feedback and Strum repeatability from saved records. Acoustic loop already confirmed; no merge/Phase2 yet.",
   "evidence": "docs/phase-1-core-feasibility.md",
   "reviewedSourceHashes": ".ai/evidence/phase1/source-revision-sha256.json",
   "changedOrAddedPathsFromGitBase": [
@@ -96,7 +96,7 @@
   "note": "Git-base delta includes 29-file inherited owner snapshot; baseline-preservation.json identifies the only three inherited files changed by this task. Final evidence-only commit adds this delivery file and updates review ledger.",
   "physicalEvidence": ".ai/evidence/phase1/physical-device-tests.json",
   "humanEvidence": ".ai/evidence/phase1/owner-observations.json",
-  "currentAssessmentPatch": "Implemented, verified, independently reviewed clean at 4be17f7824d08c276fe36fd493d9ad78491de26e; device update blocked by connection reset.",
+  "currentAssessmentPatch": "Reviewed correction installed and launched successfully; all prior trial records preserved.",
   "currentPatchHashes": ".ai/evidence/phase1/assessment-source-sha256.json",
   "reviewedImplementationCommit": "4be17f7824d08c276fe36fd493d9ad78491de26e"
 }
