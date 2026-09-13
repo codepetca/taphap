@@ -163,7 +163,7 @@ struct GameView: View {
                             Text("YOUR LANDING").font(.caption.weight(.bold))
                             Text("\(abs(score.reentryMS),specifier:"%.0f") ms \(score.reentryMS < 0 ? "early" : "late")")
                                 .font(.largeTitle.weight(.bold))
-                            Text("Compared with your opening pulse, not an absolute speaker-latency measurement.").font(.footnote)
+                            Text("Compared with how you played before the silence.").font(.footnote)
                         }.padding(24).frame(maxWidth:.infinity,alignment:.leading).background(accent,in:RoundedRectangle(cornerRadius:24))
                         if let magnitude=trial.landingMagnitude {
                             if let best=model.history.best(with:trial), let previousBest=best.landingMagnitude {
