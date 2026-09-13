@@ -30,8 +30,11 @@ subscription, microphone, account, backend, Apple Watch, or external hardware.
 
 ## Project status
 
-The new product direction and staged roadmap are documented. Implementation of
-the new plan has not been authorized.
+The owner authorized implementation through Phases 1–3 sequentially. The
+separate Phase 1 audio/scoring lab has passed its bounded feasibility gate on
+the tested iPhone built-in speaker. See [Phase 1 evidence](docs/phase-1-core-feasibility.md)
+and [current coordination](.ai/COORDINATION.md) for checkpoint integration and
+next-phase ownership. This is not release or other-route validation.
 
 The repository also contains an earlier iPhone feasibility lab. Its
 app-controlled reference path demonstrated the basic silent-gap timing model;

@@ -123,3 +123,14 @@ Final budget: 6/6 authorized launches, 1 initial wave, 2/3 fix batches,
 2/3 targeted waves, 2/2 explicitly authorized final integration waves.
 The implementation review is clean. The corrected physical result path and
 Strum between-trial repeatability remain evidence gates; no merge/Phase 2.
+
+
+## Final phase acceptance
+
+Coordinator accepted the bounded physical feasibility gate after the clean
+65-stroke Strum retry. See phase-exit-acceptance.json for all five roadmap
+bullets and limitations. Subsequent changes only record evidence and reconcile
+current authority/status documentation; all 50 reviewed source hashes remain
+unchanged. Existing tests/reviews apply, and no additional reviewer or budget
+reset occurred. Checkpoint merge proceeds under standing owner authorization
+after GitHub head/check/review/mergeability verification.

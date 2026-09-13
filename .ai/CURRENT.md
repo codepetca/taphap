@@ -20,12 +20,13 @@ authority and delivery boundaries.
 
 - Product: a song-based rhythm game and measurable internal-clock trainer.
 - Hook: **When the music comes back, will you still be on beat?**
-- Repository: product documentation plus an earlier native iPhone feasibility
-  lab retained as experimental evidence.
-- Status: the new direction and roadmap are documented; Phase 0 awaits owner
-  ratification.
-- Authority: documentation was authorized. No implementation phase in the new
-  roadmap is authorized yet.
+- Repository: canonical product documentation, a separate Phase 1 audio/scoring
+  lab, and the frozen historical feasibility lab.
+- Status: Phase 0 ratified; Phase 1 feasibility gate accepted for the tested
+  iPhone built-in speaker, checkpoint PR #2 merge pending. Phase 2 not started.
+- Authority: owner explicitly authorizes implementation/verification through
+  Phases 1–3 and checkpoint commits/PRs/merges once each genuine phase gate passes.
+  See coordination state for current evidence and exact exclusions.
 
 ## Current product decisions
 
@@ -76,8 +77,9 @@ Do not revive these without an explicit product-direction revision:
 
 - Repository: `codepetca/taphap`
 - Default branch: `main`
-- Current working branch: `codex/phase-1-feasibility-lab`
-- Intended stack after approval: native Swift and SwiftUI.
+- Source checkout branch: `codex/phase-1-feasibility-lab`; active Phase 1 delivery
+  branch `codex/phase-1-core-feasibility` in its isolated execution worktree.
+- Authorized implementation stack: native Swift and SwiftUI.
 - Existing experimental stack: iOS 26 lab, XcodeGen project description, and a
   Swift package for portable core tests.
 - Canonical product direction: [docs/product-brief.md](../docs/product-brief.md)

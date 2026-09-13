@@ -18,18 +18,21 @@ TapHap is a song-based rhythm game and real internal-clock trainer:
 The product serves musicians first while using the universally understandable
 challenge: **When the music comes back, will you still be on beat?**
 
-## Current state: direction documented, implementation locked
+## Current state: Phase 1 feasibility accepted; sequential delivery authorized
 
-- The new product direction and staged roadmap are documented.
-- No implementation phase in this roadmap is authorized merely by this
-  documentation change. The owner must explicitly approve the next phase.
+- Phase 0 is ratified. The owner explicitly authorized implementation through
+  Phases 1–3 and checkpoint merges after each genuine phase exit.
+- Phase 1 feasibility is accepted on the tested iPhone built-in speaker; see
+  [evidence](docs/phase-1-core-feasibility.md) and
+  [coordination state](.ai/COORDINATION.md) for integration and phase ownership.
 - The repository contains an earlier Phase 1A/1B iPhone feasibility lab. It is
   experimental evidence, not the foundation or UI for the new product.
 - That lab established that app-controlled reference audio can become silent
   while timing continues. It also established that direct Apple Music muting
   did not work in the tested configuration.
-- Apple Music, Spotify, Apple Watch, physical-instrument listening, production
-  UI, release activity, and external services remain out of scope.
+- Apple Music, Spotify, Apple Watch, physical-instrument listening, release
+  activity, and external services remain out of scope. Product UI belongs to
+  the authorized later phases after their preceding gates pass.
 
 ## Phase 0: ratify the direction
 

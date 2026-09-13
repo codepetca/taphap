@@ -1,12 +1,12 @@
 # Phase 1 core audio and scoring feasibility
 
-Status: implemented locally; all 11 automated physical-iPhone tests passed.
-Owner listening confirmed silence and return. The reviewed correction has
-saved three physical partial assessments. The latest owner-requested Strum
-retry captured 65 continuous downstrokes with no irregular-interval flags,
-materially strengthening repeatability evidence. Phase acceptance is under
-reassessment; earlier Strum long intervals remain historically unexplained.
-No merge or Phase 2 advancement has occurred.
+Status: **Phase 1 feasibility accepted** by the coordinator for the tested
+physical iPhone 16 built-in speaker setup. All five roadmap exit bullets are
+supported; see the final acceptance section below and
+[acceptance record](../.ai/evidence/phase1/phase-exit-acceptance.json).
+Checkpoint PR #2 is ready for its authorized merge. Phase 2 has not begun in
+this task. The chronological sections retain earlier blockers and decisions
+as historical evidence; the final acceptance decision supersedes them.
 
 ## Authority and preserved baseline
 
@@ -448,7 +448,7 @@ need to earn a full score for the phase to pass.
 | Tap and Strum timestamps are repeatable enough for musician-credible scoring. | Partially supported, unresolved overall. Three Tap opening fits have residual RMS 11.36–13.60 ms and periods 495.15–501.28 ms. Two Strum fits have residual RMS 12.54/13.18 ms and phases 34.82/26.18 ms, with actual coalesced crossing timestamps and measured interpolation brackets. However, both Strum traces contain a roughly one-second interval, and no full gesture trace or independent contact observation distinguishes omitted gesture from missed capture. Similar baseline statistics alone do not settle capture completeness. Owner recollection is pending; no full-score requirement is imposed. |
 | A physical-device run confirms the complete audible-to-silent-to-audible loop. | Supported: owner explicitly confirmed that music became silent then returned, alongside physical render evidence. This conclusion covers the tested iPhone built-in speaker route. Other audio routes have not been validated. |
 
-Current recommendation: **hold Phase 1 acceptance and merge pending resolution
+Recommendation at that checkpoint: **hold Phase 1 acceptance and merge pending resolution
 of the Strum capture uncertainty**. Four exit bullets are supported within the
 recorded device/route scope; the timestamp-repeatability bullet remains open.
 The proposed physical protocol is a means of collecting evidence, not an
@@ -490,3 +490,35 @@ unchanged. The coordinator has been asked to reassess the remaining timestamp
 repeatability bullet against this new evidence, retaining the historical
 uncertainty explicitly. No additional trial quota or full-score requirement
 has been added, and no source change, merge or Phase 2 work followed.
+
+
+## Final coordinator acceptance and checkpoint completion
+
+The coordinator accepted all five Phase 1 exit requirements after inspecting
+the clean Strum retry and the exact roadmap matrix. The digital mapped audio
+loop, deterministic results, deliberate-error diagnoses, repeated physical
+timestamps and owner-confirmed audible loop are supported within the tested
+iPhone 16 built-in speaker scope. The accepted mapping is recorded in
+[phase-exit acceptance](../.ai/evidence/phase1/phase-exit-acceptance.json).
+
+The timestamp requirement is supported by three comparable Tap and Strum
+opening baselines plus the latest 65 continuous downstrokes (all 64 intervals
+461.86–559.96 ms), tight crossing brackets, stable clocks and independently
+verified physical partial assessments. An uncertain landing is correctly
+withheld; a player earning a full score is not an exit requirement.
+
+The earlier two approximately one-second Strum intervals remain unexplained.
+Acceptance does not identify them as owner omissions or rule out intermittent
+missed capture. Retain them as a Phase 2 input-reliability observation; if
+missed capture is reproducible, repair the engine before product-test
+acceptance. No absolute contact timing, universal route fairness, or release
+readiness is claimed. No further trial quota is imposed.
+
+Final checkpoint changes reconcile current authority/status guidance and copy
+the latest coordinator-owned context. The archived inherited manifest and
+frozen historical lab remain byte-for-byte preserved. The separate reviewed
+implementation remains exactly `4be17f7824d08c276fe36fd493d9ad78491de26e` by all
+50 source-manifest hashes; no new implementation or reviewer was introduced.
+Existing successful tests and completed bounded reviews remain applicable.
+See [baseline preservation](../.ai/evidence/phase1/baseline-preservation.json)
+for the final explicitly authorized documentation changes to inherited paths.

@@ -16,7 +16,8 @@ Use this compact checklist at the start of every AI-assisted session.
 
 - The canonical product is the song-based game/trainer in
   [docs/product-brief.md](../docs/product-brief.md).
-- The documentation update does not authorize Phase 1 implementation.
+- The owner subsequently authorized Phases 1–3 sequentially and checkpoint
+  merges after each gate passes; consult current coordination state.
 - The earlier MusicKit feasibility lab is frozen historical evidence, not the
   starting point for production UI.
 - The MVP uses app-controlled, rights-cleared songs and touchscreen Tap and

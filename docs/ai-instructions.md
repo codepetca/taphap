@@ -59,14 +59,15 @@ Then load task-specific documents below.
 
 ## Authority
 
-- The current approval covers product and roadmap documentation only.
-- The previous implementation approval covered only the now-frozen Phase 1A/1B
-  iPhone lab.
+- The owner explicitly authorized local implementation and verification
+  through Phases 1–3 sequentially, plus in-scope checkpoint commits, PRs and
+  merges after each genuine phase gate passes. See current coordination state.
+- The Phase 1A/1B iPhone lab remains frozen historical evidence.
 - A roadmap is not implementation permission. Confirm the authorized phase
   before changing source, project configuration, dependencies, or assets.
-- Implementation permission does not authorize changing product direction,
-  buying or licensing content, contacting third parties, committing, pushing,
-  merging, publishing, or submitting to the App Store.
+- Current authority does not permit changing product direction, buying or
+  licensing content, contacting third parties, release publishing, deployment,
+  or App Store submission. Do not expand beyond the active phase assignment.
 
 ## Verification
 

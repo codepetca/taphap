@@ -3,7 +3,7 @@
   "change": "Preserve trustworthy partial timing diagnostics without full score or landing when beat assignment is ambiguous.",
   "dataSchema": 2,
   "installationEvidence": "assessment-installation.json",
-  "physicalStatus": "Three new schema-2 physical records: Tap and two Strum partial assessments. Latest Strum has 65 continuous downstrokes with no long/short interval flags and stable clock. Earlier approximately one-second intervals remain historically unexplained; acceptance reassessment pending coordinator.",
+  "physicalStatus": "ACCEPTED for tested iPhone speaker feasibility: three Tap/three Strum baselines, latest continuous 65-stroke Strum, stable clocks and independently verified partial assessments. Historical long intervals retained as Phase 2 observation.",
   "replays": {
     "captured-strum": {
       "baseline": {
@@ -73,5 +73,6 @@
     "swiftPackageTests": 21
   },
   "targetedPhysicalEvidence": "targeted-owner-observations.json",
-  "strumRetryEvidence": "strum-retry-observations.json"
+  "strumRetryEvidence": "strum-retry-observations.json",
+  "phaseExitAcceptance": "phase-exit-acceptance.json"
 }

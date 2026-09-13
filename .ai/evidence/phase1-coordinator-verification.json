@@ -1,0 +1,21 @@
+{
+  "implementationCommit": "71b695d48f26e7680da29df3566a38664ec2a8ba",
+  "sourceManifestFilesVerified": 44,
+  "sourceManifestMismatches": [],
+  "inheritedFilesVerified": 29,
+  "intentionallyChangedInheritedFiles": [
+    ".ai/CURRENT.md",
+    ".gitignore",
+    "Package.swift"
+  ],
+  "baselinePreservation": "all other inherited bytes preserved",
+  "github": {
+    "pullRequest": 2,
+    "state": "OPEN",
+    "draft": true,
+    "base": "main",
+    "checks": []
+  },
+  "phase1Exit": "not passed; physical device and musician acceptance missing",
+  "phase2and3": "not started; sequential gate applies"
+}
