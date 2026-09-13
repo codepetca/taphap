@@ -146,7 +146,8 @@ is evidence of a rendered state, not an accessibility or musician usability pass
 
 ## Physical and musician product test: required acceptance
 
-No Phase 2 human observation has been recorded yet. Phase 1's tested iPhone 16
+Three new actual owner trials and positive overall feedback are now recorded
+in the owner-analysis section below. Phase 1's tested iPhone 16
 speaker feasibility carries forward only for unchanged core behavior. Two old
 Strum records contain unexplained approximately one-second intervals; the latest
 65-stroke repeat had 64 intervals 461.86–559.96 ms. Neither omission nor absence
@@ -176,9 +177,9 @@ contacting outsiders from this task:
    order, which they would choose to use again and why. If possible alternate
    order across testers; do not infer product preference from novelty or from
    a test script completing. No purchase or new external integration is needed.
-7. With appropriate testers, navigate/read/retry using VoiceOver and large
-   text, and directly play the surface. Check no per-touch speech or automatic
-   rhythmic cue occurs in silence. Check reduced motion and increased contrast.
+7. Follow up the accessibility foundations with actual VoiceOver/direct-touch
+   use when available. Keep the current evidence gap explicit. Full accessibility
+   review belongs to Phase 4; do not add a broad certification gate to Phase 2.
 
 Record observations against all four roadmap questions: unaided understanding,
 voluntary retry, repeated-result trust and meaningful preference over click
@@ -247,8 +248,72 @@ result bundles and screenshots are archived outside the worktree with a private
 hash manifest. See `.ai/evidence/phase2/physical-integration.json`.
 
 The owner can now try Tap and down-Strum and report whether the results make
-sense, match their experience, and show any missed gestures. Actual VoiceOver
-use and the musician comprehension/retry/trust/comparison protocol above remain
-required evidence. No arbitrary trial quota or perfect-score requirement applies.
+sense, match their experience, and show any missed gestures. The musician comprehension/retry/trust/comparison protocol remains the product
+acceptance evidence. Actual VoiceOver-use is an explicit foundation-verification
+limitation; full accessibility review belongs to Phase 4. No arbitrary trial quota or perfect-score requirement applies.
 Phase 2 is not accepted; PR stays draft and no Phase 3 begins before the
 coordinator verifies the genuine gate.
+
+
+## Actual owner trials and analysis — 2026-09-13
+
+Owner feedback, relayed by the coordinator: “Did it. Feels good. Will need to
+refine stuff but overall is cool. Analyze. Lets keep moving toward mvp”. This
+supports positive overall appeal and continuation, without inventing specific
+refinement requests or comparative preference.
+
+Read-only retrieval found three new completed/full-score trials. All seven
+previous saved trials and diagnostic files are unchanged; all ten records are
+archived outside the worktree. No app launch, automation or playback was started
+while retrieving these records.
+
+| Mode / challenge | Captured events | Opening pulse | Gap consistency¹ | Drift vs opening | Landing vs opening |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Tap / First light (4s) | 66 | 501.24ms | 15.40ms | +6.75ms/beat | 48.53ms late |
+| Tap / Stay a little (6s) | 66 | 500.12ms | 11.74ms | −0.42ms/beat | 15.02ms late |
+| Strum / First light (4s) | 65 | 502.22ms | 15.17ms | −3.54ms/beat | 25.72ms early |
+
+¹ Residual variation around the fitted gap timing trend, not raw interval SD.
+Gap labels describe beat-span lengths; the 100ms fade reduces full zero-gain
+silence to 3.9s/5.9s. Landing is relative to each attempt's own opening pulse,
+not an independently measured acoustic offset.
+
+An independent standard-library Python calculation using raw occurrence times
+and the committed beat maps reproduced every numeric score field and diagnosis
+(maximum difference below 1e−12). No runtime invalidations occurred; maximum
+host/sample clock mismatch across these records was 0.008459ms. That measures
+clock progression consistency, not physical contact or acoustic precision.
+
+The Strum record contains 65 down-crossings, with 64 intervals spanning
+460.384–534.070ms (median 499.654ms). Bracket median/p95/max are
+8.322/8.324/16.645ms. There are no half/double-period interval flags and no
+approximately one-second gap in this trial. This is favorable capture evidence,
+not proof that every intended gesture was captured. The older unexplained
+Strum intervals remain unresolved; no actual gesture ground truth was supplied.
+
+The first-light Tap landing is closer than the earlier compatible owner result
+(48.53 versus 166.71ms absolute). That earlier trial overlapped automation, and
+the newer second Tap uses a different challenge. Neither comparison establishes
+controlled repeatability, perceived score trust or training improvement. The
+first full result for the longer Tap challenge and the first full Strum result
+remain separate comparison histories.
+
+No reproducible implementation defect was identified. The short-gap Tap drift
+is about 1.35% slower than its opening, and Strum about 0.71% faster. Current
+category wording follows the verified rules; a useful refinement question is
+whether the wording's strength matches what players felt. These traces alone
+do not justify changing scoring thresholds, layout or product direction.
+
+Remaining gate evidence is specific: unaided understanding, spontaneous retry,
+trust after repeated identical attempts, and meaningful preference relative to
+familiar click-based gap practice. Completing an extra challenge does not prove
+voluntary retry. The coordinator has one pending owner question about these
+observations and refinement priorities; this task does not duplicate it or
+claim the Phase 2 gate has passed. Accessibility foundations remain documented;
+actual VoiceOver use is unobserved, with full review reserved for Phase 4.
+
+Reproduction: `analysis/recompute-owner-trials.py` under `.ai/evidence/phase2/`
+accepts the private owner-analysis archive and bundled catalog paths. Sanitized
+findings: `owner-trial-analysis.json`, `owner-comparisons.json`, and
+`owner-observations.json`. Private raw data and per-trial identifiers remain
+outside git.

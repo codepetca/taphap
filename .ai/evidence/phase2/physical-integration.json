@@ -49,9 +49,8 @@
   },
   "lastLaunch": "CoreDevice launch succeeded with no test arguments; default challenge selection ready for owner. No autonomous playback left running.",
   "remaining": [
-    "Actual Tap/down-Strum observations: comprehension/usefulness of result, any missed/extra/cancelled gestures, and credible repeated compatible results.",
-    "Observe actual VoiceOver direct touch and assistive use; physical maximum Dynamic Type/preparation audit passed but is not VoiceOver-user evidence.",
-    "Musicians familiar with gap-click practice: unaided comprehension, voluntary retry, trustworthy repeated results and meaningful preference over click practice. Coordinator must accept genuine Phase2 gate before merge/Phase3."
+    "Coordinator maps actual product evidence: unaided comprehension, spontaneous retry, credible repeated-result interpretation and meaningful preference over familiar click-only gap practice. Positive overall owner feedback and three verified real trials are now recorded.",
+    "Preserve bounded device/route and actual VoiceOver-use limitations. Phase2 requires accessibility foundations; full accessibility review belongs to Phase4."
   ],
   "phase2ExitPassed": false,
   "durablePrivateEvidence": "/Users/stew/.codex/taphap-baselines/01a0989f-1811-7a53-825d-84d761c57044/phase2-evidence/physical-20260913",
@@ -90,5 +89,7 @@
     "coverage": "All 18 physical test cases have passed across initial and targeted runs. Initial and foreground-interrupted failures retained; no claim of a single clean 18-test run.",
     "sourceChanges": false,
     "reviewRepeated": false
-  }
+  },
+  "ownerAnalysis": "owner-trial-analysis.json",
+  "ownerObservations": "owner-observations.json"
 }

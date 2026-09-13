@@ -5,9 +5,8 @@
   "installation": "Succeeded for separate ca.codepet.taphap.game; bundle and signed application identifier verified.",
   "signedBuild": "Final implementation app and tests build successfully with existing signing; no signing/account changes.",
   "acceptanceNeeded": [
-    "Actual Tap/down-Strum observations: comprehension/usefulness of result, any missed/extra/cancelled gestures, and credible repeated compatible results.",
-    "Observe actual VoiceOver direct touch and assistive use; physical maximum Dynamic Type/preparation audit passed but is not VoiceOver-user evidence.",
-    "Musicians familiar with gap-click practice: unaided comprehension, voluntary retry, trustworthy repeated results and meaningful preference over click practice. Coordinator must accept genuine Phase2 gate before merge/Phase3."
+    "Coordinator maps actual product evidence: unaided comprehension, spontaneous retry, credible repeated-result interpretation and meaningful preference over familiar click-only gap practice. Positive overall owner feedback and three verified real trials are now recorded.",
+    "Preserve bounded device/route and actual VoiceOver-use limitations. Phase2 requires accessibility foundations; full accessibility review belongs to Phase4."
   ],
   "limitations": [
     "Simulator occurrence fixtures are not physical gestures or acoustic-latency measurements.",
@@ -21,5 +20,7 @@
     "onDevicePreservationVerified": false,
     "ownerDirectedRemovalHonored": true
   },
-  "physicalEvidence": ".ai/evidence/phase2/physical-integration.json"
+  "physicalEvidence": ".ai/evidence/phase2/physical-integration.json",
+  "ownerAnalysis": "owner-trial-analysis.json",
+  "ownerObservations": "owner-observations.json"
 }

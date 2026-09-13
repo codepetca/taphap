@@ -1,0 +1,29 @@
+[
+  {
+    "mode": "tap",
+    "challenge": "first-light",
+    "priorCompatibleFullResults": 1,
+    "priorBestLandingMagnitudeMS": 166.70516665180912,
+    "landingMagnitudeMS": 48.53236110163077,
+    "headlineExpected": "New closest landing for this challenge.",
+    "limitation": "Earlier first-light Tap was owner play overlapping automation; this comparison is not controlled repeatability or training-gain evidence."
+  },
+  {
+    "mode": "tap",
+    "challenge": "stay-a-little",
+    "priorCompatibleFullResults": 0,
+    "priorBestLandingMagnitudeMS": null,
+    "landingMagnitudeMS": 15.018944436936483,
+    "headlineExpected": "Your first verified landing in these conditions.",
+    "limitation": "No earlier complete compatible result. Modes and challenge IDs are compared separately."
+  },
+  {
+    "mode": "strum",
+    "challenge": "first-light",
+    "priorCompatibleFullResults": 0,
+    "priorBestLandingMagnitudeMS": null,
+    "landingMagnitudeMS": 25.715920210738357,
+    "headlineExpected": "Your first verified landing in these conditions.",
+    "limitation": "No earlier complete compatible result. Modes and challenge IDs are compared separately."
+  }
+]

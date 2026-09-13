@@ -1,5 +1,5 @@
 {
-  "status": "Reviewed implementation and autonomous physical checks complete; actual product/assistive-use acceptance pending",
+  "status": "Reviewed implementation, autonomous checks and three actual owner trials verified; product gate decision remains with coordinator",
   "toolchain": "Xcode 26.6 (17F113)",
   "packageTests": {
     "passed": 28,
@@ -40,10 +40,10 @@
   "signedDeviceBuild": "passed on corrected reviewed revision",
   "historicalAppTestBuild": "passed",
   "limits": [
-    "No actual Phase 2 musician/product observation",
     "VoiceOver direct-touch configuration tested programmatically; actual assistive use pending",
     "Software timestamp and simulator gesture tests are not physical capture repeatability or acoustic-latency evidence",
-    "Initial physical run overlapped owner input; targeted unattended UI/Strum and isolated audio checks subsequently passed. Route/background interruptions remain documented."
+    "Initial physical run overlapped owner input; targeted unattended UI/Strum and isolated audio checks subsequently passed. Route/background interruptions remain documented.",
+    "Owner reports positive overall impression; unaided comprehension, spontaneous retry, repeated identical-result trust and preference over familiar click practice remain unestablished."
   ],
   "fixedRevision": "680d87320dc50b4d9f2360d18bbd530252b7558e",
   "reducedMotion": "Enabled using Simulator Settings, game selection/preparation/play/return exercised and visually inspected; no repeating pulse, fixed surface retained. Original off setting restored after check.",
@@ -100,5 +100,10 @@
     "coverage": "All 18 physical test cases have passed across initial and targeted runs. Initial and foreground-interrupted failures retained; no claim of a single clean 18-test run.",
     "sourceChanges": false,
     "reviewRepeated": false
+  },
+  "ownerTrials": {
+    "newCompletedFullScores": 3,
+    "independentRecomputation": "All saved score fields and diagnoses match; see owner-trial-analysis.json",
+    "rawPreservation": "All7 previous records unchanged;10 total durably backed up."
   }
 }
