@@ -1,17 +1,24 @@
 {
-  "status": "not-tested",
+  "status": "installed-checks-incomplete",
   "device": "iPhone 16",
-  "probe": "Read-only CoreDevice lock-state probe connected successfully; passcodeRequired true, unlockedSinceBoot true.",
-  "installation": "Not attempted while locked. Existing Phase 1 apps/records untouched.",
+  "probe": "Live lock-state check connected and unlocked before installation.",
+  "installation": "Succeeded for separate ca.codepet.taphap.game; bundle and signed application identifier verified.",
   "signedBuild": "Final implementation app and tests build successfully with existing signing; no signing/account changes.",
   "acceptanceNeeded": [
-    "Install reviewed product app after phone unlock; run physical integration and real Tap/down-Strum loop.",
-    "Observe potential missed Strum capture with actual gesture notes.",
-    "Observe unaided musician comprehension, voluntary retry, score trust and preference relative to familiar click gap practice.",
-    "Exercise VoiceOver direct touch and device accessibility foundations with actual users."
+    "Clarify unexpected input and whether Phase1 app removal was intentional; restore accepted app/data if unintended, then verify byte-for-byte.",
+    "Complete a bounded unattended physical run under known conditions, investigate reproducible failures.",
+    "Actual Tap/down-Strum observations, accessibility use and musician comprehension/retry/trust/comparison with click practice."
   ],
   "limitations": [
     "Simulator occurrence fixtures are not physical gestures or acoustic-latency measurements.",
     "Only built-in speaker feasibility was accepted in Phase 1; no other route fairness claim."
-  ]
+  ],
+  "preservation": {
+    "phase1Before": "11 raw records copied and hashed durably before game install.",
+    "phase1After": "Bundle absent from subsequent live app inventory; container lookup fails. Cause unconfirmed. No uninstall/reset command issued. Restoration build prepared, not installed.",
+    "historicalLab": "Historical lab bundle was absent in preinstall inventory; no on-device preservation claim. Repository historical files unchanged.",
+    "game": "Four initial UI-run records and fixture diagnostics archived; no reset or deletion.",
+    "onDevicePreservationVerified": false
+  },
+  "physicalEvidence": ".ai/evidence/phase2/physical-integration.json"
 }

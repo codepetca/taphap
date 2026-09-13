@@ -1,0 +1,57 @@
+{
+  "status": "Installed; initial physical checks incomplete; device testing paused pending input provenance and Phase1 app preservation clarification",
+  "device": "iPhone 16",
+  "system": "iOS 26.6.2",
+  "reviewedImplementation": "680d87320dc50b4d9f2360d18bbd530252b7558e",
+  "sourceHashesVerified": 22,
+  "installation": "Succeeded for separate ca.codepet.taphap.game; bundle and signed application identifier verified.",
+  "initialPhysicalSuite": {
+    "total": 18,
+    "passed": 15,
+    "failed": 3,
+    "exitCode": 65,
+    "failures": [
+      {
+        "test": "ActualRenderClockTraversesSongWithoutInputsAndPersistsInvalidResult",
+        "evidence": "routeChanged during preparation; zero events and zero anchors; no score. Cause of route notification not established."
+      },
+      {
+        "test": "ChoosePlayResultRetryNextAndDurableHistory",
+        "evidence": "Immediate start-button existence assertion failed after Retry. Subsequent start/end/next/history and relaunch checks succeeded. Supposed no-input traversal contained 65 unattributed Tap events, so it is not clean unattended evidence."
+      },
+      {
+        "test": "StrumSurfaceAcceptsRepeatedDownwardGestures",
+        "evidence": "Surface disappeared after three captured events because multipleTouches invalidated the attempt. Input provenance pending; not established as an implementation defect."
+      }
+    ]
+  },
+  "verifiedOnPhone": [
+    "Full 34-second software occurrence fixture: 64 events, full score, durable reload; 1078 anchors, maximum clock mismatch 0.005041660042476304 ms. This is not human input or acoustic precision evidence.",
+    "Maximum Dynamic Type navigation/start/end/retry and preparation accessibility audit passed. Actual VoiceOver user testing remains pending.",
+    "Persistence failures/corrupt history and preparation invalidation checks passed."
+  ],
+  "unexpectedInput": {
+    "attribution": "unconfirmed; owner clarification requested",
+    "tapEvents": 65,
+    "kind": "scored",
+    "landingMS": 166.70516665180912,
+    "anchors": 1086,
+    "maximumClockMismatchMS": 0.009499983862043537,
+    "acceptanceClaim": false
+  },
+  "preservation": {
+    "phase1Before": "11 raw records copied and hashed durably before game install.",
+    "phase1After": "Bundle absent from subsequent live app inventory; container lookup fails. Cause unconfirmed. No uninstall/reset command issued. Restoration build prepared, not installed.",
+    "historicalLab": "Historical lab bundle was absent in preinstall inventory; no on-device preservation claim. Repository historical files unchanged.",
+    "game": "Four initial UI-run records and fixture diagnostics archived; no reset or deletion.",
+    "onDevicePreservationVerified": false
+  },
+  "lastLaunch": "Game launched successfully to its default selection; testing remains paused and owner play not yet requested.",
+  "remaining": [
+    "Clarify unexpected input and whether Phase1 app removal was intentional; restore accepted app/data if unintended, then verify byte-for-byte.",
+    "Complete a bounded unattended physical run under known conditions, investigate reproducible failures.",
+    "Actual Tap/down-Strum observations, accessibility use and musician comprehension/retry/trust/comparison with click practice."
+  ],
+  "phase2ExitPassed": false,
+  "durablePrivateEvidence": "/Users/stew/.codex/taphap-baselines/01a0989f-1811-7a53-825d-84d761c57044/phase2-evidence/physical-20260913"
+}

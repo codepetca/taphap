@@ -205,11 +205,34 @@ local storage outside this worktree:
 `/Users/stew/.codex/taphap-baselines/01a0989f-1811-7a53-825d-84d761c57044/phase2-evidence/`.
 Its private hash manifest remains outside git. The current signed app is under
 `build/Phase2Device/Build/Products/Debug-iphoneos/TapHapGame.app` in that archive.
-The phone remains unmodified by this task; last probe found it locked. The Mac
-also locked after direct visual checks, preventing further UI inspection; Reduce
-Motion and contrast were restored via simulator preference/CLI verification.
+The phone was subsequently unlocked and the reviewed game installed successfully.
+See `.ai/evidence/phase2/physical-integration.json` for the incomplete physical run.
 
-Next concrete dependency: unlock the paired iPhone for installation and physical
-integration/input checks of this reviewed app, then supply the real musician and
-assistive-use observations in the protocol above. No external contact, purchase,
-release, Phase 3 dispatch or assertion of engagement has been made.
+## Physical continuation — 2026-09-13
+
+Initial physical suite: 18 tests, 15 passed and 3 failed. The first render test
+cancelled safely on a route-change notification during preparation. A later full
+software occurrence fixture passed on speaker (64 events, 1078 anchors, maximum
+clock mismatch 0.005042 ms), as did persistence checks and the large-text flow
+and preparation accessibility audit. Software input does not establish physical
+contact precision or human acceptance.
+
+The UI traversal unexpectedly recorded 65 Tap events and a full result despite
+its test generating no such taps. These inputs remain unattributed until the
+owner confirms their origin. The immediate post-Retry start-button assertion
+failed, while subsequent start/end/next/history/relaunch actions succeeded.
+Automated Strum ended after three events with a multiple-touch invalidation.
+Neither issue is yet established as a reproducible implementation defect.
+
+Before installation, all 11 Phase 1 records were copied and hashed outside the
+worktree. After testing, the Phase 1 bundle was absent from the live app inventory
+and its container lookup failed. No uninstall/reset command was issued; cause is
+unconfirmed. A restoration build from accepted source is prepared but not
+installed pending clarification of whether removal was intentional. Historical
+lab bundle was absent even before installation. Game records and test fixtures
+are also durably archived. On-device preservation has **not** been verified.
+
+Further phone testing is paused pending that clarification. The reviewed game
+was last launched to selection, but hands-on play has not yet been requested.
+A bounded unattended check and real Tap/Strum, assistive-use and musician product
+observations remain. Phase 2 is not accepted; PR stays draft and no Phase 3 begins.

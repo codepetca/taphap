@@ -11,10 +11,11 @@
   "sourceManifest": ".ai/evidence/phase2/source-sha256.json",
   "durablePrivateArchive": "/Users/stew/.codex/taphap-baselines/01a0989f-1811-7a53-825d-84d761c57044/phase2-evidence/",
   "remainingExternalAcceptance": [
-    "Unlock paired iPhone; install reviewed separate game app and perform physical integration/Tap/down-Strum checks.",
+    "Clarify input provenance and absent Phase1 app, resolve preservation, then finish unattended physical checks; installed reviewed game is paused.",
     "Observe repeated Strum with actual gesture notes; repair any reproducible capture failure.",
     "Exercise VoiceOver direct touch and accessibility on device with appropriate users.",
     "Observe musicians familiar with gap-click practice: unaided comprehension, voluntary retry, credible repeated results and meaningful preference over click-based exercise.",
     "Coordinator verifies genuine Phase2 exit before ready/merge; no Phase3 yet."
-  ]
+  ],
+  "physicalContinuation": "physical-integration.json"
 }

@@ -1,5 +1,5 @@
 {
-  "status": "Local implementation and independent review complete; physical/product acceptance pending",
+  "status": "Reviewed implementation installed; physical checks incomplete and preservation clarification pending",
   "toolchain": "Xcode 26.6 (17F113)",
   "packageTests": {
     "passed": 28,
@@ -41,9 +41,9 @@
   "historicalAppTestBuild": "passed",
   "limits": [
     "No actual Phase 2 musician/product observation",
-    "Phone locked at read-only probe; product app not installed",
     "VoiceOver direct-touch configuration tested programmatically; actual assistive use pending",
-    "Software timestamp and simulator gesture tests are not physical capture repeatability or acoustic-latency evidence"
+    "Software timestamp and simulator gesture tests are not physical capture repeatability or acoustic-latency evidence",
+    "Initial physical suite: 15/18 passed, 3 failed; unexpected inputs and absent Phase1 app require clarification. Phase2 gate remains open."
   ],
   "fixedRevision": "680d87320dc50b4d9f2360d18bbd530252b7558e",
   "reducedMotion": "Enabled using Simulator Settings, game selection/preparation/play/return exercised and visually inspected; no repeating pulse, fixed surface retained. Original off setting restored after check.",
@@ -64,5 +64,6 @@
     "launches": 4,
     "remediationBatches": 1,
     "blockers": 0
-  }
+  },
+  "physicalIntegration": "physical-integration.json"
 }
