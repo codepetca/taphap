@@ -1,9 +1,10 @@
 {
-  "acousticLoop": "not observed",
-  "appLaunch": "passed; awaiting owner input",
+  "acousticLoop": "Owner confirms: yes, music did as expected - silent then returned. No independent acoustic timestamp measurement.",
+  "appLaunch": "passed; three completed human trials retrieved read-only",
   "command": "xcodebuild -project TapHapPhase1.xcodeproj -scheme TapHapPhase1 -destination \"platform=iOS,id=$TAPHAP_DEVICE_UDID\" -derivedDataPath build/Phase1Device -resultBundlePath build/Phase1PhysicalUnlocked.xcresult test-without-building",
   "developerMode": "enabled",
   "failures": 0,
+  "humanEvidence": "owner-observations.json",
   "initialAttempt": {
     "installation": "blocked",
     "reason": "kAMDMobileImageMounterDeviceLocked",
@@ -37,7 +38,7 @@
   },
   "runLocalTime": "2026-09-12 23:07:44\u201323:08:23 America/Toronto",
   "sourceCommit": "71b695d48f26e7680da29df3566a38664ec2a8ba",
-  "tapStrumRepeatability": "not observed",
+  "tapStrumRepeatability": "Two Tap trials and one Strum trial captured; all scores withheld as ambiguousInput. Capture consistency is promising, full scoring/repeatability gate remains open.",
   "testExecution": "passed",
   "testWallSeconds": 38.737,
   "tests": 11

@@ -1,8 +1,9 @@
 # Phase 1 core audio and scoring feasibility
 
 Status: implemented locally; all 11 automated physical-iPhone tests passed.
-Phase exit **not yet passed**: human listening and repeated Tap/Strum
-observations remain mandatory. Phase 2 has not begun.
+Owner listening confirmed silence and return. Phase exit **not yet passed**:
+all three physical input trials produced ambiguous scores, and between-trial
+Strum repeatability remains unverified. Phase 2 has not begun.
 
 ## Authority and preserved baseline
 
@@ -187,8 +188,9 @@ clock observations locally, and correctly produced `missingInput` with no
 score. The static surface and post-trial invalid result were visually inspected.
 This exercises the app record path, not physical contact or acoustic output.
 
-No physical audible loop, actual Tap/Strum trial, route repeatability, or
-acoustic re-entry has been marked passed.
+The owner later confirmed the audible loop and completed two Tap trials and
+one Strum trial. This establishes observed playback and real input capture,
+not a passing score or independently measured acoustic re-entry latency.
 
 On resumption, the existing signed build installed successfully and all 11
 physical-iPhone tests passed in 38.737 seconds. The speaker route ran at 48 kHz
@@ -207,7 +209,11 @@ The lab was launched successfully without automatic playback and left ready
 for owner input. The test harness creates zero-input invalidation records;
 a pre-owner local snapshot distinguishes those from actual human trials.
 No repeat of these passed tests is needed absent a relevant change.
-A human observer must now:
+The original proposed human protocol below is retained for context; five
+trials per mode was an engineering proposal, not a ratified quota. The actual
+three trials already reveal a concrete scoring limitation. Additional retries
+solely to meet that count are not justified; address the recorded limitation
+first, then use a targeted check. Proposed protocol:
 
 1. Use the built-in speaker at a comfortable audible level. Record route and
    device, input mode, session, and listening observations. Do not change volume
@@ -237,9 +243,60 @@ A human observer must now:
    measurement (e.g. externally recorded high-speed contact/audio reference),
    under a separate agreed measurement setup; simulator injection is insufficient.
 
-The exact remaining gate is physical loop confirmation plus observed,
-repeatable musician Tap/Strum timing on each supported route. The coordinator
-must not advance Phase 2 or merge a completed-phase checkpoint before it passes.
+## Actual owner observations and current gate
+
+The owner confirmed: **“yes, music did as expected - silent then returned.”**
+This supports the complete acoustic-loop observation for this owner/device/route.
+It does not measure acoustic latency or prove behavior on other routes.
+
+The three real trials are distinct from five zero-input records produced by
+lifecycle tests. See [sanitized human evidence](../.ai/evidence/phase1/owner-observations.json).
+Raw host timestamps, trial filenames and full traces remain local and ignored.
+
+| Measure | Tap 1 | Tap 2 | Strum 1 |
+| --- | ---: | ---: | ---: |
+| Captured events | 64 | 63 | 61 |
+| Audible fitted period, ms | 498.636 | 501.278 | 496.175 |
+| Audible residual RMS, ms | 12.581 | 13.602 | 12.543 |
+| Audible mean phase, ms | -3.038 | -5.928 | +34.821 |
+| Silent input interval median, ms | 557.480 | 557.516 | 542.964 |
+| Largest silent input interval, ms | 582.353 | 599.093 | 1070.581 |
+| Maximum clock progression mismatch, ms | 0.003583 | 0.008833 | 0.006458 |
+| Official result | ambiguousInput | ambiguousInput | ambiguousInput |
+
+All event times are monotonic; no route/lifecycle or stale-clock invalidation
+occurred. The two Tap audible phase estimates differ by 2.889 ms, and both
+show a similar slowing pattern in silence. That is promising repeat evidence
+for capture under these conditions, not a hardware-precision measurement.
+
+All 61 Strum crossings were downward. Their timestamp brackets were median
+8.321 ms, 95th percentile 8.324 ms, maximum 16.642 ms. This supports within-trial
+crossing resolution. The 1070.581 ms silent interval could be an omitted stroke
+or a crossing not captured; no touch-path record proves which. One Strum trial
+does not establish between-trial repeatability. Dispatch delay is recorded
+separately and not substituted for touch occurrence time.
+
+No official score was emitted in any trial. The nearest-beat assignment guard
+rejects a phase-adjusted offset of 225 ms or more. Both Tap traces contain
+useful slowdown evidence despite crossing that bound; Strum additionally has
+an unresolved missing-stroke possibility. The rejection prevents invented
+beat identities, but the current all-or-nothing result discards useful timing
+feedback. These observations expose a model/reporting limitation that the
+small-drift deterministic fixtures did not establish as usable for human play.
+
+Smallest recommended next implementation: retain safe audible baseline and
+observed-interval trend/consistency diagnostics when beat-relative landing is
+ambiguous, and explain the unavailable measure separately. Do not simply widen
+the nearest-beat threshold or assume away omitted/duplicate strokes. Replay
+normalized versions of these recordings plus explicit phase-wrap and
+missed/duplicate fixtures locally before asking for another targeted physical
+result check. This recommendation has been reported before modifying source
+or the installed app; no scoring change is included in this evidence update.
+
+The acoustic-loop criterion is now observed. Full Phase 1 remains open because
+real trials have not demonstrated useful trustworthy scoring, and Strum
+repeatability is not established. The coordinator must not merge or advance
+Phase 2 until the remaining gate is addressed.
 
 ## Apple documentation reviewed
 

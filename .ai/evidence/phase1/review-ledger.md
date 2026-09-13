@@ -44,9 +44,15 @@ wave is warranted for unchanged source.
 GitHub reports no configured checks. No external review or approval is claimed.
 Initial physical tests were blocked by the locked phone. After owner unlock,
 installation and all 11 automated physical tests passed on the unchanged
-reviewed source; see physical-device-tests.json. Acoustic loop and real
-Tap/Strum repeatability remain unobserved. No phase-exit pass,
+reviewed source; see physical-device-tests.json. Owner subsequently confirmed the acoustic loop. Three real trials (two Tap,
+one Strum) were captured, but all official scores were withheld as ambiguous.
+Scoring usefulness and between-trial Strum repeatability remain unverified. No phase-exit pass,
 merge, or Phase 2 advancement is recorded.
 
 Physical evidence update only: no implementation change and no new review wave.
 The existing source review remains valid.
+
+Human-evidence update: owner-observations.json records the actual capture
+metrics and current scoring limitation. It does not weaken the phase gate or
+change the reviewed source. Any subsequent scoring fix needs focused validation
+and proportionate review of the changed behavior.
