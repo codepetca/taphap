@@ -2,6 +2,15 @@
 
 Read this file at the start of every AI-assisted session.
 
+## Phase 3 task-local work — 2026-09-13
+
+Phase 3 implementation is active on the accepted Phase 2 merge `f4ab0fe`.
+This task owns the bounded training MVP and its checkpoint PR; coordinator
+retains phase acceptance, integration synchronization, and archival. Read
+[training implementation and verification](../docs/phase-3-training-mvp.md).
+The coordinator's worktree coordination file is authoritative for current
+ownership; this task does not edit it. No Phase 4/release work is authorized.
+
 ## Current authorization and state — 2026-09-13
 
 - Owner authorized functional Roadmap Phases 1–3, in-scope checkpoint commits,

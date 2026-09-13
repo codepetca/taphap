@@ -8,11 +8,11 @@ import SwiftUI
 final class IntegrationTests: XCTestCase {
     func testAllRenderedGapsAreZeroWithUnchangedTimeline() throws {
         let catalog=try GameAudioPlayer.loadCatalog()
-        let url=Bundle.main.url(forResource:"Afterglow",withExtension:"wav")!
-        let file=try AVAudioFile(forReading:url)
-        let original=AVAudioPCMBuffer(pcmFormat:file.processingFormat,frameCapacity:AVAudioFrameCount(file.length))!
-        try file.read(into:original)
         for challenge in catalog.challenges {
+            let url=Bundle.main.url(forResource:challenge.songTitle,withExtension:"wav")!
+            let file=try AVAudioFile(forReading:url)
+            let original=AVAudioPCMBuffer(pcmFormat:file.processingFormat,frameCapacity:AVAudioFrameCount(file.length))!
+            try file.read(into:original)
             let (map,buffer)=try GameAudioPlayer.loadBuffer(challengeID:challenge.id)
             let envelope=try GapEnvelope(map:map)
             XCTAssertEqual(buffer.frameLength,original.frameLength)
@@ -100,14 +100,21 @@ final class IntegrationTests: XCTestCase {
         XCTAssertEqual(pending.comparison(for:second),expected)
     }
     func testSyntheticOccurrenceTimestampsProduceDurableFullScore() async throws {
-        let model=makeModel(); model.choose(0); model.start()
+        try await verifyRenderedFixture(challengeID:"first-light",mode:.tap)
+    }
+    func testNewSpacedStrumMapOnActualRenderTimeline() async throws {
+        try await verifyRenderedFixture(challengeID:"lantern-l3-p1",mode:.strum)
+    }
+    private func verifyRenderedFixture(challengeID: String, mode: InputMode) async throws {
+        let model=makeModel(); model.mode=mode
+        model.choose(model.catalog!.challenges.firstIndex { $0.id == challengeID }!); model.start()
         let map=model.challenge!.map
         // Software occurrence fixture, not physical contact or observed musician performance.
         for i in map.beats.indices {
             let timestamp=model.audio.scheduledHostSeconds+map.seconds(i)+0.04
             let delay=timestamp-GameAudioPlayer.hostNow()+0.008
             if delay > 0 { try await Task.sleep(for:.seconds(delay)) }
-            model.capture(hostSeconds:timestamp,direction:nil)
+            model.capture(hostSeconds:timestamp,direction:mode == .strum ? .down : nil)
         }
         let deadline=Date().addingTimeInterval(3)
         while model.active && Date() < deadline { try await Task.sleep(for:.milliseconds(40)) }
@@ -147,5 +154,53 @@ final class IntegrationTests: XCTestCase {
         XCTAssertGreaterThan(model.audio.anchorCount,500)
         XCTAssertLessThan(model.audio.maximumClockResidualMS,2)
         print("PHASE2_RENDER anchors=\(model.audio.anchorCount) residualMS=\(model.audio.maximumClockResidualMS) stages=\(stages.sorted())")
+    }
+}
+
+@MainActor
+final class TrainingIntegrationTests: XCTestCase {
+    func testSessionCreationAndStepFailureAreAtomicAndResumeAfterReload() throws {
+        let root=FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+        defer { try? FileManager.default.removeItem(at:root) }
+        let store=HistoryStore(url:root.appendingPathComponent("history.json"))
+        let model=GameModel(store:store)
+        model.beginTraining()
+        XCTAssertEqual(model.currentTrainingRun?.trialIDs.count,0)
+        let runID=model.currentTrainingRun!.id
+        let fixture=try IntegrationTests().scoredTrial(model,landing:0.02)
+        // A blocked destination leaves both summary and step unchanged on disk.
+        let original=try Data(contentsOf:store.url)
+        try FileManager.default.removeItem(at:store.url)
+        try FileManager.default.createDirectory(at:store.url,withIntermediateDirectories:false)
+        model.persist(fixture)
+        XCTAssertTrue(model.canRetrySave)
+        XCTAssertEqual(model.currentTrainingRun?.trialIDs.count,0)
+        model.continueTraining(); XCTAssertEqual(model.currentTrainingRun?.trialIDs.count,0)
+        try FileManager.default.removeItem(at:store.url)
+        try original.write(to:store.url)
+        model.retrySave()
+        XCTAssertFalse(model.canRetrySave)
+        XCTAssertEqual(model.currentTrainingRun?.trialIDs,[fixture.id])
+        let reloaded=GameModel(store:store); reloaded.beginTraining()
+        XCTAssertEqual(reloaded.currentTrainingRun?.id,runID)
+        XCTAssertEqual(reloaded.currentTrainingRun?.trialIDs,[fixture.id])
+        XCTAssertEqual(reloaded.history.trials.count,1)
+        reloaded.restartTraining()
+        XCTAssertNotEqual(reloaded.currentTrainingRun?.id,runID)
+        XCTAssertEqual(reloaded.history.trials.count,1)
+        XCTAssertTrue(reloaded.history.training.runs.first!.abandoned)
+    }
+    func testUnknownHistoryAndFailedCreationNeverStartTraining() throws {
+        let root=FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+        defer { try? FileManager.default.removeItem(at:root) }
+        let store=HistoryStore(url:root.appendingPathComponent("history.json"))
+        let model=GameModel(store:store)
+        try Data("obstruction".utf8).write(to:root)
+        model.beginTraining(); XCTAssertEqual(model.screen,"selection"); XCTAssertNil(model.trainingRunID)
+        try FileManager.default.removeItem(at:root)
+        try FileManager.default.createDirectory(at:root,withIntermediateDirectories:true)
+        let corrupt=Data("corrupt".utf8); try corrupt.write(to:store.url)
+        let unknown=GameModel(store:store); unknown.beginTraining()
+        XCTAssertFalse(unknown.trainingAvailable); XCTAssertEqual(try Data(contentsOf:store.url),corrupt)
     }
 }

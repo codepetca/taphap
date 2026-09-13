@@ -35,16 +35,46 @@ public struct SavedTrial: Codable, Identifiable, Sendable {
     }
     /// Personal best is explicitly closest landing, not an invented composite grade.
     public var landingMagnitude: Double? {
-        guard completed, key.validatedRoute, assessment.kind == .scored,
-              assessment.invalidation == nil, let score=assessment.score,
+        guard completed, key.validatedRoute, key.assistance == "direct-touch", assessment.kind == .scored,
+              assessment.invalidation == nil, assessment.scoreIssue == nil, let score=assessment.score,
               score.reentryMS.isFinite else { return nil }
         return abs(score.reentryMS)
     }
 }
 public struct TrialHistory: Codable, Sendable {
-    public var schema = 1
+    public var schema = 2
+    public var training = TrainingState()
     public private(set) var trials: [SavedTrial] = []
     public init() {}
+    enum CodingKeys: String, CodingKey { case schema, trials, training }
+    public init(from decoder: Decoder) throws {
+        let c=try decoder.container(keyedBy:CodingKeys.self)
+        let version=try c.decode(Int.self,forKey:.schema)
+        guard version == 1 || version == 2 else { throw HistoryError.unsupportedSchema }
+        trials=try c.decode([SavedTrial].self,forKey:.trials)
+        guard Set(trials.map(\.id)).count == trials.count else { throw HistoryError.unreadable }
+        training = version == 1 ? TrainingState() : try c.decode(TrainingState.self,forKey:.training)
+        schema=2
+        try validate()
+    }
+    public func validate() throws {
+        guard schema == 2, Set(training.runs.map(\.id)).count == training.runs.count else { throw HistoryError.unreadable }
+        var consumed=Set<UUID>()
+        for run in training.runs {
+            guard !run.challenges.isEmpty, run.trialIDs.count <= run.challenges.count,
+                  run.challenges.count == (run.kind == .daily ? 4 : 3) else { throw HistoryError.unreadable }
+            for (index,id) in run.trialIDs.enumerated() {
+                guard consumed.insert(id).inserted, let trial=trials.first(where: { $0.id == id }),
+                      trial.trainingEligible, trial.key.mode == run.mode,
+                      trial.key.challenge == run.challenges[index], let condition=run.condition,
+                      trial.key.sameEnvironment(as:condition),
+                      run.kind == .daily || trial.key == condition else { throw HistoryError.unreadable }
+            }
+        }
+        for mode in [InputMode.tap,.strum] {
+            guard training.runs.filter({ $0.mode == mode && !$0.complete && !$0.abandoned }).count <= 1 else { throw HistoryError.unreadable }
+        }
+    }
     public mutating func append(_ trial: SavedTrial) {
         guard !trials.contains(where: { $0.id == trial.id }) else { return }
         trials.append(trial)
@@ -66,10 +96,11 @@ public struct HistoryStore: Sendable {
         let history: TrialHistory
         do { history = try JSONDecoder().decode(TrialHistory.self,from:Data(contentsOf:url)) }
         catch { throw HistoryError.unreadable }
-        guard history.schema == 1 else { throw HistoryError.unsupportedSchema }
+        guard history.schema == 2 else { throw HistoryError.unsupportedSchema }
         return history
     }
     public func save(_ history: TrialHistory) throws {
+        try history.validate()
         try FileManager.default.createDirectory(at:url.deletingLastPathComponent(),withIntermediateDirectories:true)
         try JSONEncoder().encode(history).write(to:url,options:.atomic)
     }

@@ -1,0 +1,33 @@
+{
+  "catalogSHA256": "bb14a76dc9e4b188b1b023751fcc7a37e12df08a4ebdf525545bdd9d8422684c",
+  "songs": [
+    {
+      "song": "Tidepool",
+      "audioSHA256": "e143a589e41f372d850df46e244704321b42d7dc56161f0f4527dd7acf2d35a9",
+      "verifiedAttacks": 112,
+      "maximumAttackOffsetFrames": 1,
+      "maps": 8,
+      "durationSeconds": 69.2,
+      "peakPCM": 19937
+    },
+    {
+      "song": "Lantern",
+      "audioSHA256": "d471fc9dd367992e341e2527b4eeb01d213492f9c57cfbe1888d3969776f6846",
+      "verifiedAttacks": 112,
+      "maximumAttackOffsetFrames": 2,
+      "maps": 8,
+      "durationSeconds": 52.909083333333335,
+      "peakPCM": 12607
+    },
+    {
+      "song": "PaperKite",
+      "audioSHA256": "fde4d05251078479fa669fe5dce43d3f1b6e408a671b10d8191195974a109d65",
+      "verifiedAttacks": 112,
+      "maximumAttackOffsetFrames": 1,
+      "maps": 1,
+      "durationSeconds": 64.22222916666666,
+      "peakPCM": 17377
+    }
+  ],
+  "claim": "PCM/map verification, not human listening or musician preference evidence"
+}

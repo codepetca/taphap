@@ -23,15 +23,21 @@ final class GameAudioPlayer {
         let data=try Data(contentsOf:url)
         guard digest(data) == ContentRevision.catalogSHA256 else { throw TrialError.assetMismatch }
         let catalog=try JSONDecoder().decode(SongCatalog.self,from:data)
-        try catalog.validate(); return catalog
+        try catalog.validate()
+        guard let trainingURL=bundle.url(forResource:"training-catalog",withExtension:"json") else { throw TrialError.assetMismatch }
+        let trainingData=try Data(contentsOf:trainingURL)
+        guard digest(trainingData) == TrainingContentRevision.catalogSHA256 else { throw TrialError.assetMismatch }
+        let training=try JSONDecoder().decode(TrainingCatalog.self,from:trainingData)
+        try training.validate()
+        return SongCatalog(revision:catalog.revision,title:catalog.title,audioSHA256:catalog.audioSHA256,challenges:catalog.challenges+training.challenges)
     }
     static func digest(_ data: Data) -> String { SHA256.hash(data:data).map { String(format:"%02x",$0) }.joined() }
     static func loadBuffer(challengeID: String, bundle: Bundle = .main) throws -> (BeatMap, AVAudioPCMBuffer) {
         let catalog=try loadCatalog(bundle:bundle)
         guard let challenge=catalog.challenges.first(where: { $0.id == challengeID }),
-              let url=bundle.url(forResource:"Afterglow",withExtension:"wav") else { throw TrialError.assetMismatch }
+              let url=bundle.url(forResource:challenge.songTitle,withExtension:"wav") else { throw TrialError.assetMismatch }
         let map=challenge.map
-        guard digest(try Data(contentsOf:url)) == catalog.audioSHA256 else { throw TrialError.assetMismatch }
+        guard digest(try Data(contentsOf:url)) == (challenge.audioSHA256 ?? catalog.audioSHA256) else { throw TrialError.assetMismatch }
         let file=try AVAudioFile(forReading:url)
         guard file.length == map.frameCount, file.processingFormat.sampleRate == map.sampleRate,
               file.processingFormat.channelCount == 1,
@@ -52,10 +58,12 @@ final class GameAudioPlayer {
         let (map,buffer) = try Self.loadBuffer(challengeID:challengeID)
         self.map = map
         previousAnchor = nil; anchorCount = 0; maximumClockResidualMS = 0
+        let catalog=try Self.loadCatalog()
+        guard let challenge=catalog.challenges.first(where: { $0.id == challengeID }) else { throw TrialError.assetMismatch }
         route = ["outputs": session.currentRoute.outputs.map { "\($0.portType.rawValue):\($0.portName)" }.joined(separator:","),
                  "sessionSampleRate":String(session.sampleRate),"outputLatencyReportedSeconds":String(session.outputLatency),
-                 "ioBufferDurationSeconds":String(session.ioBufferDuration),"audioSHA256":try Self.loadCatalog().audioSHA256,
-                 "mapSHA256":ContentRevision.catalogSHA256,"latencyCorrection":"none; stable combined offset fitted from audible input"]
+                 "ioBufferDurationSeconds":String(session.ioBufferDuration),"audioSHA256":challenge.audioSHA256 ?? catalog.audioSHA256,
+                 "mapSHA256":challenge.song == nil ? ContentRevision.catalogSHA256 : TrainingContentRevision.catalogSHA256,"latencyCorrection":"none; stable combined offset fitted from audible input"]
         if !configured {
             engine.attach(player); engine.connect(player,to:engine.mainMixerNode,format:buffer.format); configured = true
         }

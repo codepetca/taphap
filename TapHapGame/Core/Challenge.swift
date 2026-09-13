@@ -8,6 +8,11 @@ public struct Challenge: Codable, Identifiable, Sendable {
     public let title: String
     public let subtitle: String
     public let map: BeatMap
+    public let song: String?
+    public let audioSHA256: String?
+    public let pattern: String?
+    public let level: Int?
+    public var songTitle: String { song ?? "Afterglow" }
     public var gapSeconds: Double { map.seconds(map.returnBeat)-map.seconds(map.gapStartBeat) }
 }
 public struct SongCatalog: Codable, Sendable {
@@ -53,5 +58,21 @@ public struct ChallengeSession: Sendable {
     public mutating func finish(reason: TrialError? = nil) {
         guard active else { return }
         invalidation = reason; stage = .result; generation += 1
+    }
+}
+
+public struct TrainingCatalog: Codable, Sendable {
+    public let revision: String
+    public let challenges: [Challenge]
+    public func validate() throws {
+        guard revision == "training-v1", challenges.count == 17,
+              Set(challenges.map(\.id)).count == challenges.count else { throw TrialError.assetMismatch }
+        for challenge in challenges {
+            try challenge.map.validate()
+            guard ["Tidepool","Lantern","PaperKite"].contains(challenge.songTitle),
+                  challenge.audioSHA256?.count == 64,
+                  ["pulse","spaced"].contains(challenge.pattern ?? ""),
+                  (0...3).contains(challenge.level ?? -1) else { throw TrialError.assetMismatch }
+        }
     }
 }

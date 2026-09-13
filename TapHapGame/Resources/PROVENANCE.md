@@ -19,3 +19,22 @@ All 64 attacks cross a small PCM threshold one frame after the map position;
 this verifies authored attacks, not perceptual/acoustic latency. Catalog and
 WAV are hash-locked by the app. Reproduction uses Python standard library/libm;
 verify the exact committed bytes after regeneration on another platform.
+
+## Phase 3 original local compositions
+
+Tidepool, Lantern and Paper Kite are original instrumental oscillator
+arrangements authored in this repository for TapHap. The exact composition,
+arrangement and synthesis source is `scripts/generate-phase3-content.py`.
+There are no third-party performances, recorded samples, lyrics, borrowed songs,
+purchases or external licenses. The project owner controls these project-created
+source assets subject to applicable law; this is provenance, not a legal opinion
+about AI-assisted copyright eligibility. Repository LICENSE still applies.
+
+Tidepool: 100 pulses/minute, clear bass/percussion, four-root evolving motif.
+Lantern: 132 pulses/minute, quieter percussion, a different harmonic/melodic
+arrangement. Paper Kite: 108 pulses/minute, reserved for transfer measurements.
+All are mono 48 kHz, signed 16-bit PCM with an authored one-second pickup.
+Exact hashes, downbeats, sections and input maps are in `training-catalog.json`.
+Every-other-pulse maps designate intentional input spacing, not missing notes.
+The independent `verify-phase3-assets.py` checks the actual PCM attacks and
+frame counts. Phase 4 release rights review remains unauthorized and pending.
