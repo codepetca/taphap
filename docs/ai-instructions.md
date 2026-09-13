@@ -18,6 +18,7 @@ Then load task-specific documents below.
 | Task | Read next |
 |---|---|
 | Product scope, UX, scoring, game mechanics, or copy | [Product direction](product-brief.md), then [roadmap](../ROADMAP.md) |
+| UI flow, presentation, or copy | [UI standard](UI-UX-GUIDELINES.md), then [current flow assessment](phase-3-design-gaps.md); preserve product semantics |
 | Roadmap or prioritization | [Roadmap](../ROADMAP.md), then [product direction](product-brief.md) |
 | Audio playback, beat maps, content rights, imports, or streaming | [Platform constraints](platform-constraints.md) and current official documentation when needed |
 | Earlier MusicKit or timing experiment | [Historical feasibility lab](phase-1-feasibility-lab.md); do not treat it as an active plan |

@@ -91,6 +91,10 @@ real drum or guitar.
 
 ## Visual contract
 
+The [UI and interaction standard](UI-UX-GUIDELINES.md) governs native presentation,
+minimal copy, disclosure, and response. It preserves the gameplay and scoring
+contracts here.
+
 The game may communicate that silence is approaching and approximately when
 the music will return. It must not provide another beat to follow.
 

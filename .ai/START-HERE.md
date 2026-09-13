@@ -7,7 +7,8 @@ Use this compact checklist at the start of every AI-assisted session.
 1. Resolve the repository root and inspect `git status --short --branch`.
 2. Read [.ai/CURRENT.md](CURRENT.md).
 3. Read [docs/ai-instructions.md](../docs/ai-instructions.md).
-4. Load only the task-specific documents routed there.
+4. Load only the task-specific documents routed there; UI work includes the
+   [UI standard](../docs/UI-UX-GUIDELINES.md).
 5. Confirm whether the owner authorized discussion, documentation, a bounded
    feasibility phase, or product implementation. Do not infer authorization
    from the existence of a roadmap or experimental code.
