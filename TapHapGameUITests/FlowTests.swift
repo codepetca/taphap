@@ -87,6 +87,10 @@ final class FlowTests: XCTestCase {
         func step() {
             reveal(app.buttons["start"],in:app); app.buttons["start"].tap()
             XCTAssertTrue(app.staticTexts["trainingSummary"].waitForExistence(timeout:3))
+            if app.staticTexts["trainingSummary"].label.contains("Compared with") {
+                XCTAssertTrue(app.staticTexts["trainingSummary"].label.contains("60.0 ms lower"))
+                attachment(app,"checkpoint-comparison-software-fixture")
+            }
             reveal(app.buttons["continueTraining"],in:app); app.buttons["continueTraining"].tap()
         }
         begin(); step()
@@ -107,6 +111,15 @@ final class FlowTests: XCTestCase {
         for _ in 0..<3 { step() }
         reveal(app.buttons["trainingHistory"],in:app); app.buttons["trainingHistory"].tap()
         attachment(app,"training-transfer-complete")
+        let baseline=app.staticTexts.matching(NSPredicate(format:"label BEGINSWITH %@","Three-trial baseline saved:")).firstMatch
+        reveal(baseline,in:app); XCTAssertTrue(baseline.isHittable)
+        attachment(app,"training-history-oldest-reference")
+        app.terminate()
+        app.launchArguments += ["-UIPreferredContentSizeCategoryName","UICTContentSizeCategoryAccessibilityXXXL"]
+        app.launch()
+        reveal(app.buttons["trainingHistory"],in:app); app.buttons["trainingHistory"].tap()
+        reveal(baseline,in:app); XCTAssertTrue(baseline.isHittable)
+        attachment(app,"training-history-largest-text")
         #else
         throw XCTSkip("Software journey fixtures are simulator-only; never create them in phone history.")
         #endif
@@ -114,7 +127,7 @@ final class FlowTests: XCTestCase {
 
     @MainActor
     private func reveal(_ element: XCUIElement,in app: XCUIApplication) {
-        for _ in 0..<12 {
+        for _ in 0..<30 {
             if element.exists {
                 let f=element.frame, bounds=app.frame
                 if element.isHittable && f.midY > bounds.minY+120 && f.midY < bounds.maxY-80 { return }

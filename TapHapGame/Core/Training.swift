@@ -3,6 +3,19 @@ import Foundation
 import Phase1Core
 #endif
 
+public struct TrainingContent: Codable, Equatable, Sendable {
+    public let benchmark: String
+    public let training: String
+    public init(benchmark: String, training: String) { self.benchmark=benchmark; self.training=training }
+    public func revision(for challenge: String) -> String {
+        ["first-light","stay-a-little","into-the-blue"].contains(challenge) ? benchmark : training
+    }
+}
+public struct TrainingAttempt: Codable, Equatable, Sendable {
+    public let runID: UUID
+    public let step: Int
+    public init(runID: UUID, step: Int) { self.runID=runID; self.step=step }
+}
 public enum TrainingKind: String, Codable, Sendable { case baseline, daily, checkpoint, transfer }
 public struct TrainingRun: Codable, Identifiable, Sendable {
     public let id: UUID
@@ -10,13 +23,14 @@ public struct TrainingRun: Codable, Identifiable, Sendable {
     public let mode: InputMode
     public let day: Int
     public let challenges: [String]
+    public let content: TrainingContent
     public var trialIDs: [UUID] = []
     public var condition: ComparisonKey?
     public var abandoned = false
     public var complete: Bool { trialIDs.count == challenges.count }
     public var nextChallenge: String? { complete ? nil : challenges[trialIDs.count] }
-    public init(kind: TrainingKind, mode: InputMode, day: Int, challenges: [String]) {
-        id=UUID(); self.kind=kind; self.mode=mode; self.day=day; self.challenges=challenges
+    public init(kind: TrainingKind, mode: InputMode, day: Int, challenges: [String], content: TrainingContent) {
+        id=UUID(); self.kind=kind; self.mode=mode; self.day=day; self.challenges=challenges; self.content=content
     }
 }
 public struct TrainingState: Codable, Sendable {
@@ -43,11 +57,11 @@ public struct TrainingState: Codable, Sendable {
         if day > (completed.filter { $0.kind == .daily }.map(\.day).max() ?? lastCheck), day > lastCheck, Set(completed.filter { $0.kind == .daily && $0.day > lastCheck }.map(\.day)).count >= 3 { return .checkpoint }
         return completed.contains(where: { $0.kind == .daily && $0.day == day }) ? nil : .daily
     }
-    public mutating func begin(mode: InputMode, date: Date, trials: [SavedTrial]) -> TrainingRun? {
+    public mutating func begin(mode: InputMode, date: Date, trials: [SavedTrial], content: TrainingContent) -> TrainingRun? {
         let today=day(at:date)
         if let current=active(mode:mode) { return current }
         guard let kind=due(mode:mode,day:today) else { return nil }
-        let level=earnedLevel(mode:mode,trials:trials)
+        let level=earnedLevel(mode:mode,trials:trials,content:content)
         let placement=today.isMultiple(of:2) ? 0 : 1
         let plan: [String]
         switch kind {
@@ -55,15 +69,17 @@ public struct TrainingState: Codable, Sendable {
         case .transfer: plan=Array(repeating:"transfer-paperkite",count:3)
         case .daily:
             // All four tracks play to their authored ending: about 3m45s–4m02s.
-            let weaker=personalizedLevel(mode:mode,trials:trials,ceiling:level)
+            let weaker=personalizedLevel(mode:mode,trials:trials,ceiling:level,content:content)
             let progressiveSong=level == 0 ? "tidepool" : "lantern"
             plan=["first-light","tidepool-l\(max(0,level-1))-p\(placement)","\(progressiveSong)-l\(level)-p\(placement)","tidepool-l\(weaker)-p\(1-placement)"]
         }
-        let run=TrainingRun(kind:kind,mode:mode,day:today,challenges:plan); runs.append(run); return run
+        let run=TrainingRun(kind:kind,mode:mode,day:today,challenges:plan,content:content); runs.append(run); return run
     }
     /// Consume once, only the next planned challenge. A changed environment cannot mix a retest.
     public mutating func accept(_ trial: SavedTrial, runID: UUID) -> Bool {
         guard let index=runs.firstIndex(where: { $0.id == runID }), !runs[index].complete, !runs[index].abandoned,
+              trial.training == TrainingAttempt(runID:runID,step:runs[index].trialIDs.count),
+              trial.key.content == runs[index].content.revision(for:trial.key.challenge),
               trial.trainingEligible, trial.key.mode == runs[index].mode,
               trial.key.challenge == runs[index].nextChallenge,
               !runs.contains(where: { $0.trialIDs.contains(trial.id) }) else { return false }
@@ -73,11 +89,11 @@ public struct TrainingState: Codable, Sendable {
         } else { runs[index].condition=trial.key }
         runs[index].trialIDs.append(trial.id); return true
     }
-    public func earnedLevel(mode: InputMode, trials: [SavedTrial]) -> Int {
+    public func earnedLevel(mode: InputMode, trials: [SavedTrial], content: TrainingContent) -> Int {
         var level=0
         for target in 0..<3 {
             let ids=Set(runs.filter { $0.mode == mode && $0.kind == .daily && $0.complete }.flatMap(\.trialIDs))
-            let passes=trials.filter { ids.contains($0.id) && $0.key.challenge.contains("-l\(target)-") && ($0.reward?.stars ?? 0) >= 2 }
+            let passes=trials.filter { ids.contains($0.id) && $0.key.content == content.revision(for:$0.key.challenge) && $0.key.challenge.contains("-l\(target)-") && ($0.reward?.stars ?? 0) >= 2 }
             // Two demonstrated passes on distinct training days; opening an app earns nothing.
             let demonstrated=passes.contains { reference in
                 let compatible=passes.filter { $0.key.sameEnvironment(as:reference.key) && $0.key.content == reference.key.content }
@@ -88,9 +104,9 @@ public struct TrainingState: Codable, Sendable {
         }
         return level
     }
-    private func personalizedLevel(mode: InputMode, trials: [SavedTrial], ceiling: Int) -> Int {
+    private func personalizedLevel(mode: InputMode, trials: [SavedTrial], ceiling: Int, content: TrainingContent) -> Int {
         let ids=Set(runs.filter { $0.mode == mode && $0.kind == .daily }.flatMap(\.trialIDs))
-        let recent=trials.last { ids.contains($0.id) && $0.trainingEligible }
+        let recent=trials.last { ids.contains($0.id) && $0.key.content == content.revision(for:$0.key.challenge) && $0.trainingEligible }
         return (recent?.reward?.stars ?? 0) < 2 ? max(0,ceiling-1) : ceiling
     }
 }
@@ -126,7 +142,7 @@ public struct TrainingSummary: Sendable {
               Set(run.trialIDs).count == 3 else { return nil }
         let values=run.trialIDs.compactMap { id in trials.first { $0.id == id } }
         guard values.count == 3, let first=values.first,
-              values.allSatisfy({ $0.trainingEligible && $0.key == first.key }) else { return nil }
+              values.enumerated().allSatisfy({ index,trial in trial.trainingEligible && trial.key == first.key && trial.training == TrainingAttempt(runID:run.id,step:index) && trial.key.content == run.content.revision(for:trial.key.challenge) }) else { return nil }
         func median(_ a: [Double]) -> Double { a.sorted()[1] }
         key=first.key
         landing=median(values.map { abs($0.assessment.score!.reentryMS) })

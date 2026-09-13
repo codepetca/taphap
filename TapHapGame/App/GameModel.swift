@@ -77,6 +77,10 @@ final class GameModel: ObservableObject {
     }
     func start(deferArming: (@escaping @MainActor @Sendable () -> Void) -> Void = { action in DispatchQueue.main.async { action() } }) {
         guard !active, screen == "play", let challenge else { return }
+        if let run=currentTrainingRun, run.content.revision(for:challenge.id) != contentIdentity.revision(for:challenge.id) {
+            errorMessage="This saved step uses an earlier song version. Your attempts are preserved. Restart the session from Home to use this version."
+            return
+        }
         #if DEBUG && targetEnvironment(simulator)
         if Self.uiFixture { completeUIFixture(challenge); return }
         #endif
@@ -154,7 +158,7 @@ final class GameModel: ObservableObject {
         guard let challenge else { return }
         let assessment=Assessor.assess(events:events,map:challenge.map,invalidations:reason.map { [$0] } ?? [])
         if let key {
-            let trial=SavedTrial(date:now(),key:key,assessment:assessment,completed:reason == nil && session.progress == 1)
+            let trial=SavedTrial(date:now(),key:key,assessment:assessment,completed:reason == nil && session.progress == 1,training:attemptAssociation)
             persist(trial)
             saveDiagnostics(trial)
         }
@@ -186,6 +190,11 @@ final class GameModel: ObservableObject {
     }
     var canRetrySave: Bool { pendingSave != nil }
 
+    var contentIdentity: TrainingContent { TrainingContent(benchmark:ContentRevision.catalogSHA256,training:TrainingContentRevision.catalogSHA256) }
+    var attemptAssociation: TrainingAttempt? {
+        guard let run=currentTrainingRun, !run.complete else { return nil }
+        return TrainingAttempt(runID:run.id,step:run.trialIDs.count)
+    }
     var currentTrainingRun: TrainingRun? {
         guard let trainingRunID else { return nil }
         return history.training.runs.first { $0.id == trainingRunID }
@@ -208,19 +217,19 @@ final class GameModel: ObservableObject {
     }
     var reliableGap: String? {
         let ids=Set(history.training.runs.filter { $0.mode == mode && $0.complete }.flatMap(\.trialIDs))
-        let gaps=history.trials.filter { ids.contains($0.id) && ($0.reward?.stars ?? 0) >= 2 }.compactMap { trial in
+        let gaps=history.trials.filter { ids.contains($0.id) && $0.key.content == contentIdentity.revision(for:$0.key.challenge) && ($0.reward?.stars ?? 0) >= 2 }.compactMap { trial in
             catalog?.challenges.first { $0.id == trial.key.challenge }?.gapSeconds
         }
         guard let longest=gaps.max() else { return nil }
         return "Longest training gap held at two-star tolerances: \(String(format:"%.1f",longest)) seconds (including the fade)."
     }
     var chapter: String {
-        ["Finding the pulse","Holding longer","Carrying the quiet","Leaving room"][history.training.earnedLevel(mode:mode,trials:history.trials)]
+        ["Finding the pulse","Holding longer","Carrying the quiet","Leaving room"][history.training.earnedLevel(mode:mode,trials:history.trials,content:contentIdentity)]
     }
     func beginTraining() {
         guard !active, trainingAvailable else { return }
         var updated=history
-        guard let run=updated.training.begin(mode:mode,date:now(),trials:updated.trials) else { return }
+        guard let run=updated.training.begin(mode:mode,date:now(),trials:updated.trials,content:contentIdentity) else { return }
         do {
             try store.save(updated); history=updated; trainingRunID=run.id
             if let id=run.nextChallenge, let i=catalog?.challenges.firstIndex(where: { $0.id == id }) { choose(i,training:true) }
@@ -255,11 +264,12 @@ final class GameModel: ObservableObject {
     private func completeUIFixture(_ challenge: Challenge) {
         let map=challenge.map
         let captured=map.beats.indices.map { i -> InputEvent in
-            let time=map.seconds(i)+0.04
+            let landing=currentTrainingRun?.kind == .baseline ? 0.08 : 0.02
+            let time=map.seconds(i)+0.04+(i >= map.gapStartBeat ? landing : 0)
             return InputEvent(trackSeconds:time,hostSeconds:100+time,observedHostSeconds:100+time+0.01,mode:mode,direction:mode == .strum ? .down : nil)
         }
         let key=ComparisonKey(content:challenge.song == nil ? ContentRevision.catalogSHA256 : TrainingContentRevision.catalogSHA256,challenge:challenge.id,mode:mode,device:"SIMULATOR-UI-FIXTURE",system:"fixture",route:"Speaker",sampleRate:48000,bufferDuration:0.005,outputLatency:0,assistance:outsideHelp ? "outside-timing-help" : "direct-touch")
-        persist(SavedTrial(date:now(),key:key,assessment:Assessor.assess(events:captured,map:map),completed:true))
+        persist(SavedTrial(date:now(),key:key,assessment:Assessor.assess(events:captured,map:map),completed:true,training:attemptAssociation))
         screen="result"
     }
     func advanceFixtureDay() {

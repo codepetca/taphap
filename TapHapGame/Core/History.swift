@@ -30,8 +30,9 @@ public struct SavedTrial: Codable, Identifiable, Sendable {
     public let key: ComparisonKey
     public let assessment: TrialAssessment
     public let completed: Bool
-    public init(id: UUID = UUID(), date: Date = Date(), key: ComparisonKey, assessment: TrialAssessment, completed: Bool) {
-        self.id=id; self.date=date; self.key=key; self.assessment=assessment; self.completed=completed
+    public let training: TrainingAttempt?
+    public init(id: UUID = UUID(), date: Date = Date(), key: ComparisonKey, assessment: TrialAssessment, completed: Bool, training: TrainingAttempt? = nil) {
+        self.id=id; self.date=date; self.key=key; self.assessment=assessment; self.completed=completed; self.training=training
     }
     /// Personal best is explicitly closest landing, not an invented composite grade.
     public var landingMagnitude: Double? {
@@ -58,21 +59,34 @@ public struct TrialHistory: Codable, Sendable {
         try validate()
     }
     public func validate() throws {
-        guard schema == 2, Set(training.runs.map(\.id)).count == training.runs.count else { throw HistoryError.unreadable }
-        var consumed=Set<UUID>()
+        guard schema == 2, Set(trials.map(\.id)).count == trials.count,
+              Set(training.runs.map(\.id)).count == training.runs.count else { throw HistoryError.unreadable }
+        if let latest=training.latestDay {
+            guard (-719000...2900000).contains(latest), latest >= (training.runs.map(\.day).max() ?? latest) else { throw HistoryError.unreadable }
+        } else if !training.runs.isEmpty { throw HistoryError.unreadable }
+        var consumed=Set<UUID>(), replay=TrainingState()
+        var priorDay: Int?
         for run in training.runs {
-            guard !run.challenges.isEmpty, run.trialIDs.count <= run.challenges.count,
-                  run.challenges.count == (run.kind == .daily ? 4 : 3) else { throw HistoryError.unreadable }
+            guard (-719000...2900000).contains(run.day), run.day >= (priorDay ?? run.day),
+                  !run.content.benchmark.isEmpty, !run.content.training.isEmpty,
+                  !(run.complete && run.abandoned), !run.challenges.isEmpty,
+                  run.trialIDs.count <= run.challenges.count,
+                  replay.active(mode:run.mode) == nil,
+                  let expected=replay.begin(mode:run.mode,date:Date(timeIntervalSince1970:Double(run.day)*86400+10),trials:trials,content:run.content),
+                  expected.kind == run.kind, expected.challenges == run.challenges else { throw HistoryError.unreadable }
+            priorDay=run.day
             for (index,id) in run.trialIDs.enumerated() {
                 guard consumed.insert(id).inserted, let trial=trials.first(where: { $0.id == id }),
+                      trial.training == TrainingAttempt(runID:run.id,step:index),
+                      trial.key.content == run.content.revision(for:trial.key.challenge),
                       trial.trainingEligible, trial.key.mode == run.mode,
                       trial.key.challenge == run.challenges[index], let condition=run.condition,
                       trial.key.sameEnvironment(as:condition),
                       run.kind == .daily || trial.key == condition else { throw HistoryError.unreadable }
             }
-        }
-        for mode in [InputMode.tap,.strum] {
-            guard training.runs.filter({ $0.mode == mode && !$0.complete && !$0.abandoned }).count <= 1 else { throw HistoryError.unreadable }
+            guard run.condition == run.trialIDs.first.flatMap({ id in trials.first { $0.id == id }?.key }) else { throw HistoryError.unreadable }
+            // Replay stores final evidence only after the original plan has been recomputed.
+            replay.runs[replay.runs.count-1]=run
         }
     }
     public mutating func append(_ trial: SavedTrial) {

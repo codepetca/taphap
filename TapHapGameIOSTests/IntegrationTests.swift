@@ -73,8 +73,8 @@ final class IntegrationTests: XCTestCase {
             let time=map.seconds(index)+0.04+(index >= map.gapStartBeat ? landing : 0)
             return InputEvent(trackSeconds:time,hostSeconds:100+time,observedHostSeconds:100+time+0.01,mode:.tap)
         }
-        let key=ComparisonKey(content:"fixture-v1",challenge:"first-light",mode:.tap,device:"fixture",system:"26",route:"Speaker",sampleRate:48000,bufferDuration:0.005,outputLatency:0.015,assistance:"direct-touch")
-        let result=SavedTrial(key:key,assessment:Assessor.assess(events:events,map:map),completed:true)
+        let key=ComparisonKey(content:ContentRevision.catalogSHA256,challenge:"first-light",mode:.tap,device:"fixture",system:"26",route:"Speaker",sampleRate:48000,bufferDuration:0.005,outputLatency:0.015,assistance:"direct-touch")
+        let result=SavedTrial(key:key,assessment:Assessor.assess(events:events,map:map),completed:true,training:model.attemptAssociation)
         XCTAssertNotNil(result.landingMagnitude)
         return result
     }
@@ -203,4 +203,35 @@ final class TrainingIntegrationTests: XCTestCase {
         let unknown=GameModel(store:store); unknown.beginTraining()
         XCTAssertFalse(unknown.trainingAvailable); XCTAssertEqual(try Data(contentsOf:store.url),corrupt)
     }
+    func testArmedTrainingInterruptionPreservesTheUnfinishedStep() async throws {
+        let cases: [(Notification.Name?,TrialError)] = [
+            (AVAudioSession.routeChangeNotification,.routeChanged),
+            (AVAudioSession.interruptionNotification,.interruption),
+            (UIApplication.willResignActiveNotification,.backgrounded),
+            (AVAudioSession.mediaServicesWereResetNotification,.discontinuity),
+            (nil,.cancelled)
+        ]
+        for (notification,reason) in cases {
+            let root=FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+            defer { try? FileManager.default.removeItem(at:root) }
+            let model=GameModel(store:HistoryStore(url:root.appendingPathComponent("history.json")))
+            model.beginTraining(); let runID=model.trainingRunID!
+            model.start()
+            let deadline=Date().addingTimeInterval(2)
+            while (!model.running || model.audio.anchorCount == 0) && Date() < deadline { try await Task.sleep(for:.milliseconds(30)) }
+            XCTAssertTrue(model.running); XCTAssertGreaterThan(model.audio.anchorCount,0)
+            if let notification { NotificationCenter.default.post(name:notification,object:nil) }
+            else { model.finish() }
+            XCTAssertFalse(model.active); XCTAssertEqual(model.result?.assessment.invalidation,reason)
+            XCTAssertNil(model.result?.reward); XCTAssertTrue(model.currentTrainingRun!.trialIDs.isEmpty)
+            XCTAssertEqual(model.history.trials.count,1)
+            XCTAssertEqual(model.result?.training,TrainingAttempt(runID:runID,step:0))
+            let reloaded=GameModel(store:model.store); reloaded.beginTraining()
+            XCTAssertEqual(reloaded.trainingRunID,runID)
+            XCTAssertEqual(reloaded.currentTrainingRun?.nextChallenge,"first-light")
+            XCTAssertTrue(reloaded.currentTrainingRun!.trialIDs.isEmpty)
+            XCTAssertEqual(reloaded.chapter,"Finding the pulse")
+        }
+    }
+
 }

@@ -72,9 +72,9 @@ struct GameView: View {
                         ForEach(model.history.training.runs.filter { $0.complete && $0.mode == model.mode }.reversed()) { run in
                             VStack(alignment:.leading,spacing:8) {
                                 Text(run.kind.rawValue.capitalized).font(.headline)
-                                Text(Date(timeIntervalSince1970:Double(run.day)*86400),style:.date).font(.caption)
-                                Text(model.summary(for:run)).font(.subheadline)
-                            }.padding(.vertical,8)
+                                Text(Date(timeIntervalSince1970:Double(run.day)*86400),style:.date).font(.caption).environment(\.timeZone,TimeZone(secondsFromGMT:0)!)
+                                Text(model.summary(for:run)).font(.subheadline).fixedSize(horizontal:false,vertical:true)
+                            }.padding(.vertical,8).fixedSize(horizontal:false,vertical:true).accessibilityIdentifier("training-run-\(run.kind.rawValue)")
                         }
                     }.accessibilityIdentifier("trainingHistory")
                 }

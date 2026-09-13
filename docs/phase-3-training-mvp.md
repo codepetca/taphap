@@ -1,6 +1,7 @@
 # Phase 3 training MVP
 
-Implementation in progress on the accepted Phase 2 merge `f4ab0fe`.
+Implementation checkpoint [PR #4](https://github.com/codepetca/taphap/pull/4)
+on the accepted Phase 2 merge `f4ab0fe`.
 This checkpoint implements bounded local training; it is not a release.
 Phase 2 musician/click comparison remains owner-deferred, not passed.
 
@@ -82,6 +83,14 @@ in PCM rather than trusting synthesis loop times.
 History schema 2 reads schema 1 preserving trial IDs, dates, comparison keys,
 completion flags and assessments. Legacy trials are not retroactively assigned
 to a baseline/session. Trial and step advancement share one atomic write.
+New trials carry their persisted session ID and step; legacy/free-practice
+records have no association and cannot be attached retroactively. Each plan
+pins benchmark/training content identities. Changed content blocks the saved
+step and requires restarting the session, preserving earlier attempts. The
+history loader replays canonical scheduling and plans, verifies monotonic day
+bounds and unique run/step links, and rejects impossible completed-abandoned or
+out-of-order progress.
+
 Unknown/corrupt history is preserved and disables writes and training; ordinary
 failed writes keep pending attempts in memory and offer Save again. Training
 cannot advance on an unsaved result. Restart and initial session creation also
@@ -95,12 +104,31 @@ only enabled audio route. No other-device/route fairness claim is made.
 
 ## Verification status
 
-Pending completion: deterministic package tests, hosted native integration,
-simulator navigation and accessibility inspection, focused physical checks,
-independent checkpoint review and coordinator acceptance. The simulator-only
-UI fixture has isolated temporary storage and a visible software-fixture label;
-it never writes to the real game history and is compiled out of physical builds.
-Its clock travel and scripted perfect inputs are not human longitudinal evidence.
+Completed software checks: 36 portable tests, independent PCM/map verification,
+initial 21-test native integration run, focused new-map rendered Strum fixture,
+and a complete simulator baseline → relaunch/resume → three daily sessions →
+later checkpoint → reserved transfer journey. Focused in-flight training tests
+exercise route change, interruption, backgrounding, media reset and user stop:
+all preserve the unfinished step and save an invalid attempt without rewards.
+Atomic save failure/retry and unknown-history native tests pass. The actual
+backed-up Phase 2 history also migrates with all ten trial objects unchanged,
+zero invented sessions, and the source file untouched.
+
+Native large-text preparation accessibility audit and navigation pass. Screens
+are inspected alongside actual navigation and result assertions, not accepted
+from screenshots alone. The initial full-journey UI test failed because its
+control tap did not reliably scroll into view; the corrected test passes. Raw
+failure evidence is retained. The signed app builds; final physical checks and
+review closure remain pending. No phone update has been installed yet.
+
+The simulator-only UI fixture has isolated temporary storage and a visible
+software-fixture label; it never writes real game history and scripted input
+is compiled out of physical builds. Its clock travel, 80 ms synthetic baseline
+and 20 ms synthetic retest demonstrate a known comparison, not real longitudinal
+improvement. The genuine remaining Phase 3 exit observation is a new player's
+first-use comprehension and interpretation of baseline/daily/checkpoint results.
+The broader Phase 2 musician/click comparison remains deferred. Coordinator owns
+phase acceptance; passing software tests does not fabricate human acceptance.
 
 All new unique raw results, build products and signed app must be preserved under
 `/Users/stew/.codex/taphap-baselines/01a0989f-1811-7a53-825d-84d761c57044/phase3-evidence/`.
