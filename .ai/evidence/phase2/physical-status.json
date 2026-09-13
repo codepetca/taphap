@@ -1,13 +1,9 @@
 {
-  "status": "installed-physical-checks-verified-ready-for-owner",
+  "status": "Accepted for MVP construction under explicit owner-directed sequencing revision; broader comparison/polish deferred, not empirically passed.",
   "device": "iPhone 16",
   "probe": "Phone unlocked for installation/testing. One queued run waited for a subsequent unlock.",
   "installation": "Succeeded for separate ca.codepet.taphap.game; bundle and signed application identifier verified.",
   "signedBuild": "Final implementation app and tests build successfully with existing signing; no signing/account changes.",
-  "acceptanceNeeded": [
-    "Coordinator maps actual product evidence: unaided comprehension, spontaneous retry, credible repeated-result interpretation and meaningful preference over familiar click-only gap practice. Positive overall owner feedback and three verified real trials are now recorded.",
-    "Preserve bounded device/route and actual VoiceOver-use limitations. Phase2 requires accessibility foundations; full accessibility review belongs to Phase4."
-  ],
   "limitations": [
     "Simulator occurrence fixtures are not physical gestures or acoustic-latency measurements.",
     "Only built-in speaker feasibility was accepted in Phase 1; no other route fairness claim."
@@ -22,5 +18,12 @@
   },
   "physicalEvidence": ".ai/evidence/phase2/physical-integration.json",
   "ownerAnalysis": "owner-trial-analysis.json",
-  "ownerObservations": "owner-observations.json"
+  "ownerObservations": "owner-observations.json",
+  "phase2AcceptedForMVPConstruction": true,
+  "originalBroaderProductTestEmpiricallyComplete": false,
+  "acceptance": "acceptance.json",
+  "deferredEvidenceAndLimitations": [
+    "Broader musician/click comparison, unaided comprehension, spontaneous retry and trust after repeated identical attempts remain unestablished and are deferred until after the functional MVP.",
+    "Owner confirms results felt right. Actual VoiceOver-use remains unobserved; Phase2 foundations checked, full review belongs to Phase4."
+  ]
 }

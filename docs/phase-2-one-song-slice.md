@@ -1,10 +1,16 @@
 # Phase 2: one-song playable slice
 
-Status: local implementation, verification and independent review complete.
-[Checkpoint PR #3](https://github.com/codepetca/taphap/pull/3) remains draft.
-Reviewed implementation: `680d87320dc50b4d9f2360d18bbd530252b7558e`. **Phase 2 has not
-passed its product gate.** This task delivers one draft checkpoint for coordinator
-acceptance. No Phase 3 or release work is included.
+Status: **accepted for functional MVP construction** under the owner's explicit
+sequencing revision: “I think it felt right. We’ll tweak later. Let’s finish
+the entire product. Then go back and polish”. Broader musician/click comparison
+and optional polish are deferred, not empirically passed. No known engine defect
+is waived. See [exact acceptance](../.ai/evidence/phase2/acceptance.json).
+
+[Checkpoint PR #3](https://github.com/codepetca/taphap/pull/3) records integration.
+Reviewed implementation: `680d87320dc50b4d9f2360d18bbd530252b7558e`. Source is
+unchanged; valid closed reviews and successful fixed-code checks are reused.
+Coordinator verifies merge and synchronizes checkouts before dispatching Phase 3.
+This task contains no Phase 3 or release work.
 
 ## Scope and integration
 
@@ -144,7 +150,7 @@ Screenshots: [selection](../.ai/evidence/phase2/screenshots/selection.png),
 outside this disposable worktree before handoff/archival. Screenshot presence
 is evidence of a rendered state, not an accessibility or musician usability pass.
 
-## Physical and musician product test: required acceptance
+## Broader product observation: deferred until after functional MVP
 
 Three new actual owner trials and positive overall feedback are now recorded
 in the owner-analysis section below. Phase 1's tested iPhone 16
@@ -181,11 +187,10 @@ contacting outsiders from this task:
    use when available. Keep the current evidence gap explicit. Full accessibility
    review belongs to Phase 4; do not add a broad certification gate to Phase 2.
 
-Record observations against all four roadmap questions: unaided understanding,
-voluntary retry, repeated-result trust and meaningful preference over click
-practice. Coordinator decides whether actual evidence supports the Phase 2 exit.
-If testers/device observation are unavailable, deliver the reviewed draft and
-this precise external acceptance list; do not infer a pass or begin Phase 3.
+Retain these four roadmap questions for the deferred observation: unaided
+understanding, voluntary retry, repeated-result trust and meaningful preference
+over click practice. The owner/coordinator accepted MVP construction before this
+broader study; do not recast deferral as measured success.
 
 ## Delivery and review
 
@@ -198,8 +203,8 @@ No configured GitHub checks or unresolved review threads exist.
 
 All 22 fixed source-manifest files match the reviewed implementation; all 49
 accepted Phase 1 files outside the extended package definition and all 18
-historical files remain unchanged. No phase merge occurred. Coordinator must
-verify actual Phase 2 external acceptance before marking ready or merging.
+historical files remain unchanged. Owner/coordinator acceptance authorizes the
+checkpoint merge after final source and GitHub verification.
 
 Private logs, simulator records and build/result bundles are preserved in durable
 local storage outside this worktree:
@@ -251,8 +256,8 @@ The owner can now try Tap and down-Strum and report whether the results make
 sense, match their experience, and show any missed gestures. The musician comprehension/retry/trust/comparison protocol remains the product
 acceptance evidence. Actual VoiceOver-use is an explicit foundation-verification
 limitation; full accessibility review belongs to Phase 4. No arbitrary trial quota or perfect-score requirement applies.
-Phase 2 is not accepted; PR stays draft and no Phase 3 begins before the
-coordinator verifies the genuine gate.
+Phase 2 is now accepted under the subsequent explicit sequencing revision.
+Coordinator verifies the checkpoint merge before dispatching Phase 3.
 
 
 ## Actual owner trials and analysis — 2026-09-13
@@ -304,12 +309,13 @@ category wording follows the verified rules; a useful refinement question is
 whether the wording's strength matches what players felt. These traces alone
 do not justify changing scoring thresholds, layout or product direction.
 
-Remaining gate evidence is specific: unaided understanding, spontaneous retry,
+Deferred broader evidence is specific: unaided understanding, spontaneous retry,
 trust after repeated identical attempts, and meaningful preference relative to
 familiar click-based gap practice. Completing an extra challenge does not prove
-voluntary retry. The coordinator has one pending owner question about these
-observations and refinement priorities; this task does not duplicate it or
-claim the Phase 2 gate has passed. Accessibility foundations remain documented;
+voluntary retry. The owner subsequently said results felt right and directed
+completion of the functional MVP before tweaks. This is basic perceived-fairness
+confirmation and a sequencing decision, not a broader comparison-study result.
+Accessibility foundations remain documented;
 actual VoiceOver use is unobserved, with full review reserved for Phase 4.
 
 Reproduction: `analysis/recompute-owner-trials.py` under `.ai/evidence/phase2/`

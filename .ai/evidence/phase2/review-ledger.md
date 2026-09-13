@@ -78,3 +78,18 @@ two affected hosted iOS tests pass after correction. Corrected signed build pass
 GitHub: no configured checks, review threads or changes-requested reviews.
 PR stays OPEN/DRAFT: physical product loop, assistive use and actual musician
 product-test evidence remain external acceptance, not technical-review findings.
+
+
+## Acceptance and merge handoff — 2026-09-13
+
+Owner confirmed results felt right and explicitly directed completion of the
+functional MVP before broader product comparison and optional polish. Coordinator
+accepts Phase2 for construction under this sequencing revision; original broader
+empirical questions remain deferred. See `acceptance.json`. No engine defect is
+waived. This supersedes the earlier draft-only external-acceptance hold.
+
+Implementation remains exactly the closed reviewed source manifest. Subsequent
+changes are evidence/guidance only. Reuse the four completed reviews and successful
+fixed-code checks; no new reviewer launch, test run or budget reset for merge.
+Final GitHub readiness/checks/review-thread state and expected head are verified
+immediately before merging. PR#3 is the authoritative integration record.

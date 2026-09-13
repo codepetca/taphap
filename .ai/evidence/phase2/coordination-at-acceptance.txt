@@ -1,0 +1,552 @@
+# TapHap MVP coordination
+
+## Outcome and authority
+
+Coordinator: `01a0989f-1811-7a53-825d-84d761c57044`, **Orchestrate TapHap MVP**,
+worktree `/Users/stew/.codex/worktrees/c999/taphap`.
+Deliver ROADMAP.md Phases 1–3 sequentially, verifying every exit gate; stop
+before Phase 4. The full objective is retained and not yet achieved.
+
+Owner instruction on 2026-09-12 ratified Phase 0 and authorized local Phases 1–3,
+superseding inherited documentation-only restrictions. Additional owner
+instruction through **Main TapHap roadmap**, `01a0882f-67ff-74a3-86df-2a6cf343417b`,
+authorizes in-scope commits, branch pushes, PRs, review/CI fixes, and merges to
+`codepetca/taphap` default `main` after each genuine phase exit. Prefer one
+checkpoint PR per phase, beginning inherited baseline plus Phase 1. Draft PRs
+can be published before physical acceptance; merging cannot.
+
+No Phase 4+, release/deployment/App Store, purchases/licensing deals, external
+messages, streaming, Watch, microphone/instrument recognition, backend or social
+work. Do not weaken phase gates or alter product direction to advance.
+
+Coordinator tool-backed goal was confirmed active at startup, then BLOCKED
+after three locked-phone goal turns. Owner explicitly resumed by unlocking the
+phone and supplying real trials. Work is active; goal tool still shows BLOCKED
+because status tools cannot set active. Preserve the same objective without a
+duplicate. Any new blocked audit starts fresh.
+
+## Baseline and integration
+
+Inherited HEAD `2e0310bc245525e82ace4110c103681e6facfe55`; coordinator detached.
+Source checkout `/Users/stew/Repos/taphap` remains on
+`codex/phase-1-feasibility-lab` with inherited owner changes. All 29 inherited
+files matched source before dispatch. Eight modified documents and untracked
+historical lab/package/project were inherited owner work. See
+[baseline manifest](evidence/inherited-baseline.json) for hashes, status and
+local archival snapshot. Preserve source checkout and unrelated work.
+
+Checkpoint preserves inherited bytes except three explained changes:
+`.ai/CURRENT.md` gains authority; `.gitignore` excludes private evidence;
+`Package.swift` adds separate targets, preserving old ones. Coordinator checked
+29 inherited files and 44 committed source hashes; all 18 historical lab/test/
+project/evidence files match. See
+[coordinator verification](evidence/phase1-coordinator-verification.json).
+Coordinator also passed seven inherited tests before MVP changes.
+
+Execution owns source/PR/review ledger; coordinator owns this record and phase
+decisions. Refresh coordinator records before checkpoint delivery by agreement
+without overwriting concurrent edits. Synchronize source checkout after merge
+only with careful dirty-state/inherited-file reconciliation.
+
+## Phase state
+
+| Phase | Status | Gate |
+| --- | --- | --- |
+| 0 | Ratified | Explicit implementation authority |
+| 1 | Complete; PR #2 merged | All five exit bullets accepted for tested iPhone 16 built-in speaker; exact evidence and limitations retained |
+| 2 | Reviewed draft delivered; physical/product acceptance pending | Build reliable understandable one-song slice, then observed musician engagement comparison with click practice |
+| 3 | Not started | Phase 2 pass, then baseline/daily/checkpoint/transfer/history/accessibility and deterministic/usability evidence |
+| 4+ | Unauthorized | Do not dispatch |
+
+## Owning task and checkpoint
+
+`01a098a0-eb9c-77a3-a6e0-87b457663a45`, **Validate TapHap Phase 1 audio and scoring**.
+Project `5973b045-8468-4b64-9a9b-dd9bd10d8401` (taphap), local host,
+worktree `/Users/stew/.codex/worktrees/844e/taphap`, app-configured model/effort.
+Goal startup and 29/29 baseline verification confirmed. Its goal also blocked
+at the old device dependency; explicit owner resumption is in progress.
+Latest wait cursor: `f81e82f9-1482-4beb-a83c-e3d533317518:80`.
+
+[Draft PR #2](https://github.com/codepetca/taphap/pull/2), **Add Phase 1 musical
+audio and scoring feasibility lab**, branch `codex/phase-1-core-feasibility`.
+Reviewed implementation `71b695d48f26e7680da29df3566a38664ec2a8ba`.
+`fbad7cb` adds ledger/delivery; last coordinator-verified GitHub head
+`a7b168e36f78e6c0da88fc7e4756a10aa57ba1e3` adds physical evidence/docs only.
+OPEN/DRAFT/CLEAN; no configured GitHub checks, external review, merge or archive.
+Current diagnostic remediation changes reviewed source; old review cannot prove
+new code. Execution evidence: `docs/phase-1-core-feasibility.md` and
+`.ai/evidence/phase1/` (verification-summary, physical-device-tests,
+owner-observations, delivery, source-revision-sha256 JSON files and review-ledger).
+Raw device/signing/trial data stay ignored under local evidence/build directories.
+
+## Verified evidence and real trials
+
+- Original map: 64 attacks within 3 frames (0.0625 ms). Offline render traverses
+  1,632,000 samples with zero gap energy and unchanged return position.
+- Reviewed version passes 13 package tests (7 inherited), 11 simulator tests,
+  2 final lifecycle tests, signed build and historical app/test build.
+- Owner unlocked phone; all 11 physical tests passed, 0 failures, 38.737 s,
+  iPhone 16/iOS 26.6.2, speaker 48 kHz/5 ms IO, 643 anchors, maximum progression
+  mismatch 0.00391667 ms. Render consistency is not acoustic/contact precision.
+- Owner confirms: "music did as expected - silent then returned". Acoustic
+  silence/return criterion observed on speaker.
+- Three real trials retrieved, Tap/Tap/Strum; five known zero-input lifecycle
+  records excluded. Tap baseline periods 498.636/501.278 ms, residual RMS
+  12.581/13.602 ms, phase means 2.889 ms apart; gap mean intervals
+  551.072/562.626 ms indicate slower tapping through silence.
+- Strum: 61 downstrokes; bracket median 8.321/p95 8.324/max 16.642 ms. One
+  1070.581 ms interval could be omitted or uncaptured stroke. One session does
+  not establish between-trial repeatability. All clocks stable (<0.009 ms).
+- All three official scores withheld as ambiguousInput. No valid real landing
+  score yet. Capture promising; full Phase 1 gate not passed.
+
+## Current increment and next action
+
+Same task/PR is correcting diagnostics: retain trustworthy audible baseline
+and observed-interval feedback when absolute beat matching is ambiguous; label
+landing/full score unavailable. Do not widen thresholds, invent beat identities,
+or assess clock/lifecycle-contaminated trials. Add normalized real-behavior
+replays and phase-wrap/missed/duplicate cases, verify locally and prepare helpful
+plain-language output. Installed app stays unchanged until targeted validation.
+No more owner trials requested now; proposed five-per-mode count is not an
+arbitrary quota for advancement.
+
+Existing hq-pr-review: initial Sol/Terra found two P1 lifecycle defects; one
+batched fix, targeted Sol clean, final Terra clean. Used 4/5 launches, one
+initial wave, one fix batch, one targeted wave, 1/1 final integration wave,
+about 13 minutes of review elapsed. Do not reset ledger or bypass caps. Finish
+concrete correction/local tests first; report exact additional review proposal
+for any required owner budget extension. No merge or Phase 2 before real gate.
+
+Remediation checkpoint now published: `4be17f7824d08c276fe36fd493d9ad78491de26e`
+on the same OPEN/DRAFT PR #2. Batch 2 passes 21 package tests, 16 affected iOS
+tests and signed build-for-testing. Assessor preserves verified baseline and
+observed interval median/spread while landing/full score remain nil on ambiguous
+beat matching; runtime contamination suppresses timing claims. Original 45%
+assignment limit unchanged. Three anonymized physical replays yield useful
+Tap slowdown and Strum possible missed/extra-input feedback. Evidence in
+`assessment-verification.json` and `assessment-source-sha256.json`; prior
+reviewed source manifest remains archived. Phone app has not been replaced.
+
+Review approval checkpoint: 4/5 launches, 2/3 fix batches, 1/3 targeted waves,
+1/1 final integration used; 47 minutes wall time at 03:36 UTC from 02:49 start
+(includes owner testing). Proposed explicit extension: one Sol/high focused
+assessment/contamination/replay review, then one Terra/high cumulative review;
+6 total launches, a second final integration, up to 30 additional minutes,
+20-minute individual cap retained. No extra reviewer launched. All independent
+patch/test/publication work complete; owner approval required by hq-pr-review
+before exceeding these limits. No more owner trials until changed result path
+has been reviewed. Full Phase 1 gate still open; no merge or Phase 2.
+
+Owner approved review extension with "yes": two additional reviews capped at
+30 minutes total before phone update. Propagated to existing execution task:
+Sol/high focused assessment/contamination/replay then Terra/high cumulative
+integration; six total launches, second final integration allowed, 20-minute
+individual cap retained. Owning task records start/deadline in same ledger.
+No further implicit budget extension. Review now active on the concrete patch.
+Extension start 2026-09-13 03:44:25 UTC, deadline 04:14:25 UTC. Focused Sol/high
+review launched as 5/6 against `4be17f7`, all 50 source hashes reverified.
+Terra/high cumulative review will be sixth after this wave and any safe fixes.
+
+Approved extension completed clean on `4be17f7`. Sol 03:44:39.310–03:47:34.843
+UTC (2m55.533s); Terra 03:48:23.399–04:05:15.418 UTC (16m52.019s). Actual terminal
+activity timestamps prove both met individual caps and total 20m49.557s met
+30-minute extension; stale summaries/delayed delivery initially obscured this.
+No cancellation, replacement or extra reviewer. Final budget: 6/6 launches,
+2/3 fix batches, 2/3 targeted waves, 2/2 authorized final integration waves.
+
+Coordinator verified clean execution worktree and GitHub PR head
+`1a3871f438e77e56206d0caed9395a384ca03332` (review/device evidence only), still
+OPEN/DRAFT/CLEAN with no configured checks. All 50 reviewed patch hashes match;
+no new implementation blockers. No further review needed for unchanged patch.
+
+Attempted corrected-build installation is blocked by connection, not a proven
+lock: direct lockState and install both fail CoreDevice 4000 / Network.NWError
+54, Connection reset by peer. Cached list still says paired/available. New app
+was NOT installed; existing app/trial records preserved. Independent patch,
+review, checks and evidence publication complete. Next owner action: wake and
+unlock iPhone, restore connection (USB if needed), then same task installs under
+existing authority. Next meaningful validation: one Tap and one further
+down-Strum on corrected result path; no repeated acoustic-loop quota.
+Final bounded install retry session 50615 is confirmed terminal (exit 1), same
+CoreDevice 4000/NWError 54. No installation process remains; no more attempts
+until the owner restores connectivity. Raw retry log stays ignored at execution
+`.ai/evidence/phase1/local/device-install-assessment-retry.log`.
+
+Heartbeat `coordinate-taphap-mvp-phases` PAUSED at this external device dependency.
+Full Phase 1 gate remains open; no merge/Phase 2. This is the first resumed
+coordinator turn reaching the new external-only impasse; do not reuse the old
+locked-phone audit count. Goal tool still reports prior BLOCKED status without
+a resume operation; work resumes on owner's device-ready instruction.
+
+## Latest owner resumption — 2026-09-13 09:28 local
+
+Owner says "its on now". Initial coordinator probe still reset, but owning task
+then directly verified unlocked/connected and installed reviewed `4be17f7` app
+successfully, launched without autorun. No transport/pairing/account/signing
+changes. Install process 97120 completed exit 0; preservation copy completed.
+All eight prior records (five lifecycle, three human) match byte-for-byte after
+update. Coordinator inspected `assessment-installation.json` and verified PR
+head `ce6b09bd9600325062f38c644f8cc32fda1452db`, OPEN/DRAFT, evidence-only update.
+
+App is ready and left intact. Next owner check: one Tap and one further
+down-Strum; report whether corrected feedback is understandable/useful and any
+missed strokes or unexpected behavior. Leave app open; execution retrieves new
+records only after owner completion relay. No manual export or more arbitrary
+trial quota. Prior connection blocker resolved; actual physical-result and
+repeatability gate remains open. Heartbeat stays paused while awaiting owner.
+
+Owner completed targeted Tap/Strum directly in execution task. Exactly two new
+schema-2 human records retrieved read-only, prior eight unchanged. Tap 3:
+baseline 495.150 ms, silence median 549.031 ms, largest interval 582.276 ms.
+Strum 2: baseline 503.312 ms, silence median 533.951 ms, one 1030.338 ms interval;
+64 downstrokes, bracket median 8.320/p95 16.639/max 33.276 ms. Both partial
+assessments, no runtime invalidations, stable clocks (<0.006 ms mismatch), no
+invented landing/full score. Independent interval recomputation matches saved
+metrics. Corrected physical assessment/persistence path now exercised in both
+modes. All 50 reviewed source hashes unchanged.
+
+Evidence-only commit `370d0f7` pushed to draft PR #2; see execution
+`targeted-owner-observations.json`. Full Phase 1 decision now awaits one owner
+observation: execution task already asked whether owner skipped/held a Strum
+stroke, to distinguish actual omitted gesture from possible missed capture.
+Do not duplicate that question. Two Strum baseline RMS values (12.54/13.18 ms)
+are comparable, but roughly one-second intervals occurred in both trials.
+Subjective usefulness of corrected display also not yet directly confirmed.
+No fixed trial quota or requirement that owner earn a full score is added to
+ROADMAP; valid partial diagnostics are legitimate behavior. After answer, map
+each actual Phase 1 gate bullet to evidence and report recommendation before
+merge. No source change, extra review or Phase 2 while this is unresolved.
+
+## Phase 1 acceptance decision — after clean Strum retry
+
+Coordinator inspected the new `strum-retry-observations.json`, exact roadmap
+exit matrix and PR head `07d6421425898034cc06a980264cb37c36b4bae1` (draft/clean).
+Accept the bounded Phase 1 feasibility gate for the tested iPhone 16 built-in
+speaker setup. This is not release readiness or validation of other routes.
+
+1. Continuous mapped fade/return: verified PCM envelope/traversal, digital gap
+   silence and correct returned samples, plus actual physical render clock.
+2. Determinism: 22 recorded fixtures, repeated identical successful scores,
+   and deterministic full/partial/invalid assessment tests.
+3. Diagnosis: both modes' acceleration/deceleration/jitter/phase fixtures give
+   expected results; missing/duplicate/capture contamination stay explicit.
+4. Repeatable timestamps: three Tap baselines RMS 11.36–13.60 ms; three Strum
+   baselines RMS 12.54/13.18/11.80 ms and phases 34.82/26.18/39.51 ms. Latest
+   Strum trial has 65 monotonic downstrokes and all 64 intervals 461.86–559.96
+   ms, no long/short intervals, median/p95/max crossing brackets
+   8.320/8.323/16.640 ms. All clocks stable, no runtime invalidations. This
+   positive continuous trace plus comparable repeated trials supports bounded
+   capture/timestamp feasibility; tests verify event-time conversion and
+   reference crossing. Corrected physical partial assessments match independent
+   recalculation and honestly withhold uncertain landing rather than invent it.
+5. Audible physical loop: owner explicitly confirms silence then natural return.
+
+The two earlier long Strum intervals remain historically unexplained. No claim
+is made that they were owner omissions or that intermittent loss is ruled out.
+They are retained as a Phase 2 input-reliability observation to test, not a
+confirmed defect inferred from absent ground-truth gestures. The new evidence
+supports feasibility without imposing zero unknowns, full-score performance,
+or an arbitrary trial quota. If Phase 2 reveals reproducible missed capture,
+repair the engine before product-test acceptance. Keep route/device limitations
+visible in evidence and do not claim universal scoring fairness.
+
+Next: owning Phase 1 task records acceptance, refreshes current coordinator
+guidance/evidence, verifies final PR checks/review state and merges existing
+checkpoint under standing authority. Coordinator then verifies actual merge,
+preserves dirty source/coordination changes during synchronization, and dispatches
+one Phase 2 vertical-slice task. No Phase 2 implementation before integration.
+
+## Integrated Phase 1 — current ready state
+
+PR #2 verified MERGED at `036e81dd5a0de971d6430a24f95560ee933714e5`,
+2026-09-13T13:49:25Z, final head `0942331ad9b0dae200aed76a4669e9816ef75c0b`.
+Merged tree matches accepted checkpoint; all 50 reviewed implementation hashes
+match `4be17f7`. Acceptance artifact: `phase1/phase-exit-acceptance.json` under
+evidence. GitHub had no configured checks or unresolved reviews/threads.
+Owning Phase 1 goal COMPLETE; task archived after coordinator merge verification.
+Correction: after task archival, execution worktree 844e and its ignored raw
+outputs were found absent. The branch and committed evidence remain. See recovery
+record below; do not assume task archival preserves a worktree.
+
+Source checkout is now clean on `main`, coordinator clean/detached at same
+merge before current coordination updates. Source's 29 inherited files were
+rechecked unchanged immediately before synchronization; no additional owner
+edits existed. Preserved Git stashes (not popped because changes are represented
+in merged checkpoint): source `0768ff5add76e984e1fe860059ac2f9eba832d20`,
+coordinator `5626b0ade37239fe7d6a0894d2663bbef2a9d759`. Original archival snapshot
+and coordinator-pre-phase1-sync archive retained outside checkout under local
+`/Users/stew/.codex/taphap-baselines/01a0989f-1811-7a53-825d-84d761c57044/`.
+No explicit deletion command was issued, but task archival was followed by
+execution-worktree removal. Both primary/coordinator checkouts verified clean at
+merge and all source hashes verified, without rerunning unchanged checks.
+
+Ready to dispatch one Phase 2 one-song vertical-slice task from merged main.
+Carry forward native song-game visual contract, honest partial scoring, local
+history compatibility, accessibility foundations and unresolved historical
+Strum observation; no Phase 3 before actual Phase 2 product/exit evidence.
+
+
+## Active Phase 2 and raw-record recovery — latest authoritative state
+
+Execution task `01a09b0a-c71a-7251-af94-79ffe54c11ef`, **Build TapHap Phase 2
+one-song game slice**, project `5973b045-8468-4b64-9a9b-dd9bd10d8401`, local,
+worktree `/Users/stew/.codex/worktrees/21e6/taphap`. Created once from main;
+setup client ID resolved. Child confirmed tool-backed goal ACTIVE, initially
+clean HEAD exactly `036e81dd5a0de971d6430a24f95560ee933714e5`, required guidance
+read, and accepted-merge ancestry. Current compact wait cursor
+`9738cdd5-3024-4c8e-b9c4-2c85a1dc4eee:2`.
+
+Bounded work: separate native product target, original one-song/three-challenge
+selection/play/result flow, Tap/Strum, honest scoring, retry/next/PBs and
+compatible local history, accessibility and applicable checks. Fresh bounded
+hq-pr-review ledger belongs to that task. Real musician comprehension, retry,
+trust and comparison with click practice are still required for Phase 2 exit;
+no Phase 3 before evidence and checkpoint integration. No owner action now.
+Heartbeat `coordinate-taphap-mvp-phases` resumed ACTIVE at its existing 15-minute
+cadence, quiet unless a meaningful transition or action is needed.
+
+Archival recovery: Phase 1 working folder 844e disappeared after task archival.
+Committed sanitized evidence and implementation remain in merged main. Read-only
+copy from the unchanged phone app recovered all 11 saved JSON records: five
+zero-input lifecycle records and six human trials (three Tap, three Strum).
+Latest Strum has 65 events, 746 anchors, and saved assessment exactly matching
+committed strum-retry observations. A fresh SHA-256 manifest accompanies the
+copy in durable local storage outside worktrees:
+`/Users/stew/.codex/taphap-baselines/01a0989f-1811-7a53-825d-84d761c57044/phase1-device-recovery/`.
+Original raw build/test/install logs are not recovered; committed summaries
+and task history remain. No claim of complete raw-log retention. Phase 2 owner
+was told to preserve unique ignored evidence outside disposable worktrees before
+archival. Phone records were copied only, without installation or app changes.
+
+
+Phase 2 interim execution report (not final acceptance): separate app compiles
+against unchanged accepted core; original Afterglow song and three hash-locked
+maps with 64 PCM attack checks within one frame. Owner task reports 27 package
+and 11 iOS core/integration tests passed, including a 34-second render traversal;
+normal flow and corrected large-text/accessibility audit pass. Durable valid
+result, failure-save, direct visual and cue-free/Strum checks plus independent
+review/draft PR remain underway. Signed build succeeded. Read-only phone probe
+connected but found a passcode required; no installation occurred. Independent
+work remains ready, so no owner action or monitor pause yet. Coordinator will
+verify final fixed-revision evidence rather than treating this progress report
+as completion. Phase 2 real musician gate remains open.
+
+
+Phase 2 draft checkpoint now independently verified on GitHub:
+[PR #3](https://github.com/codepetca/taphap/pull/3), **Add Afterglow one-song
+game slice**, OPEN/DRAFT/CLEAN targeting main, head
+`2fec7fc57f7346ecc6be1e1f7df7a95fdb5859b8`; no configured GitHub checks.
+Execution reports 27 package, 13 iOS integration and three UI tests passed,
+49 accepted source and 18 historical files preserved, signed/historical builds
+passed. Four simulated Strum gestures produced four down events; this is
+software evidence, not physical capture validation.
+
+Inspected fresh Phase 2 review ledger: initial Sol/high + Terra/high wave began
+2026-09-13 14:18:07 UTC on fixed head above; 2/5 launches, 1/1 initial wave,
+0/3 targeted waves, 0/1 final waves and 0/3 remediation batches. Individual
+review deadlines no later than 14:38:30 UTC; 45-minute session deadline
+15:03:07 UTC. Owning task controls review/fixes and durable raw evidence backup.
+No duplicate coordinator review. Real physical and musician acceptance still
+pending; draft publication does not pass Phase 2 or permit merge/Phase 3.
+
+
+## Phase 2 reviewed local handoff — current external dependency
+
+Coordinator verified PR #3 OPEN/DRAFT/CLEAN, no configured checks, final head
+`a33faedfc705859af8b48a4a55527576f41a5d90`. Reviewed implementation
+`680d87320dc50b4d9f2360d18bbd530252b7558e`; independently recomputed all 22
+source hashes, zero mismatches. Reviewed ledger closed after initial Sol found
+P1 false first/best comparisons under unreadable/pending history. One batch fixed
+it; targeted Terra and final Sol clean. Four launches, one initial/targeted/final
+wave, one fix batch, approximately 12 minutes; no extension. Reported final
+verification: 28 package tests, 13 earlier iOS integration and three UI checks
+retained, two affected hosted iOS history checks pass after fix, corrected signed
+build and historical build pass. Unique raw logs/results and reviewed signed
+app are durably backed up outside worktrees under phase2-evidence beside the
+Phase 1 recovery directory; coordinator verified archive and app exist.
+
+Task goal COMPLETE means the explicitly allowed reviewed-local-handoff outcome
+with precise remaining external acceptance, not Phase 2 exit. Keep this same
+execution task unarchived for physical continuation. No merge and no Phase 3.
+Next owner action: unlock paired iPhone and leave connected for separate game
+installation and physical checks. Then actual Tap/Strum and accessibility use,
+and familiar-musician comprehension, voluntary retry, result trust and meaningful
+preference versus click practice must be observed using the documented protocol.
+No arbitrary additional trial quota and no fabricated external evidence.
+
+Monitor PAUSED because independent implementation/review work is complete and
+only external device/product observation remains. Resume this task's owner on
+device-ready message; do not redispatch or duplicate review for unchanged code.
+Overall Phases 1–3 outcome remains incomplete.
+
+
+Owner requested connection check; live direct lockState succeeded at 2026-09-13
+10:47:41 local: connected tunnel, passcodeRequired=false, unlockedSinceBoot=true.
+Resumed same Phase 2 execution task for authorized reviewed-app installation
+and autonomous physical checks, preserving records and reusing unchanged reviews.
+Monitor resumed ACTIVE. Actual installation/results not yet verified; human
+product gate remains open. No new execution task or review launched.
+
+
+Phase 2 continuation startup confirmed by owning task: concrete tool-backed
+goal ACTIVE, direct unlocked probe, all 11 Phase 1 records backed up read-only
+to durable storage. Inventory found only Phase 1 bundle before installation;
+historical lab bundle/container absent, so no historical phone backup claimed.
+Reviewed separate Phase 2 app installation and existing physical integration/UI
+suite are underway. Installation success and physical results not yet reported.
+
+
+Phase 2 app installation reported successful. First physical suite requires
+triage: initial audio routeChanged before anchors, transient immediate retry/start
+UI assertion, Strum multipleTouches cancellation after three events. Supposed
+no-input traversal unexpectedly saved 65 Tap events/full score; source of touches
+unconfirmed. These results establish neither a clean pass nor a product defect.
+Owning task asked owner whether touching occurred; coordinator did not duplicate
+question and instructed phone remain unlocked/untouched until checks finish.
+Keep unexpected recording unattributed pending confirmation; bounded controlled
+verification and triage stay with existing owner. Raw evidence preserved under
+phase2-evidence/physical-20260913 outside worktree. No source edits or extra
+reviews yet; Phase 2 gate remains open.
+
+
+Material preservation issue reported after physical tests: previously inventoried
+Phase 1 bundle now absent and container lookup fails. All 11 records were backed
+up durably before install/testing; on-device preservation is NOT established.
+Separate game bundle/signing identifier verified by owning task; no uninstall or
+reset command reported. Cause unknown. Owning task paused physical automation,
+asked whether owner removed old app, and is inspecting installation/test activity.
+Coordinator relayed status without duplicating question. Continue read-only
+diagnosis and back up current game data before further mutations. Honor any
+confirmed intentional owner removal; if unintended removal established, restore
+accepted Phase 1 build/data within preservation scope and verify hashes. Do not
+claim root cause, recovery or physical acceptance before verified evidence.
+
+
+Physical evidence checkpoint independently verified: PR #3 remains OPEN/DRAFT
+at `4458127d60ec18a1f33b12c792e0ae55d71bf9b2`. Inspected
+phase2/physical-integration.json: 15/18 initial phone checks passed, three failed
+with input/route provenance uncertainty; no physical gate pass. All 22 reviewed
+source hashes reported unchanged. Durable archive includes 11 Phase 1 records,
+four game UI records, fixture diagnostics, screenshots/results and prepared
+accepted Phase 1 restoration build, with private manifest reported 2337 files.
+Restoration not performed, disappearance cause unresolved. Last game launch
+reached selection, but owner play not requested. Owning task continuation goal
+ACTIVE/incomplete at first clarification dependency. Two owner questions already
+pending in owning task; do not duplicate. Monitor PAUSED while no independent
+work remains ready. Await clarification of unexpected touches and intentional
+app removal, then resume controlled physical verification in same task.
+
+
+Owning Phase 2 physical continuation goal now formally BLOCKED after three
+consecutive turns at the same unanswered clarification dependency. No live
+install/test process remains. Read-only audit rehashed all 11 backup records;
+retained diagnostics do not establish disappearance cause (absence of log entries
+is not proof of no removal). No source or phone mutations. Existing questions
+about unexpected touches and intentional app removal remain pending. Monitor
+stays PAUSED; resume same owning task only on relevant owner clarification, with
+a fresh blocked audit. No new dispatch, phone mutation, merge or Phase 3.
+
+
+Owner explicitly clarified in owning task: “Yes I played during checks and
+removed phase 1. Should I not touch it until you instruct”. Prior unexpected
+65 Tap events now attributed to owner; overlapping automation excluded from clean
+validation. Phase 1 removal intentional, so honor it and do NOT restore; retain
+all 11 verified backups. Owner instructed to leave phone unlocked/untouched until
+explicit ready-to-play message. Same physical continuation resumes bounded
+affected checks; fresh blocked audit. Monitor resumed ACTIVE. No source edits,
+new review, phase acceptance, merge or new dispatch.
+
+
+## Phase 2 ready for owner play — latest state
+
+Coordinator inspected physical-integration.json and independently verified PR #3
+OPEN/DRAFT at `964911337e96c42aa31e8b4347f20dd73fed6938`. Unchanged reviewed
+implementation `680d873`; owning task reports all 22 hashes match. Unattended
+flow/retry/next/history/relaunch and four Strum gestures passed. Isolated full
+34-second no-input render passed, 1021 anchors, maximum residual 0.005583 ms,
+all stages, invalid/missingInput and no score as expected. All 18 physical cases
+have passed across runs, NOT a single clean 18-test suite. Earlier route and
+173-anchor background cancellations remain documented. Four prior game records
+retained exactly within seven-record final history; diagnostics unchanged.
+Phase 1 removal intentional; all 11 raw backups verified, no restore.
+
+No-arguments game launch succeeded to selection; no autonomous playback remains.
+Owner explicitly told READY TO PLAY. Physical continuation goal COMPLETE only
+for its scoped autonomous handoff, not Phase 2 exit. Same task stays available
+for real Tap/Strum observations and genuine musician/assistive-use acceptance.
+Monitor PAUSED pending human observations; no further autonomous phone tests
+while owner plays. PR remains draft; no merge, archival, or Phase 3.
+
+
+Owner reports completed requested game rounds: “Did it. Feels good. Will need
+to refine stuff but overall is cool. Analyze. Lets keep moving toward mvp”.
+Resumed same Phase 2 owner for read-only retrieval, prior-seven-record
+preservation, actual-trial assessment and independent recomputation, durable
+backup and evidence publication. Positive overall response recorded; do not
+infer specific score trust, voluntary retry, click preference or VoiceOver use.
+Coordinator asked one bundled optional feedback question about those product
+observations and concrete refinement priority while analysis proceeds. Monitor
+ACTIVE. No automatic playback/testing over owner history, merge or Phase 3 yet;
+map findings to actual roadmap exit before advancement.
+
+
+## Owner Phase 2 trial analysis — current findings
+
+Retrieved three new completed, fully scored human trials; all seven earlier
+history/diagnostic records unchanged. Coordinator inspected the sanitized
+owner-trial-analysis.json. Independent standard-library arithmetic matches all
+saved score fields within 7.1e-15 and all diagnoses: Tap four-second gap 66
+events, slight slowdown +6.749 ms/beat and +48.532 ms return error; Tap six-second
+gap 66 events, steady -0.417 ms/beat and +15.019 ms return error; Strum four-second
+gap 65 events, slight speedup -3.543 ms/beat and -25.716 ms return error. All
+runtime flags absent, maximum clock mismatch 0.008458 ms. Strum intervals
+460.384–534.070 ms, median 499.654 ms; crossing brackets median 8.322/p95 8.324/
+max 16.645 ms. No long/short flags or reproducible implementation defect. This
+trace supports capture reliability, not proof every intended gesture registered.
+Conditions differ across trials, so no longitudinal improvement claim.
+
+Owner says feels good/overall cool and asks continued MVP progress. This supports
+positive engagement but does not supply unspoken score comprehension, voluntary
+retry or comparison with familiar click practice. Optional bundled feedback
+question remains pending; no duplicate question in owning task. Review wording
+severity of mild drift as a possible refinement without changing correct score
+thresholds from subjective concern alone. Phase 2 accessibility foundations
+are checked; actual VoiceOver-use gap stays documented, with complete review
+in Phase 4. Do not add a broad assistive-user certification gate to Phase 2.
+Owning task publishing analysis/evidence on same draft; genuine product exit
+decision still pending missing observation. Next authorized increment after
+Phase 2 integration is baseline/daily/checkpoint/transfer/history in Phase 3.
+
+
+Analysis checkpoint delivered and GitHub independently verified OPEN/DRAFT at
+`d1054bb19fd16adc988b9d364bd7efecbe88d9e5` on PR #3. Owning analysis goal COMPLETE;
+all 22 reviewed source hashes reported unchanged, worktree clean. Sanitized
+owner-trial-analysis, owner-comparisons and owner-observations plus independent
+recomputation script committed. Ten total game records durably backed up with
+verified 19-file manifest; seven previous records unchanged. No phone mutation,
+new review or score-threshold adjustment. Earlier 167 ms owner result occurred
+during automation overlap and cannot establish controlled improvement against
+newer 49 ms attempt. Monitor PAUSED pending sole product-feedback question;
+Phase 2 unaccepted, same task available, no merge/Phase 3.
+
+
+## Owner acceptance and build-first direction — supersedes pending product gate
+
+Owner now explicitly says: “I think it felt right. We’ll tweak later. Let’s
+finish the entire product. Then go back and polish”. Together with completed
+real rounds, positive overall appeal, verified scores/capture and clean reviewed
+implementation, coordinator accepts current Phase 2 slice for MVP construction.
+This is an owner-directed sequencing revision: broader musician/click comparison
+and polish are DEFERRED, not empirically passed or fabricated. Record that
+distinction in ROADMAP and Phase 2 evidence. Score fairness received direct
+positive owner confirmation. No demonstrated engine defect is being waived.
+
+Continue full bounded Phase 3 MVP (content, baseline, daily adaptation,
+checkpoints, transfer, earned rewards/history) under standing implementation
+and checkpoint merge authority. Finish functional product before optional polish.
+Release/App Store/Phase 4+ and external integrations remain outside this build.
+Current action: Phase 2 owner records acceptance/deferral, refreshes current
+guidance, checks exact reviewed sources/PR status and merges PR #3. Coordinator
+verifies actual merge and safely syncs before dispatching one Phase 3 task.
+No additional owner confirmation needed for this sequence.

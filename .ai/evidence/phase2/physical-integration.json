@@ -1,5 +1,5 @@
 {
-  "status": "Reviewed game installed; autonomous physical checks verified; ready for owner; real product and assistive-use acceptance pending",
+  "status": "Accepted for MVP construction under explicit owner-directed sequencing revision; broader comparison/polish deferred, not empirically passed.",
   "device": "iPhone 16",
   "system": "iOS 26.6.2",
   "reviewedImplementation": "680d87320dc50b4d9f2360d18bbd530252b7558e",
@@ -48,11 +48,6 @@
     "ownerDirectedRemovalHonored": true
   },
   "lastLaunch": "CoreDevice launch succeeded with no test arguments; default challenge selection ready for owner. No autonomous playback left running.",
-  "remaining": [
-    "Coordinator maps actual product evidence: unaided comprehension, spontaneous retry, credible repeated-result interpretation and meaningful preference over familiar click-only gap practice. Positive overall owner feedback and three verified real trials are now recorded.",
-    "Preserve bounded device/route and actual VoiceOver-use limitations. Phase2 requires accessibility foundations; full accessibility review belongs to Phase4."
-  ],
-  "phase2ExitPassed": false,
   "durablePrivateEvidence": "/Users/stew/.codex/taphap-baselines/01a0989f-1811-7a53-825d-84d761c57044/phase2-evidence/physical-20260913",
   "ownerClarification": "Yes I played during checks and removed phase 1. Should I not touch it until you instruct",
   "unattendedVerification": {
@@ -91,5 +86,12 @@
     "reviewRepeated": false
   },
   "ownerAnalysis": "owner-trial-analysis.json",
-  "ownerObservations": "owner-observations.json"
+  "ownerObservations": "owner-observations.json",
+  "phase2AcceptedForMVPConstruction": true,
+  "originalBroaderProductTestEmpiricallyComplete": false,
+  "acceptance": "acceptance.json",
+  "deferredEvidenceAndLimitations": [
+    "Broader musician/click comparison, unaided comprehension, spontaneous retry and trust after repeated identical attempts remain unestablished and are deferred until after the functional MVP.",
+    "Owner confirms results felt right. Actual VoiceOver-use remains unobserved; Phase2 foundations checked, full review belongs to Phase4."
+  ]
 }

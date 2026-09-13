@@ -16,8 +16,9 @@ Use this compact checklist at the start of every AI-assisted session.
 
 - The canonical product is the song-based game/trainer in
   [docs/product-brief.md](../docs/product-brief.md).
-- The owner subsequently authorized Phases 1–3 sequentially and checkpoint
-  merges after each gate passes; consult current coordination state.
+- The owner authorized Phases 1–3 and checkpoint merges. Phase 2 is accepted
+  for MVP construction; broader comparison and polish are explicitly deferred.
+  Consult current coordination state and its exact acceptance record.
 - The earlier MusicKit feasibility lab is frozen historical evidence, not the
   starting point for production UI.
 - The MVP uses app-controlled, rights-cleared songs and touchscreen Tap and
@@ -35,8 +36,9 @@ Use this compact checklist at the start of every AI-assisted session.
 - For documentation-only work, run `git diff --check` and review changed links.
 - For approved code work, run the checks defined by that roadmap phase and
   report anything not run.
-- Do not commit, push, publish, submit, deploy, purchase, or contact external
-  parties unless the owner explicitly requests it.
+- In-scope checkpoint commits, pushes, PRs and merges are already authorized.
+  Coordinator owns phase dispatch and checkout synchronization. Releases,
+  purchases and external contacts remain unauthorized.
 
 ## Source order
 
