@@ -1,5 +1,5 @@
 {
-  "status": "Installed; initial physical checks incomplete; device testing paused pending input provenance and Phase1 app preservation clarification",
+  "status": "Reviewed game installed; autonomous physical checks verified; ready for owner; real product and assistive-use acceptance pending",
   "device": "iPhone 16",
   "system": "iOS 26.6.2",
   "reviewedImplementation": "680d87320dc50b4d9f2360d18bbd530252b7558e",
@@ -31,7 +31,7 @@
     "Persistence failures/corrupt history and preparation invalidation checks passed."
   ],
   "unexpectedInput": {
-    "attribution": "unconfirmed; owner clarification requested",
+    "attribution": "Owner confirmed playing during initial checks.",
     "tapEvents": 65,
     "kind": "scored",
     "landingMS": 166.70516665180912,
@@ -41,17 +41,54 @@
   },
   "preservation": {
     "phase1Before": "11 raw records copied and hashed durably before game install.",
-    "phase1After": "Bundle absent from subsequent live app inventory; container lookup fails. Cause unconfirmed. No uninstall/reset command issued. Restoration build prepared, not installed.",
+    "phase1After": "Owner confirmed intentional removal. Honor removal; do not restore. All 11 preinstall records retained in verified durable backup.",
     "historicalLab": "Historical lab bundle was absent in preinstall inventory; no on-device preservation claim. Repository historical files unchanged.",
-    "game": "Four initial UI-run records and fixture diagnostics archived; no reset or deletion.",
-    "onDevicePreservationVerified": false
+    "game": "All four pre-rerun game records retained exactly in seven-record final history. Original four diagnostic files match byte-for-byte. Final game history, diagnostics and fixture records copied durably; no reset/deletion.",
+    "onDevicePreservationVerified": false,
+    "ownerDirectedRemovalHonored": true
   },
-  "lastLaunch": "Game launched successfully to its default selection; testing remains paused and owner play not yet requested.",
+  "lastLaunch": "CoreDevice launch succeeded with no test arguments; default challenge selection ready for owner. No autonomous playback left running.",
   "remaining": [
-    "Clarify unexpected input and whether Phase1 app removal was intentional; restore accepted app/data if unintended, then verify byte-for-byte.",
-    "Complete a bounded unattended physical run under known conditions, investigate reproducible failures.",
-    "Actual Tap/down-Strum observations, accessibility use and musician comprehension/retry/trust/comparison with click practice."
+    "Actual Tap/down-Strum observations: comprehension/usefulness of result, any missed/extra/cancelled gestures, and credible repeated compatible results.",
+    "Observe actual VoiceOver direct touch and assistive use; physical maximum Dynamic Type/preparation audit passed but is not VoiceOver-user evidence.",
+    "Musicians familiar with gap-click practice: unaided comprehension, voluntary retry, trustworthy repeated results and meaningful preference over click practice. Coordinator must accept genuine Phase2 gate before merge/Phase3."
   ],
   "phase2ExitPassed": false,
-  "durablePrivateEvidence": "/Users/stew/.codex/taphap-baselines/01a0989f-1811-7a53-825d-84d761c57044/phase2-evidence/physical-20260913"
+  "durablePrivateEvidence": "/Users/stew/.codex/taphap-baselines/01a0989f-1811-7a53-825d-84d761c57044/phase2-evidence/physical-20260913",
+  "ownerClarification": "Yes I played during checks and removed phase 1. Should I not touch it until you instruct",
+  "unattendedVerification": {
+    "affectedRun": {
+      "total": 3,
+      "passed": 2,
+      "failed": 1,
+      "flow": "Choose/play/silence/result/retry/next/history/relaunch passed.",
+      "strum": "Four automated down gestures captured as four down-crossings; four brackets each 8.333333331393078 ms. Intentionally ended/cancelled, no score.",
+      "renderInterruption": "backgrounded after 173 anchors (0.004166677827016629 ms maximum residual); safely invalidated. Not claimed as uninterrupted traversal."
+    },
+    "isolatedRender": {
+      "passed": 1,
+      "failed": 0,
+      "durationSeconds": 34,
+      "anchors": 1021,
+      "maximumClockMismatchMS": 0.005583311431106575,
+      "stages": [
+        "preparing",
+        "playing",
+        "warning",
+        "silent",
+        "returned"
+      ],
+      "eventCount": 0,
+      "assessment": "invalid / missingInput, no score"
+    },
+    "uiTraversal": {
+      "anchors": 1021,
+      "maximumClockMismatchMS": 0.0057083414867487026,
+      "eventCount": 0,
+      "assessment": "invalid / missingInput, no score"
+    },
+    "coverage": "All 18 physical test cases have passed across initial and targeted runs. Initial and foreground-interrupted failures retained; no claim of a single clean 18-test run.",
+    "sourceChanges": false,
+    "reviewRepeated": false
+  }
 }

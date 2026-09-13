@@ -11,11 +11,11 @@
   "sourceManifest": ".ai/evidence/phase2/source-sha256.json",
   "durablePrivateArchive": "/Users/stew/.codex/taphap-baselines/01a0989f-1811-7a53-825d-84d761c57044/phase2-evidence/",
   "remainingExternalAcceptance": [
-    "Clarify input provenance and absent Phase1 app, resolve preservation, then finish unattended physical checks; installed reviewed game is paused.",
-    "Observe repeated Strum with actual gesture notes; repair any reproducible capture failure.",
-    "Exercise VoiceOver direct touch and accessibility on device with appropriate users.",
-    "Observe musicians familiar with gap-click practice: unaided comprehension, voluntary retry, credible repeated results and meaningful preference over click-based exercise.",
-    "Coordinator verifies genuine Phase2 exit before ready/merge; no Phase3 yet."
+    "Actual Tap/down-Strum observations: comprehension/usefulness of result, any missed/extra/cancelled gestures, and credible repeated compatible results.",
+    "Observe actual VoiceOver direct touch and assistive use; physical maximum Dynamic Type/preparation audit passed but is not VoiceOver-user evidence.",
+    "Musicians familiar with gap-click practice: unaided comprehension, voluntary retry, trustworthy repeated results and meaningful preference over click practice. Coordinator must accept genuine Phase2 gate before merge/Phase3."
   ],
-  "physicalContinuation": "physical-integration.json"
+  "physicalContinuation": "physical-integration.json",
+  "physicalHandoffComplete": true,
+  "phase1Removal": "Owner intentionally removed Phase1; honor removal and retain verified 11-record backup."
 }

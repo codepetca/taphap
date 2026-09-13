@@ -210,29 +210,45 @@ See `.ai/evidence/phase2/physical-integration.json` for the incomplete physical 
 
 ## Physical continuation — 2026-09-13
 
-Initial physical suite: 18 tests, 15 passed and 3 failed. The first render test
-cancelled safely on a route-change notification during preparation. A later full
-software occurrence fixture passed on speaker (64 events, 1078 anchors, maximum
-clock mismatch 0.005042 ms), as did persistence checks and the large-text flow
-and preparation accessibility audit. Software input does not establish physical
-contact precision or human acceptance.
+The unchanged reviewed game is installed on iPhone 16 / iOS 26.6.2 and was
+relaunched without test arguments to its default challenge selection. Autonomous
+physical checks are complete; actual product and assistive-use acceptance remain.
 
-The UI traversal unexpectedly recorded 65 Tap events and a full result despite
-its test generating no such taps. These inputs remain unattributed until the
-owner confirms their origin. The immediate post-Retry start-button assertion
-failed, while subsequent start/end/next/history/relaunch actions succeeded.
-Automated Strum ended after three events with a multiple-touch invalidation.
-Neither issue is yet established as a reproducible implementation defect.
+Initial suite: 18 tests, 15 passed and 3 failed. The owner subsequently confirmed
+playing during these checks and intentionally removing the Phase 1 app. The
+65-event Tap result is owner input, but the overlapping run cannot establish
+unattended UI/Strum behavior, voluntary retry, or trustworthy repeated results.
+The owner's removal is honored; no restoration was performed. All 11 Phase 1
+records remain in a verified durable preinstall backup. The historical lab was
+absent before installation; both historical source implementations are unchanged.
 
-Before installation, all 11 Phase 1 records were copied and hashed outside the
-worktree. After testing, the Phase 1 bundle was absent from the live app inventory
-and its container lookup failed. No uninstall/reset command was issued; cause is
-unconfirmed. A restoration build from accepted source is prepared but not
-installed pending clarification of whether removal was intentional. Historical
-lab bundle was absent even before installation. Game records and test fixtures
-are also durably archived. On-device preservation has **not** been verified.
+Under the instruction to leave the phone unlocked and untouched, the affected
+UI flow and Strum checks passed. The audio test was safely invalidated when the
+app left the foreground after 173 anchors. A subsequent isolated audio check
+passed: 34-second full traversal, 1021 anchors, maximum clock mismatch 0.005583 ms,
+playing/warning/silent/returned stages, zero inputs and missingInput/no score.
+The separate UI traversal also captured zero events, completed the full loop
+and retained no-input feedback (1021 anchors, maximum mismatch 0.005708 ms).
+Four automated down-Strum gestures produced exactly four crossings with 8.333 ms
+brackets; the deliberately cancelled attempt remained unscored. These are
+software-driven checks, not measurements of human contact/acoustic precision.
 
-Further phone testing is paused pending that clarification. The reviewed game
-was last launched to selection, but hands-on play has not yet been requested.
-A bounded unattended check and real Tap/Strum, assistive-use and musician product
-observations remain. Phase 2 is not accepted; PR stays draft and no Phase 3 begins.
+All 18 physical test cases have now passed across the initial and targeted runs.
+This is not a claim of one clean 18-test run: route/background interruptions and
+owner-overlapped failures remain in the evidence. Initial maximum Dynamic Type
+navigation/preparation audit, persistence checks and full software scoring fixture
+passed. No source correction or additional review was needed.
+
+All four pre-rerun game records—including the owner's scored Tap attempt—remain
+exactly unchanged in the seven-record final history. Their four diagnostic files
+also match byte-for-byte. The three new automated records are explicitly
+no-input/cancelled and cannot earn personal bests. Game records, fixture traces,
+result bundles and screenshots are archived outside the worktree with a private
+hash manifest. See `.ai/evidence/phase2/physical-integration.json`.
+
+The owner can now try Tap and down-Strum and report whether the results make
+sense, match their experience, and show any missed gestures. Actual VoiceOver
+use and the musician comprehension/retry/trust/comparison protocol above remain
+required evidence. No arbitrary trial quota or perfect-score requirement applies.
+Phase 2 is not accepted; PR stays draft and no Phase 3 begins before the
+coordinator verifies the genuine gate.

@@ -1,5 +1,5 @@
 {
-  "status": "Reviewed implementation installed; physical checks incomplete and preservation clarification pending",
+  "status": "Reviewed implementation and autonomous physical checks complete; actual product/assistive-use acceptance pending",
   "toolchain": "Xcode 26.6 (17F113)",
   "packageTests": {
     "passed": 28,
@@ -43,7 +43,7 @@
     "No actual Phase 2 musician/product observation",
     "VoiceOver direct-touch configuration tested programmatically; actual assistive use pending",
     "Software timestamp and simulator gesture tests are not physical capture repeatability or acoustic-latency evidence",
-    "Initial physical suite: 15/18 passed, 3 failed; unexpected inputs and absent Phase1 app require clarification. Phase2 gate remains open."
+    "Initial physical run overlapped owner input; targeted unattended UI/Strum and isolated audio checks subsequently passed. Route/background interruptions remain documented."
   ],
   "fixedRevision": "680d87320dc50b4d9f2360d18bbd530252b7558e",
   "reducedMotion": "Enabled using Simulator Settings, game selection/preparation/play/return exercised and visually inspected; no repeating pulse, fixed surface retained. Original off setting restored after check.",
@@ -65,5 +65,40 @@
     "remediationBatches": 1,
     "blockers": 0
   },
-  "physicalIntegration": "physical-integration.json"
+  "physicalIntegration": "physical-integration.json",
+  "physicalChecks": {
+    "affectedRun": {
+      "total": 3,
+      "passed": 2,
+      "failed": 1,
+      "flow": "Choose/play/silence/result/retry/next/history/relaunch passed.",
+      "strum": "Four automated down gestures captured as four down-crossings; four brackets each 8.333333331393078 ms. Intentionally ended/cancelled, no score.",
+      "renderInterruption": "backgrounded after 173 anchors (0.004166677827016629 ms maximum residual); safely invalidated. Not claimed as uninterrupted traversal."
+    },
+    "isolatedRender": {
+      "passed": 1,
+      "failed": 0,
+      "durationSeconds": 34,
+      "anchors": 1021,
+      "maximumClockMismatchMS": 0.005583311431106575,
+      "stages": [
+        "preparing",
+        "playing",
+        "warning",
+        "silent",
+        "returned"
+      ],
+      "eventCount": 0,
+      "assessment": "invalid / missingInput, no score"
+    },
+    "uiTraversal": {
+      "anchors": 1021,
+      "maximumClockMismatchMS": 0.0057083414867487026,
+      "eventCount": 0,
+      "assessment": "invalid / missingInput, no score"
+    },
+    "coverage": "All 18 physical test cases have passed across initial and targeted runs. Initial and foreground-interrupted failures retained; no claim of a single clean 18-test run.",
+    "sourceChanges": false,
+    "reviewRepeated": false
+  }
 }
