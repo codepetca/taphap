@@ -2,31 +2,21 @@
 
 Read this file at the start of every AI-assisted session.
 
-## Current authorization update — 2026-09-12
+## Current authorization and state — 2026-09-13
 
-The owner has now explicitly authorized local implementation and verification
-through Roadmap Phases 1–3, sequentially, from the inherited working-tree
-snapshot. Phase 0 is ratified. Follow [coordination state](COORDINATION.md) for
-the active phase, task ownership, exact authority, evidence, and blockers.
-The documentation-only status below records the inherited pre-orchestration
-state; it does not override this newer instruction. The owner subsequently
-authorized in-scope commits, pushes, PRs, review/CI fixes, and phase-checkpoint
-merges after each Phase 1–3 exit gate is genuinely satisfied. Preserve the
-inherited baseline in the first checkpoint PR. Phase 4 release activity and
-later expansion remain unauthorized. See coordination state for the complete
-authority and delivery boundaries.
-
-## Current shape
-
-- Product: a song-based rhythm game and measurable internal-clock trainer.
-- Hook: **When the music comes back, will you still be on beat?**
-- Repository: canonical product documentation, a separate Phase 1 audio/scoring
-  lab, and the frozen historical feasibility lab.
-- Status: Phase 0 ratified; Phase 1 feasibility gate accepted for the tested
-  iPhone built-in speaker, checkpoint PR #2 merge pending. Phase 2 not started.
-- Authority: owner explicitly authorizes implementation/verification through
-  Phases 1–3 and checkpoint commits/PRs/merges once each genuine phase gate passes.
-  See coordination state for current evidence and exact exclusions.
+- Owner authorized functional Roadmap Phases 1–3, in-scope checkpoint commits,
+  PRs and merges. Phase 4+, release and external integrations remain unauthorized.
+- Phase 1 is accepted on the tested iPhone built-in speaker; PR #2 merged as
+  `036e81d`.
+- Phase 2 is accepted for MVP construction. Owner says results felt right and
+  directs completion of the functional MVP before polish. Broader musician/click
+  comparison is **deferred, not empirically passed**. No known engine defect waived.
+  See [exact acceptance](evidence/phase2/acceptance.json).
+- [PR #3](https://github.com/codepetca/taphap/pull/3) records Phase 2 integration.
+  Coordinator verifies its merge and safely syncs before dispatching Phase 3.
+- Phase 3 scope remains the roadmap's content, baseline, daily adaptation,
+  checkpoints, transfer and earned rewards/history. This Phase 2 task does not
+  dispatch or implement Phase 3. Follow [coordination state](COORDINATION.md).
 
 ## Current product decisions
 
@@ -77,8 +67,8 @@ Do not revive these without an explicit product-direction revision:
 
 - Repository: `codepetca/taphap`
 - Default branch: `main`
-- Source checkout branch: `codex/phase-1-feasibility-lab`; active Phase 1 delivery
-  branch `codex/phase-1-core-feasibility` in its isolated execution worktree.
+- Source checkout: `/Users/stew/Repos/taphap`. Coordinator owns safe synchronization
+  after Phase 2 merge; inspect its actual state before acting.
 - Authorized implementation stack: native Swift and SwiftUI.
 - Existing experimental stack: iOS 26 lab, XcodeGen project description, and a
   Swift package for portable core tests.

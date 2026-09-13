@@ -18,10 +18,13 @@ TapHap is a song-based rhythm game and real internal-clock trainer:
 The product serves musicians first while using the universally understandable
 challenge: **When the music comes back, will you still be on beat?**
 
-## Current state: Phase 1 feasibility accepted; sequential delivery authorized
+## Current state: Phase 2 accepted for functional MVP construction
 
-- Phase 0 is ratified. The owner explicitly authorized implementation through
-  Phases 1–3 and checkpoint merges after each genuine phase exit.
+- Phase 0 is ratified. The owner authorized functional Phases 1–3 and checkpoint
+  merges. On 2026-09-13 the owner accepted Phase 2 results as feeling right and
+  directed completion of the MVP before polish. Broader musician/click comparison
+  is deferred, not empirically passed; no known engine defect is waived.
+  [Exact acceptance](.ai/evidence/phase2/acceptance.json) records the scope.
 - Phase 1 feasibility is accepted on the tested iPhone built-in speaker; see
   [evidence](docs/phase-1-core-feasibility.md) and
   [coordination state](.ai/COORDINATION.md) for integration and phase ownership.
@@ -109,6 +112,20 @@ practice. Compare it with a click-based gap trainer and observe whether players:
 
 The core loop is reliable, immediately understandable, and meaningfully more
 engaging than a click-only gap exercise.
+
+### Owner-directed sequencing revision — 2026-09-13
+
+“I think it felt right. We’ll tweak later. Let’s finish the entire product.
+Then go back and polish”. The coordinator accepts the reliable reviewed slice
+for functional MVP construction using verified actual trials, positive overall
+appeal and this direct score-fairness confirmation. The broader product test and
+optional polish above are deferred until after the functional MVP; their
+empirical outcomes remain unestablished. This changes sequencing, not evidence.
+
+Merge the Phase 2 checkpoint after final source/PR verification. The coordinator
+then verifies integration, safely syncs checkouts and dispatches Phase 3. Keep
+Phase 3's functional verification and honest training claims intact. No release,
+Phase 4+ or external integration is authorized by this sequencing revision.
 
 ## Phase 3: training game MVP
 

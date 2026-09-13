@@ -1,0 +1,97 @@
+{
+  "status": "Accepted for MVP construction under explicit owner-directed sequencing revision; broader comparison/polish deferred, not empirically passed.",
+  "device": "iPhone 16",
+  "system": "iOS 26.6.2",
+  "reviewedImplementation": "680d87320dc50b4d9f2360d18bbd530252b7558e",
+  "sourceHashesVerified": 22,
+  "installation": "Succeeded for separate ca.codepet.taphap.game; bundle and signed application identifier verified.",
+  "initialPhysicalSuite": {
+    "total": 18,
+    "passed": 15,
+    "failed": 3,
+    "exitCode": 65,
+    "failures": [
+      {
+        "test": "ActualRenderClockTraversesSongWithoutInputsAndPersistsInvalidResult",
+        "evidence": "routeChanged during preparation; zero events and zero anchors; no score. Cause of route notification not established."
+      },
+      {
+        "test": "ChoosePlayResultRetryNextAndDurableHistory",
+        "evidence": "Immediate start-button existence assertion failed after Retry. Subsequent start/end/next/history and relaunch checks succeeded. Supposed no-input traversal contained 65 owner Tap events (later confirmed), so it is not clean unattended evidence."
+      },
+      {
+        "test": "StrumSurfaceAcceptsRepeatedDownwardGestures",
+        "evidence": "Surface disappeared after three captured events because multipleTouches invalidated the attempt. Owner later confirmed playing during these checks. Unattended follow-up captured all four automated down gestures; no reproducible implementation defect established."
+      }
+    ]
+  },
+  "verifiedOnPhone": [
+    "Full 34-second software occurrence fixture: 64 events, full score, durable reload; 1078 anchors, maximum clock mismatch 0.005041660042476304 ms. This is not human input or acoustic precision evidence.",
+    "Maximum Dynamic Type navigation/start/end/retry and preparation accessibility audit passed. Actual VoiceOver user testing remains pending.",
+    "Persistence failures/corrupt history and preparation invalidation checks passed."
+  ],
+  "unexpectedInput": {
+    "attribution": "Owner confirmed playing during initial checks.",
+    "tapEvents": 65,
+    "kind": "scored",
+    "landingMS": 166.70516665180912,
+    "anchors": 1086,
+    "maximumClockMismatchMS": 0.009499983862043537,
+    "acceptanceClaim": false
+  },
+  "preservation": {
+    "phase1Before": "11 raw records copied and hashed durably before game install.",
+    "phase1After": "Owner confirmed intentional removal. Honor removal; do not restore. All 11 preinstall records retained in verified durable backup.",
+    "historicalLab": "Historical lab bundle was absent in preinstall inventory; no on-device preservation claim. Repository historical files unchanged.",
+    "game": "All four pre-rerun game records retained exactly in seven-record final history. Original four diagnostic files match byte-for-byte. Final game history, diagnostics and fixture records copied durably; no reset/deletion.",
+    "onDevicePreservationVerified": false,
+    "ownerDirectedRemovalHonored": true
+  },
+  "lastLaunch": "CoreDevice launch succeeded with no test arguments; default challenge selection ready for owner. No autonomous playback left running.",
+  "durablePrivateEvidence": "/Users/stew/.codex/taphap-baselines/01a0989f-1811-7a53-825d-84d761c57044/phase2-evidence/physical-20260913",
+  "ownerClarification": "Yes I played during checks and removed phase 1. Should I not touch it until you instruct",
+  "unattendedVerification": {
+    "affectedRun": {
+      "total": 3,
+      "passed": 2,
+      "failed": 1,
+      "flow": "Choose/play/silence/result/retry/next/history/relaunch passed.",
+      "strum": "Four automated down gestures captured as four down-crossings; four brackets each 8.333333331393078 ms. Intentionally ended/cancelled, no score.",
+      "renderInterruption": "backgrounded after 173 anchors (0.004166677827016629 ms maximum residual); safely invalidated. Not claimed as uninterrupted traversal."
+    },
+    "isolatedRender": {
+      "passed": 1,
+      "failed": 0,
+      "durationSeconds": 34,
+      "anchors": 1021,
+      "maximumClockMismatchMS": 0.005583311431106575,
+      "stages": [
+        "preparing",
+        "playing",
+        "warning",
+        "silent",
+        "returned"
+      ],
+      "eventCount": 0,
+      "assessment": "invalid / missingInput, no score"
+    },
+    "uiTraversal": {
+      "anchors": 1021,
+      "maximumClockMismatchMS": 0.0057083414867487026,
+      "eventCount": 0,
+      "assessment": "invalid / missingInput, no score"
+    },
+    "coverage": "All 18 physical test cases have passed across initial and targeted runs. Initial and foreground-interrupted failures retained; no claim of a single clean 18-test run.",
+    "sourceChanges": false,
+    "reviewRepeated": false
+  },
+  "ownerAnalysis": "owner-trial-analysis.json",
+  "ownerObservations": "owner-observations.json",
+  "phase2AcceptedForMVPConstruction": true,
+  "originalBroaderProductTestEmpiricallyComplete": false,
+  "acceptance": "acceptance.json",
+  "deferredEvidenceAndLimitations": [
+    "Broader musician/click comparison, unaided comprehension, spontaneous retry and trust after repeated identical attempts remain unestablished and are deferred until after the functional MVP.",
+    "Owner confirms results felt right. Actual VoiceOver-use remains unobserved; Phase2 foundations checked, full review belongs to Phase4."
+  ]
+}

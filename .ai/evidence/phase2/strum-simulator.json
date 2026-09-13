@@ -1,0 +1,15 @@
+{
+  "source": "Simulator XCTest four downward gestures, not human input",
+  "eventCount": 4,
+  "directions": [
+    "down",
+    "down",
+    "down",
+    "down"
+  ],
+  "bracketCount": 4,
+  "maximumCrossingBracketMS": 16.666666662786156,
+  "assessment": "invalid",
+  "invalidation": "cancelled",
+  "interpretation": "Four gestures captured as four downward crossings; attempt ended by test, no score claimed. Does not rule out physical intermittent loss."
+}

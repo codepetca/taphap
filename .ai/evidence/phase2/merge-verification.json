@@ -1,0 +1,27 @@
+{
+  "checkedUTC": "2026-09-13T15:53:56.008203+00:00",
+  "reviewedImplementation": "680d87320dc50b4d9f2360d18bbd530252b7558e",
+  "sourceManifest": "source-sha256.json",
+  "sourceHashesVerified": 22,
+  "implementationChangesSinceReview": false,
+  "closedReviewReused": true,
+  "reviewLaunches": 4,
+  "newReviewsOrPhoneTests": false,
+  "verificationReuse": "Existing successful fixed-code package, hosted iOS, UI, physical and raw-trial recomputation checks; interrupted/owner-overlapped runs retained. Documentation diff and links checked separately.",
+  "durableArchivesVerified": {
+    "physicalFiles": 2513,
+    "ownerAnalysisFiles": 19
+  },
+  "coordinatorReconciliation": "Latest coordinator record read-only snapshot retained verbatim; local current guidance compacted. Coordinator/source checkouts not edited.",
+  "initialGitHubState": {
+    "head": "d1054bb19fd16adc988b9d364bd7efecbe88d9e5",
+    "base": "036e81dd5a0de971d6430a24f95560ee933714e5",
+    "state": "OPEN/DRAFT/MERGEABLE/CLEAN",
+    "configuredChecks": 0,
+    "reviewThreads": 0,
+    "reviews": 0,
+    "paginationComplete": true
+  },
+  "acceptance": "acceptance.json",
+  "finalMergeProtocol": "After evidence commit/push, mark existing PR ready, inspect final head/checks/reviews, and merge with matching expected head. Verify GitHub merged state and resulting main tree. Durable merge receipt and coordinator report record actual outcome."
+}

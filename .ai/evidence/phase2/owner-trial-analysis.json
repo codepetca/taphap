@@ -1,0 +1,210 @@
+{
+  "method": "Independent Python standard-library arithmetic on raw occurrence timestamps and committed beat map; does not invoke application scorer. Stored diagnoses and every numeric score field checked within 1e-6. Distribution SD uses population denominator; p95 uses nearest rank.",
+  "trials": [
+    {
+      "trialLabel": "owner-1",
+      "mode": "tap",
+      "challenge": "first-light",
+      "gapBeatSpanSeconds": 4.0,
+      "fullZeroGainSeconds": 3.9,
+      "completed": true,
+      "assessmentKind": "scored",
+      "runtimeInvalidation": null,
+      "eventCount": 66,
+      "directionsVerified": true,
+      "score": {
+        "diagnosis": "decelerated",
+        "baselinePhaseMS": -28.520027781875495,
+        "baselinePeriodMS": 501.2429991248145,
+        "baselineJitterMS": 20.557430490676747,
+        "consistencyMS": 15.398633621351795,
+        "tempoDriftMSPerBeat": 6.748880337128434,
+        "accelerationMSPerBeatSquared": -1.2492468769778502,
+        "phaseShiftMS": 12.703006948868286,
+        "reentryMS": 48.53236110163077,
+        "inputCount": 23
+      },
+      "independentScoreMaximumAbsoluteDifference": 3.552713678800501e-15,
+      "minimumBeatAssignmentMarginMS": 141.37391669792123,
+      "wholeRunIntervalsMS": {
+        "count": 65,
+        "min": 449.3287083460018,
+        "median": 499.2467083502561,
+        "p95NearestRank": 532.5894166890066,
+        "max": 582.5633750064299,
+        "populationSD": 24.171125243747912
+      },
+      "silentIntervalsMS": {
+        "count": 6,
+        "min": 482.62162497849204,
+        "median": 511.7559583450202,
+        "p95NearestRank": 549.1888333344832,
+        "max": 549.1888333344832,
+        "populationSD": 22.905772353720526
+      },
+      "wholeRunShortIntervals": 0,
+      "wholeRunLongIntervals": 0,
+      "crossingBracketsMS": null,
+      "occurrenceToObservationMS": {
+        "count": 66,
+        "min": 9.787625021999702,
+        "median": 18.545166691183113,
+        "p95NearestRank": 20.49704166711308,
+        "max": 21.658791665686294,
+        "populationSD": 4.227470501361486
+      },
+      "anchorCount": 1087,
+      "maximumClockMismatchMS": 0.008458333322775013,
+      "conditions": {
+        "mode": "tap",
+        "challenge": "first-light",
+        "route": "Speaker",
+        "sampleRate": 48000,
+        "bufferDuration": 0.005,
+        "outputLatency": 0.015354166738688946,
+        "assistance": "direct-touch",
+        "system": "26.6.2",
+        "scoringVersion": 1
+      }
+    },
+    {
+      "trialLabel": "owner-2",
+      "mode": "tap",
+      "challenge": "stay-a-little",
+      "gapBeatSpanSeconds": 6.0,
+      "fullZeroGainSeconds": 5.9,
+      "completed": true,
+      "assessmentKind": "scored",
+      "runtimeInvalidation": null,
+      "eventCount": 66,
+      "directionsVerified": true,
+      "score": {
+        "diagnosis": "steady",
+        "baselinePhaseMS": -26.29465279217887,
+        "baselinePeriodMS": 500.1217196957034,
+        "baselineJitterMS": 20.876195662821317,
+        "consistencyMS": 11.739599786965792,
+        "tempoDriftMSPerBeat": -0.4174219125066073,
+        "accelerationMSPerBeatSquared": 1.1506980160317783,
+        "phaseShiftMS": 1.9078691404548662,
+        "reentryMS": 15.018944436936483,
+        "inputCount": 27
+      },
+      "independentScoreMaximumAbsoluteDifference": 6.661338147750939e-16,
+      "minimumBeatAssignmentMarginMS": 168.87470834772103,
+      "wholeRunIntervalsMS": {
+        "count": 65,
+        "min": 424.3734583433252,
+        "median": 499.33600003714673,
+        "p95NearestRank": 532.5535000010859,
+        "max": 549.282416672213,
+        "populationSD": 21.99343961457603
+      },
+      "silentIntervalsMS": {
+        "count": 11,
+        "min": 474.3041666515637,
+        "median": 499.29933331441134,
+        "p95NearestRank": 532.5511250121053,
+        "max": 532.5511250121053,
+        "populationSD": 15.800434596177615
+      },
+      "wholeRunShortIntervals": 0,
+      "wholeRunLongIntervals": 0,
+      "crossingBracketsMS": null,
+      "occurrenceToObservationMS": {
+        "count": 66,
+        "min": 9.895750001305714,
+        "median": 18.200750011601485,
+        "p95NearestRank": 22.285708342678845,
+        "max": 26.941791671561077,
+        "populationSD": 4.578645954879372
+      },
+      "anchorCount": 1087,
+      "maximumClockMismatchMS": 0.005083332071081914,
+      "conditions": {
+        "mode": "tap",
+        "challenge": "stay-a-little",
+        "route": "Speaker",
+        "sampleRate": 48000,
+        "bufferDuration": 0.005,
+        "outputLatency": 0.015354166738688946,
+        "assistance": "direct-touch",
+        "system": "26.6.2",
+        "scoringVersion": 1
+      }
+    },
+    {
+      "trialLabel": "owner-3",
+      "mode": "strum",
+      "challenge": "first-light",
+      "gapBeatSpanSeconds": 4.0,
+      "fullZeroGainSeconds": 3.9,
+      "completed": true,
+      "assessmentKind": "scored",
+      "runtimeInvalidation": null,
+      "eventCount": 65,
+      "directionsVerified": true,
+      "score": {
+        "diagnosis": "accelerated",
+        "baselinePhaseMS": -6.7108347041842835,
+        "baselinePeriodMS": 502.2204093375794,
+        "baselineJitterMS": 9.278374371284423,
+        "consistencyMS": 15.172674079790854,
+        "tempoDriftMSPerBeat": -3.5431984656674835,
+        "accelerationMSPerBeatSquared": 4.023706719453911,
+        "phaseShiftMS": -20.944100697912898,
+        "reentryMS": -25.715920210738357,
+        "inputCount": 23
+      },
+      "independentScoreMaximumAbsoluteDifference": 7.105427357601002e-15,
+      "minimumBeatAssignmentMarginMS": 168.80904387799092,
+      "wholeRunIntervalsMS": {
+        "count": 64,
+        "min": 460.38387931184843,
+        "median": 499.65408378920984,
+        "p95NearestRank": 524.5785797887947,
+        "max": 534.0698798245285,
+        "populationSD": 17.72821258450581
+      },
+      "silentIntervalsMS": {
+        "count": 7,
+        "min": 464.8777502879966,
+        "median": 495.93757203547284,
+        "p95NearestRank": 522.0195436559152,
+        "max": 522.0195436559152,
+        "populationSD": 19.37133499492556
+      },
+      "wholeRunShortIntervals": 0,
+      "wholeRunLongIntervals": 0,
+      "crossingBracketsMS": {
+        "count": 65,
+        "min": 8.26299999607727,
+        "median": 8.322000008774921,
+        "p95NearestRank": 8.324000024003908,
+        "max": 16.644999996060506,
+        "populationSD": 1.024566748879492
+      },
+      "occurrenceToObservationMS": {
+        "count": 65,
+        "min": 8.501789765432477,
+        "median": 15.89428333682008,
+        "p95NearestRank": 24.200575018767267,
+        "max": 25.208791659679264,
+        "populationSD": 5.278094733693584
+      },
+      "anchorCount": 1086,
+      "maximumClockMismatchMS": 0.005166656337679543,
+      "conditions": {
+        "mode": "strum",
+        "challenge": "first-light",
+        "route": "Speaker",
+        "sampleRate": 48000,
+        "bufferDuration": 0.005,
+        "outputLatency": 0.015354166738688946,
+        "assistance": "direct-touch",
+        "system": "26.6.2",
+        "scoringVersion": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "base": "036e81dd5a0de971d6430a24f95560ee933714e5",
+  "acceptedSourceFilesUnchanged": 49,
+  "historicalFilesUnchanged": 18,
+  "exception": "Package.swift adds GameCore and its tests; original target definitions preserved."
+}

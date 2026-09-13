@@ -59,9 +59,10 @@ Then load task-specific documents below.
 
 ## Authority
 
-- The owner explicitly authorized local implementation and verification
-  through Phases 1–3 sequentially, plus in-scope checkpoint commits, PRs and
-  merges after each genuine phase gate passes. See current coordination state.
+- The owner authorized functional Phases 1–3 and checkpoint commits, PRs and
+  merges. Phase 2 is accepted for MVP construction under the explicit sequencing
+  revision; broader comparison and polish are deferred, not claimed passed.
+  See current coordination state and its exact acceptance record.
 - The Phase 1A/1B iPhone lab remains frozen historical evidence.
 - A roadmap is not implementation permission. Confirm the authorized phase
   before changing source, project configuration, dependencies, or assets.

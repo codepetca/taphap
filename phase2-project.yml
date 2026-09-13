@@ -1,0 +1,58 @@
+name: TapHapGame
+options:
+  bundleIdPrefix: ca.codepet
+  deploymentTarget:
+    iOS: "26.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    IPHONEOS_DEPLOYMENT_TARGET: "26.0"
+    CODE_SIGN_STYLE: Automatic
+targets:
+  TapHapGame:
+    type: application
+    platform: iOS
+    sources:
+      - path: Phase1Lab/Core
+      - path: TapHapGame/Core
+      - path: TapHapGame/App
+      - path: TapHapGame/Resources
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: ca.codepet.taphap.game
+        GENERATE_INFOPLIST_FILE: true
+        INFOPLIST_KEY_CFBundleDisplayName: TapHap
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: true
+        INFOPLIST_KEY_UILaunchScreen_Generation: true
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
+        TARGETED_DEVICE_FAMILY: "1"
+        SUPPORTS_MACCATALYST: false
+    scheme:
+      testTargets:
+        - TapHapGameTests
+        - TapHapGameUITests
+  TapHapGameTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: TapHapGameTests
+        excludes: [Fixtures]
+      - path: TapHapGameTests/Fixtures
+        type: folder
+        buildPhase: resources
+      - path: TapHapGameIOSTests
+    dependencies:
+      - target: TapHapGame
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: true
+  TapHapGameUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [TapHapGameUITests]
+    dependencies:
+      - target: TapHapGame
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: true

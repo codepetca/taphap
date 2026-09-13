@@ -1,0 +1,29 @@
+{
+  "status": "Accepted for MVP construction under explicit owner-directed sequencing revision; broader comparison/polish deferred, not empirically passed.",
+  "device": "iPhone 16",
+  "probe": "Phone unlocked for installation/testing. One queued run waited for a subsequent unlock.",
+  "installation": "Succeeded for separate ca.codepet.taphap.game; bundle and signed application identifier verified.",
+  "signedBuild": "Final implementation app and tests build successfully with existing signing; no signing/account changes.",
+  "limitations": [
+    "Simulator occurrence fixtures are not physical gestures or acoustic-latency measurements.",
+    "Only built-in speaker feasibility was accepted in Phase 1; no other route fairness claim."
+  ],
+  "preservation": {
+    "phase1Before": "11 raw records copied and hashed durably before game install.",
+    "phase1After": "Owner confirmed intentional removal. Honor removal; do not restore. All 11 preinstall records retained in verified durable backup.",
+    "historicalLab": "Historical lab bundle was absent in preinstall inventory; no on-device preservation claim. Repository historical files unchanged.",
+    "game": "All four pre-rerun game records retained exactly in seven-record final history. Original four diagnostic files match byte-for-byte. Final game history, diagnostics and fixture records copied durably; no reset/deletion.",
+    "onDevicePreservationVerified": false,
+    "ownerDirectedRemovalHonored": true
+  },
+  "physicalEvidence": ".ai/evidence/phase2/physical-integration.json",
+  "ownerAnalysis": "owner-trial-analysis.json",
+  "ownerObservations": "owner-observations.json",
+  "phase2AcceptedForMVPConstruction": true,
+  "originalBroaderProductTestEmpiricallyComplete": false,
+  "acceptance": "acceptance.json",
+  "deferredEvidenceAndLimitations": [
+    "Broader musician/click comparison, unaided comprehension, spontaneous retry and trust after repeated identical attempts remain unestablished and are deferred until after the functional MVP.",
+    "Owner confirms results felt right. Actual VoiceOver-use remains unobserved; Phase2 foundations checked, full review belongs to Phase4."
+  ]
+}
