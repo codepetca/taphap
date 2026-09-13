@@ -1,0 +1,16 @@
+{
+  "startupVerified": 29,
+  "startupDiscrepancies": [],
+  "currentChangedInheritedFiles": [
+    ".ai/CURRENT.md",
+    ".gitignore",
+    "Package.swift"
+  ],
+  "historicalLabPreserved": true,
+  "sourceHEAD": "2e0310bc245525e82ace4110c103681e6facfe55",
+  "changesExplained": {
+    ".ai/CURRENT.md": "copied coordinator current authority",
+    ".gitignore": "append private raw evidence exclusion",
+    "Package.swift": "add separate Phase1 library/tests; preserve old targets"
+  }
+}

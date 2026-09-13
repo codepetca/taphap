@@ -1,0 +1,392 @@
+{
+  "name": "accelerated",
+  "mode": "tap",
+  "expected": "accelerated",
+  "invalidations": [],
+  "events": [
+    {
+      "trackSeconds": 1.042,
+      "hostSeconds": 1001.042,
+      "observedHostSeconds": 1001.046,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 1.542,
+      "hostSeconds": 1001.542,
+      "observedHostSeconds": 1001.546,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 2.042,
+      "hostSeconds": 1002.042,
+      "observedHostSeconds": 1002.046,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 2.542,
+      "hostSeconds": 1002.542,
+      "observedHostSeconds": 1002.546,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 3.042,
+      "hostSeconds": 1003.042,
+      "observedHostSeconds": 1003.046,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 3.542,
+      "hostSeconds": 1003.542,
+      "observedHostSeconds": 1003.546,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 4.042,
+      "hostSeconds": 1004.042,
+      "observedHostSeconds": 1004.046,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 4.542,
+      "hostSeconds": 1004.542,
+      "observedHostSeconds": 1004.546,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 5.042,
+      "hostSeconds": 1005.042,
+      "observedHostSeconds": 1005.046,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 5.542,
+      "hostSeconds": 1005.542,
+      "observedHostSeconds": 1005.546,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 6.042,
+      "hostSeconds": 1006.042,
+      "observedHostSeconds": 1006.046,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 6.542,
+      "hostSeconds": 1006.542,
+      "observedHostSeconds": 1006.546,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 7.042,
+      "hostSeconds": 1007.042,
+      "observedHostSeconds": 1007.046,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 7.542,
+      "hostSeconds": 1007.542,
+      "observedHostSeconds": 1007.546,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 8.042,
+      "hostSeconds": 1008.042,
+      "observedHostSeconds": 1008.046,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 8.542,
+      "hostSeconds": 1008.542,
+      "observedHostSeconds": 1008.546,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 9.042,
+      "hostSeconds": 1009.042,
+      "observedHostSeconds": 1009.046,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 9.54155,
+      "hostSeconds": 1009.54155,
+      "observedHostSeconds": 1009.54555,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 10.0402,
+      "hostSeconds": 1010.0402,
+      "observedHostSeconds": 1010.0442,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 10.53795,
+      "hostSeconds": 1010.53795,
+      "observedHostSeconds": 1010.54195,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 11.0348,
+      "hostSeconds": 1011.0348,
+      "observedHostSeconds": 1011.0388,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 11.53075,
+      "hostSeconds": 1011.53075,
+      "observedHostSeconds": 1011.53475,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 12.0258,
+      "hostSeconds": 1012.0258,
+      "observedHostSeconds": 1012.0298,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 12.51995,
+      "hostSeconds": 1012.51995,
+      "observedHostSeconds": 1012.52395,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 13.0132,
+      "hostSeconds": 1013.0132,
+      "observedHostSeconds": 1013.0172,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 13.50555,
+      "hostSeconds": 1013.50555,
+      "observedHostSeconds": 1013.50955,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 13.997,
+      "hostSeconds": 1013.997,
+      "observedHostSeconds": 1014.001,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 14.48755,
+      "hostSeconds": 1014.48755,
+      "observedHostSeconds": 1014.4915500000001,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 14.9772,
+      "hostSeconds": 1014.9772,
+      "observedHostSeconds": 1014.9812000000001,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 15.46595,
+      "hostSeconds": 1015.46595,
+      "observedHostSeconds": 1015.46995,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 15.9538,
+      "hostSeconds": 1015.9538,
+      "observedHostSeconds": 1015.9578,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 16.44075,
+      "hostSeconds": 1016.44075,
+      "observedHostSeconds": 1016.44475,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 16.9268,
+      "hostSeconds": 1016.9268,
+      "observedHostSeconds": 1016.9308,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 17.41195,
+      "hostSeconds": 1017.41195,
+      "observedHostSeconds": 1017.4159500000001,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 17.8962,
+      "hostSeconds": 1017.8962,
+      "observedHostSeconds": 1017.9002,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 18.542,
+      "hostSeconds": 1018.542,
+      "observedHostSeconds": 1018.546,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 19.042,
+      "hostSeconds": 1019.042,
+      "observedHostSeconds": 1019.046,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 19.542,
+      "hostSeconds": 1019.542,
+      "observedHostSeconds": 1019.546,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 20.042,
+      "hostSeconds": 1020.042,
+      "observedHostSeconds": 1020.046,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 20.542,
+      "hostSeconds": 1020.542,
+      "observedHostSeconds": 1020.546,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 21.042,
+      "hostSeconds": 1021.042,
+      "observedHostSeconds": 1021.046,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 21.542,
+      "hostSeconds": 1021.542,
+      "observedHostSeconds": 1021.546,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 22.042,
+      "hostSeconds": 1022.042,
+      "observedHostSeconds": 1022.046,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 22.542,
+      "hostSeconds": 1022.542,
+      "observedHostSeconds": 1022.546,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 23.042,
+      "hostSeconds": 1023.042,
+      "observedHostSeconds": 1023.046,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 23.542,
+      "hostSeconds": 1023.542,
+      "observedHostSeconds": 1023.546,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 24.042,
+      "hostSeconds": 1024.042,
+      "observedHostSeconds": 1024.0459999999998,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 24.542,
+      "hostSeconds": 1024.542,
+      "observedHostSeconds": 1024.5459999999998,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 25.042,
+      "hostSeconds": 1025.042,
+      "observedHostSeconds": 1025.0459999999998,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 25.542,
+      "hostSeconds": 1025.542,
+      "observedHostSeconds": 1025.5459999999998,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 26.042,
+      "hostSeconds": 1026.042,
+      "observedHostSeconds": 1026.0459999999998,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 26.542,
+      "hostSeconds": 1026.542,
+      "observedHostSeconds": 1026.5459999999998,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 27.042,
+      "hostSeconds": 1027.042,
+      "observedHostSeconds": 1027.0459999999998,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 27.542,
+      "hostSeconds": 1027.542,
+      "observedHostSeconds": 1027.5459999999998,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 28.042,
+      "hostSeconds": 1028.042,
+      "observedHostSeconds": 1028.0459999999998,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 28.542,
+      "hostSeconds": 1028.542,
+      "observedHostSeconds": 1028.5459999999998,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 29.042,
+      "hostSeconds": 1029.042,
+      "observedHostSeconds": 1029.0459999999998,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 29.542,
+      "hostSeconds": 1029.542,
+      "observedHostSeconds": 1029.5459999999998,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 30.042,
+      "hostSeconds": 1030.042,
+      "observedHostSeconds": 1030.0459999999998,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 30.542,
+      "hostSeconds": 1030.542,
+      "observedHostSeconds": 1030.5459999999998,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 31.042,
+      "hostSeconds": 1031.042,
+      "observedHostSeconds": 1031.0459999999998,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 31.542,
+      "hostSeconds": 1031.542,
+      "observedHostSeconds": 1031.5459999999998,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 32.042,
+      "hostSeconds": 1032.042,
+      "observedHostSeconds": 1032.0459999999998,
+      "mode": "tap"
+    },
+    {
+      "trackSeconds": 32.542,
+      "hostSeconds": 1032.542,
+      "observedHostSeconds": 1032.5459999999998,
+      "mode": "tap"
+    }
+  ]
+}

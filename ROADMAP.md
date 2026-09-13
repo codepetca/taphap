@@ -1,169 +1,220 @@
 # TapHap Product Roadmap
 
-This is the canonical roadmap. It replaces all earlier plans for BPM Sync,
-multi-device peer synchronization, automatic ambient song detection, and a
-song-based rhythm game.
+This is the canonical implementation sequence for the product defined in
+[the product direction](docs/product-brief.md). It replaces the earlier plans
+for a synchronized metronome, Apple Music experiment, passive song listener,
+and metronome-first trainer.
 
-## Product destination
+## Destination
 
-TapHap should become a simple, enjoyable internal-clock trainer that is useful
-without a streaming service:
+TapHap is a song-based rhythm game and real internal-clock trainer:
 
-1. Music plays while the person taps.
-2. TapHap establishes a personal timing baseline.
-3. The audio disappears while its timeline continues.
-4. A non-rhythmic progress ring shows when the audio will return without
-   revealing the beat.
-5. The person keeps tapping from their internal sense of time.
-6. Music returns and TapHap reports drift, consistency, and progress over time.
+1. Music plays while the player taps or strums on the screen.
+2. The music fades out while its hidden timeline continues.
+3. The player maintains the rhythm without external cues.
+4. The music returns at its correct position.
+5. TapHap scores consistency, drift, re-entry, and improvement over time.
 
-A conventional metronome is a secondary utility. It may offer tap tempo and
-direct tempo controls, but the primary exercise must never require BPM entry.
+The product serves musicians first while using the universally understandable
+challenge: **When the music comes back, will you still be on beat?**
 
-## Current state: planning lock
+## Current state: direction documented, implementation locked
 
-- Product documentation is the only approved work.
-- No Xcode project, source code, dependencies, generated assets, service
-  credentials, or Apple capabilities should be added yet.
-- Implementation begins only after the repository owner explicitly approves a
-  phase or implementation task.
+- The new product direction and staged roadmap are documented.
+- No implementation phase in this roadmap is authorized merely by this
+  documentation change. The owner must explicitly approve the next phase.
+- The repository contains an earlier Phase 1A/1B iPhone feasibility lab. It is
+  experimental evidence, not the foundation or UI for the new product.
+- That lab established that app-controlled reference audio can become silent
+  while timing continues. It also established that direct Apple Music muting
+  did not work in the tested configuration.
+- Apple Music, Spotify, Apple Watch, physical-instrument listening, production
+  UI, release activity, and external services remain out of scope.
 
-## Phase 1: feasibility gates
+## Phase 0: ratify the direction
 
-Begin only after explicit implementation approval. Use throwaway, narrowly
-scoped experiments before building product UI.
+Documentation-only phase.
 
-### 1A. Timing and scoring
+- Confirm the product statement, audience, promise, input modes, game loop,
+  scoring principles, visual contract, and MVP boundary.
+- Preserve the earlier feasibility findings as historical evidence.
+- Keep all new implementation locked until the owner authorizes Phase 1.
 
-- Play a locally controlled test groove with a known beat grid.
-- Capture touchscreen tap timestamps using a monotonic clock.
-- Establish a baseline from the audible section with robust fitting and outlier
-  rejection.
-- Continue the hidden beat timeline through silence.
-- Measure end drift, tempo slope, and tap consistency.
-- Test built-in speakers, wired output, and Bluetooth headphones on physical
-  devices.
+Exit gate: the owner confirms this direction is ready for implementation.
 
-Exit gate: repeatable measurements distinguish genuine user drift from stable
-audio-route and touch-input latency.
+## Phase 1: core audio and scoring feasibility
 
-### 1B. Apple Music behavior
+Build a narrow engineering lab, not production UI.
 
-- Authenticate with MusicKit and let the user explicitly select and start a
-  full song.
-- Verify `ApplicationMusicPlayer` playback position behavior on physical
-  devices.
-- Test whether the iOS 26+ audio-session mute API cleanly silences only the
-  app's Apple Music playback while the playhead continues.
-- Measure mute and unmute timing across supported audio routes.
-- Confirm interruption, buffering, subscription, offline, and unavailable-song
-  behavior.
-- Do not use deprecated player-volume APIs or manipulate system volume.
+### Scope
 
-Exit gate: the music can disappear and return with musician-credible timing
-without downloading, recording, decoding, or modifying Apple Music content.
+- Use one locally bundled, fully owned test track with a verified beat map.
+- Play it on an app-controlled audio timeline.
+- Fade the app-owned audio to zero and back without pausing its timeline.
+- Schedule gap boundaries from audio sample time rather than UI timers.
+- Capture Tap touch-down timestamps.
+- Capture Strum reference-crossing timestamps and stroke direction.
+- Fit an audible-section baseline, then calculate consistency, tempo drift, and
+  re-entry error through a silent gap.
+- Exercise identical prerecorded input fixtures to make scoring deterministic.
+- Test repeated trials on a physical iPhone across intended audio routes.
 
-### 1C. Apple Music policy
+### Excluded
 
-- Present Apple with the exact product behavior: user-initiated full-song
-  playback, tap calibration, temporary output mute, non-beat progress display,
-  local scoring, and no audio capture or export.
-- Obtain a reliable interpretation of MusicKit's synchronization and
-  monetization restrictions before promising or shipping the feature.
-- Keep Apple Music optional and never make subscription access itself a paid
-  feature.
+- Production navigation, art, onboarding, accounts, analytics, store flows,
+  microphone input, Watch, streaming services, and a song catalog.
 
-Exit gate: the release plan has a documented, defensible App Store path. App
-Review approval must not be assumed from technical feasibility alone.
+### Exit gate
 
-### 1D. Apple Watch behavior
+- Audio fades and returns on the mapped timeline without pause, seek, or drift.
+- Identical simulated inputs receive stable results.
+- Deliberate acceleration, deceleration, jitter, and phase shifts produce the
+  expected diagnosis.
+- Tap and Strum timestamps are repeatable enough for musician-credible scoring.
+- A physical-device run confirms the complete audible-to-silent-to-audible
+  loop.
 
-- Test foreground and wrist-down haptic timing on supported watchOS versions.
-- Determine whether a legitimate runtime mode supports the intended session.
-- Measure phone-to-watch clock mapping, drift, interruptions, and battery use.
-- Never use inaudible audio, a fake workout, or an unrelated extended-runtime
-  category to keep the watch app alive.
+Stop and revise the model if this gate fails. Do not hide engine uncertainty
+behind polished UI.
 
-Exit gate: Watch behavior is useful and App-Review-compliant. The iPhone app
-must remain complete if this gate fails.
+## Phase 2: one-song game vertical slice
 
-## Phase 2: core iPhone vertical slice
+Build the smallest complete playable experience around the validated engine.
 
-Build against bundled, original test audio so the core does not depend on Apple
-Music approval.
+### Scope
 
-- Session state machine: prepare, calibrate, warn, silent gap, return, result.
-- Large, low-latency tapping surface.
-- Baseline estimation from audible taps; no required BPM input.
-- Hidden timeline and deterministic scoring.
-- One-way progress ring during silence with no beat pulses or subdivisions.
-- Results for end drift, speeding up or slowing down, and consistency.
-- Unit tests for timing math, state transitions, outlier handling, and scoring.
+- Three primary screens: challenge selection, play, and result.
+- One polished musical track and a small set of prebuilt gap challenges.
+- Tap and Strum selection without advanced configuration.
+- Clear preparation, non-rhythmic gap warning, silent progress, return, and
+  plain-language result.
+- Retry, next challenge, and personal best.
+- Local persistence for trials and compatible-session comparison.
+- VoiceOver, Dynamic Type, reduced-motion, and high-contrast foundations.
 
-Exit gate: a first-time user can complete and understand one exercise without
-instructions beyond concise on-screen guidance.
+### Product test
 
-## Phase 3: App Store MVP
+Put the slice in the hands of musicians who already understand gap-click
+practice. Compare it with a click-based gap trainer and observe whether players:
 
-- A small set of fully owned or expressly licensed musical grooves.
-- Difficulty based on silent-gap length and support level.
-- Assisted mode with continuous gap progress; blind mode without it.
-- Local session history and comparable improvement trends.
-- Simple metronome with tap tempo and optional direct tempo adjustment.
-- Accessibility, reduced motion, VoiceOver, Dynamic Type, and high-contrast
-  behavior.
-- Clear handling of interruptions, headphones, route changes, phone calls, and
-  app lifecycle events.
-- No account, backend, analytics dependency, microphone, or network requirement
-  for the core exercise.
+- Understand TapHap without explanation.
+- Voluntarily retry after the song returns.
+- Trust the score after repeated identical attempts.
+- Prefer the musical challenge strongly enough to make it a separate product.
 
-Exit gate: TapHap is independently useful, reliable, understandable, and ready
-for TestFlight without Apple Music or Apple Watch.
+### Exit gate
 
-## Phase 4: conditional Apple Music mode
+The core loop is reliable, immediately understandable, and meaningfully more
+engaging than a click-only gap exercise.
 
-Include only if both the technical and policy gates pass.
+## Phase 3: training game MVP
 
-- Apple Music authorization and user-driven song selection.
-- Standard play, pause, skip, and playback-position controls.
-- Tap-based baseline calibration rather than audio extraction or BPM metadata.
-- Boolean mute and unmute while playback continues; do not promise a gradual
-  fade unless Apple introduces a supported per-player gain API.
-- The same non-rhythmic progress display and local scoring used by the core.
-- No song downloads, recordings, waveform access, beat-map database, sharing,
-  or remote storage of Apple Music listening data.
-- Graceful fallback to bundled exercises for non-subscribers or unavailable
-  content.
+Turn the vertical slice into a bounded daily training product.
 
-## Phase 5: conditional Apple Watch companion
+### Content
 
-Include only if the watch feasibility gate passes.
+- Ship a small set of enjoyable, fully owned or expressly licensed songs with
+  verified beat maps.
+- Cover a useful but controlled range of tempos and beat clarity.
+- Designate at least one benchmark track and separate transfer challenges.
+- Store non-sensitive asset provenance in the repository and keep private
+  contracts outside it.
 
-- Remote session controls and status.
-- Optional tap input for exercises.
-- Haptic output for the separate metronome experience.
-- Phone remains the canonical playback and scoring authority.
-- No dependency on watch availability for stored history or core training.
+### Training system
 
-## Phase 6: release hardening
+- Day 1 baseline made from multiple short trials.
+- Three-to-five-minute daily sessions.
+- Adaptive difficulty through gap length, preparation time, placement, tempo,
+  groove clarity, and input pattern.
+- Checkpoint retests using identical benchmark conditions.
+- Transfer tests using a different track.
+- Personal bests, skill chapters, grades, stars, and perfect landings tied to
+  actual performance.
+- Local history with transparent, compatible comparisons.
 
-- Verify rights and source records for every bundled audio asset.
-- Prepare privacy disclosures and Apple Music usage descriptions, if applicable.
-- Explain unusual MusicKit and audio behavior plainly in App Review notes.
-- Test supported devices, OS versions, audio routes, accessibility settings, and
-  long sessions.
-- Run TestFlight feedback focused on whether scoring feels fair and whether
-  users understand the progress ring.
-- Publish only after all included conditional features satisfy their gates.
+### Quality
+
+- Unit tests for beat-map conversion, scheduling, baseline fitting, scoring,
+  progression, and persistence.
+- Deterministic tests for pauses, route changes, interruptions, and app
+  lifecycle transitions.
+- Usability tests for first-run comprehension and score clarity.
+
+### Exit gate
+
+A new player can establish a baseline, complete a short daily session, return
+on a later checkpoint, and understand measured improvement without knowing BPM
+or configuring a metronome.
+
+## Phase 4: release candidate
+
+- Complete accessibility review and supported-device testing.
+- Verify every audio asset and its allowed app, promotional, editing, looping,
+  territory, and duration uses.
+- Finalize privacy disclosures for a local, account-free product.
+- Handle audio interruptions, route changes, phone calls, backgrounding, and
+  storage failures clearly.
+- Validate scoring fairness across supported devices and routes.
+- Test a free starter experience and a one-time unlock; do not add a
+  subscription unless recurring content later creates recurring value.
+- Run TestFlight feedback focused on replayability, score trust, song quality,
+  and willingness to pay.
+- Prepare App Store copy around the musical disappearance challenge rather than
+  a long feature list.
+
+Exit gate: the standalone iPhone product is reliable, understandable, legally
+documented, and useful without a network, account, streaming subscription, or
+external hardware.
+
+## Phase 5: Split Focus expansion
+
+Begin only after the core game demonstrates retention.
+
+- Add static reading and speaking prompts that do not reveal beat timing.
+- Let players sing from memory while using Tap or Strum.
+- Compare split-focus performance with the player's compatible normal baseline.
+- Report attention cost through changes in consistency, drift, and re-entry.
+- Add progressive challenges without attempting to judge vocal pitch or lyric
+  correctness.
+
+Exit gate: the secondary task increases useful difficulty without corrupting
+timing measurement or becoming an accidental visual metronome.
+
+## Phase 6: user-imported audio
+
+Begin only with a separately approved feasibility plan.
+
+- Import user-selected, DRM-free audio files.
+- Decode and analyze audio locally for tempo, phase, beat positions, and
+  confidence.
+- Provide a correction path when analysis is uncertain.
+- Handle variable tempo, pickup measures, silence, and ambiguous meter.
+- Keep imported audio private and local by default.
+
+Exit gate: imported tracks can produce beat maps and gap returns reliable
+enough for scoring without pretending uncertain analysis is exact.
+
+## Phase 7: physical-instrument input
+
+Begin only after the touchscreen product succeeds.
+
+- Test microphone onset detection with percussion and clear guitar strums.
+- Test separated USB-audio and timestamped MIDI input.
+- Calibrate device and route latency.
+- Determine supported instruments and playing styles from measured evidence.
+- Treat simultaneous acoustic singing and instrument recognition as a separate
+  high-risk experiment.
+
+Exit gate: supported input methods produce repeatable onset timestamps and
+honest limitations can be communicated to players.
 
 ## Future possibilities, not commitments
 
-- User-imported DRM-free audio.
-- Adaptive gap lengths and personalized practice plans.
-- More detailed progress analytics.
-- Optional microphone-based tempo experiments.
-- Cloud synchronization of history.
-- Social challenges.
+- Teacher assignments and private progress sharing.
+- Optional Apple Watch companion.
+- Carefully bounded social challenges.
+- Additional paid song or curriculum packs with explicit rights.
 
-None of these belong in the initial implementation unless the roadmap is
-explicitly revised.
+These require separate product decisions. Do not revive streaming playback,
+group synchronization, or a generic metronome feature race without revising
+the product direction first.

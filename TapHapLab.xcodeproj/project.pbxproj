@@ -1,0 +1,493 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C42CBA1E40AFDCD75CDD5C3 /* PulseAnalysisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEE9E8511205A723D6EDA2 /* PulseAnalysisTests.swift */; };
+		444F7663349151C6EFD03D3D /* TapCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C270EAC43A43ADA0D45A48A /* TapCaptureView.swift */; };
+		601B99FFB47F029F3018D327 /* TrainingSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4133520E7EE893227D53F /* TrainingSessionTests.swift */; };
+		773C37BAC4B589018D98264F /* TapHapLabApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AF511E42B8981B69D903AE /* TapHapLabApp.swift */; };
+		89B5BEBEBAF63C41A401B21D /* PulseAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB9DF87550EF3E23CC415E1 /* PulseAnalysis.swift */; };
+		A811A7D9479025975B39A949 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594A396EDD904092F1ED9E1 /* ContentView.swift */; };
+		A9D37C9248D447D60D6D117D /* LabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612CD729EF005329400A88CA /* LabViewModel.swift */; };
+		AF83423D699564114FE531AE /* GapScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFB10B6CE673AB7A09D5969 /* GapScheduler.swift */; };
+		E343773F25B7F583A2081326 /* TrainingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E29EC427E41E835E1E4E45 /* TrainingSession.swift */; };
+		E6B79EAD230E6FC3C96C6C27 /* ReferenceClickPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB104ACCD144205A137DFF88 /* ReferenceClickPlayer.swift */; };
+		EB6FA53F6184C5DB82C81983 /* AudioSessionMuteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961DCA1E39DE1ECBD94147C7 /* AudioSessionMuteController.swift */; };
+		F877E9AF12B19797CC05FFC9 /* AppleMusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4F3D72F5693A98CD38BD76 /* AppleMusicController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2094497D1CE2F24C78C437C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75CED9191DBEA803FABA8F39 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 792FA4371902A94CD72B1836;
+			remoteInfo = TapHapLab;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5C270EAC43A43ADA0D45A48A /* TapCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCaptureView.swift; sourceTree = "<group>"; };
+		6064604283646F388C75C8AB /* TapHapLabTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TapHapLabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		612CD729EF005329400A88CA /* LabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabViewModel.swift; sourceTree = "<group>"; };
+		8594A396EDD904092F1ED9E1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		961DCA1E39DE1ECBD94147C7 /* AudioSessionMuteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSessionMuteController.swift; sourceTree = "<group>"; };
+		A5E29EC427E41E835E1E4E45 /* TrainingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingSession.swift; sourceTree = "<group>"; };
+		AB104ACCD144205A137DFF88 /* ReferenceClickPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceClickPlayer.swift; sourceTree = "<group>"; };
+		BFB9DF87550EF3E23CC415E1 /* PulseAnalysis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseAnalysis.swift; sourceTree = "<group>"; };
+		DAC4133520E7EE893227D53F /* TrainingSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingSessionTests.swift; sourceTree = "<group>"; };
+		DAFB10B6CE673AB7A09D5969 /* GapScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapScheduler.swift; sourceTree = "<group>"; };
+		DE4F3D72F5693A98CD38BD76 /* AppleMusicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicController.swift; sourceTree = "<group>"; };
+		E4ECB943DE2355A2663509B4 /* TapHapLab.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TapHapLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E66E9B378731D34C6B1FD03B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F8AF511E42B8981B69D903AE /* TapHapLabApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapHapLabApp.swift; sourceTree = "<group>"; };
+		F8EEE9E8511205A723D6EDA2 /* PulseAnalysisTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseAnalysisTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1397DF16BA2E953EE5F316A6 = {
+			isa = PBXGroup;
+			children = (
+				A12DB406146CFE8AC300CF9C /* TapHapLab */,
+				BD40782257CC470A0F51C74F /* TapHapLabTests */,
+				D42EF42264C40FDB247B3535 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1FC037C05D414130CE6B33B2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				612CD729EF005329400A88CA /* LabViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3BA9114C9166852AD3F49BA9 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				5C270EAC43A43ADA0D45A48A /* TapCaptureView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3EB46C0FAF4D482BCA084EC8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8594A396EDD904092F1ED9E1 /* ContentView.swift */,
+				F8AF511E42B8981B69D903AE /* TapHapLabApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		430AF3D9F826E5AEC03577A8 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				DE4F3D72F5693A98CD38BD76 /* AppleMusicController.swift */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		A12DB406146CFE8AC300CF9C /* TapHapLab */ = {
+			isa = PBXGroup;
+			children = (
+				E66E9B378731D34C6B1FD03B /* Info.plist */,
+				3EB46C0FAF4D482BCA084EC8 /* App */,
+				CF768DF232D18462DFAA0411 /* Audio */,
+				CFC73AA431557786F831A6C7 /* Core */,
+				430AF3D9F826E5AEC03577A8 /* Music */,
+				3BA9114C9166852AD3F49BA9 /* UI */,
+				1FC037C05D414130CE6B33B2 /* ViewModel */,
+			);
+			path = TapHapLab;
+			sourceTree = "<group>";
+		};
+		BD40782257CC470A0F51C74F /* TapHapLabTests */ = {
+			isa = PBXGroup;
+			children = (
+				F8EEE9E8511205A723D6EDA2 /* PulseAnalysisTests.swift */,
+				DAC4133520E7EE893227D53F /* TrainingSessionTests.swift */,
+			);
+			path = TapHapLabTests;
+			sourceTree = "<group>";
+		};
+		CF768DF232D18462DFAA0411 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				961DCA1E39DE1ECBD94147C7 /* AudioSessionMuteController.swift */,
+				DAFB10B6CE673AB7A09D5969 /* GapScheduler.swift */,
+				AB104ACCD144205A137DFF88 /* ReferenceClickPlayer.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		CFC73AA431557786F831A6C7 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				BFB9DF87550EF3E23CC415E1 /* PulseAnalysis.swift */,
+				A5E29EC427E41E835E1E4E45 /* TrainingSession.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		D42EF42264C40FDB247B3535 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E4ECB943DE2355A2663509B4 /* TapHapLab.app */,
+				6064604283646F388C75C8AB /* TapHapLabTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6C0C02E0ACE447FC407BB397 /* TapHapLabTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF56F80EC3FFF9CEF094A17D /* Build configuration list for PBXNativeTarget "TapHapLabTests" */;
+			buildPhases = (
+				B46D0EF8A89142A50DCBBA0A /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C78E2A27DE96AFDA63E0AFF6 /* PBXTargetDependency */,
+			);
+			name = TapHapLabTests;
+			packageProductDependencies = (
+			);
+			productName = TapHapLabTests;
+			productReference = 6064604283646F388C75C8AB /* TapHapLabTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		792FA4371902A94CD72B1836 /* TapHapLab */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 267E9BA76EE07AB44283D774 /* Build configuration list for PBXNativeTarget "TapHapLab" */;
+			buildPhases = (
+				8F16706688A911FAADB6A8E7 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TapHapLab;
+			packageProductDependencies = (
+			);
+			productName = TapHapLab;
+			productReference = E4ECB943DE2355A2663509B4 /* TapHapLab.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		75CED9191DBEA803FABA8F39 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					6C0C02E0ACE447FC407BB397 = {
+						DevelopmentTeam = 88FT6QZJP8;
+						ProvisioningStyle = Automatic;
+					};
+					792FA4371902A94CD72B1836 = {
+						DevelopmentTeam = 88FT6QZJP8;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 0764A058EA541A720F7EE6FE /* Build configuration list for PBXProject "TapHapLab" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 1397DF16BA2E953EE5F316A6;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				792FA4371902A94CD72B1836 /* TapHapLab */,
+				6C0C02E0ACE447FC407BB397 /* TapHapLabTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8F16706688A911FAADB6A8E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F877E9AF12B19797CC05FFC9 /* AppleMusicController.swift in Sources */,
+				EB6FA53F6184C5DB82C81983 /* AudioSessionMuteController.swift in Sources */,
+				A811A7D9479025975B39A949 /* ContentView.swift in Sources */,
+				AF83423D699564114FE531AE /* GapScheduler.swift in Sources */,
+				A9D37C9248D447D60D6D117D /* LabViewModel.swift in Sources */,
+				89B5BEBEBAF63C41A401B21D /* PulseAnalysis.swift in Sources */,
+				E6B79EAD230E6FC3C96C6C27 /* ReferenceClickPlayer.swift in Sources */,
+				444F7663349151C6EFD03D3D /* TapCaptureView.swift in Sources */,
+				773C37BAC4B589018D98264F /* TapHapLabApp.swift in Sources */,
+				E343773F25B7F583A2081326 /* TrainingSession.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B46D0EF8A89142A50DCBBA0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C42CBA1E40AFDCD75CDD5C3 /* PulseAnalysisTests.swift in Sources */,
+				601B99FFB47F029F3018D327 /* TrainingSessionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C78E2A27DE96AFDA63E0AFF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 792FA4371902A94CD72B1836 /* TapHapLab */;
+			targetProxy = 2094497D1CE2F24C78C437C2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		000638E3B15051B43BC1EAC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.codepet.taphap.lab.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TapHapLab.app/TapHapLab";
+			};
+			name = Debug;
+		};
+		1F4E1452F766164933D9C4DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TapHapLab/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.codepet.taphap.lab;
+				PRODUCT_MODULE_NAME = TapHapLab;
+				PRODUCT_NAME = TapHapLab;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		659A56014768ED35DA5D1303 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 88FT6QZJP8;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		6623346C3F4031BE9E39F912 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TapHapLab/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.codepet.taphap.lab;
+				PRODUCT_MODULE_NAME = TapHapLab;
+				PRODUCT_NAME = TapHapLab;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E4F8AB7488B14E17EEBB34C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.codepet.taphap.lab.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TapHapLab.app/TapHapLab";
+			};
+			name = Release;
+		};
+		ED066AB005018F2E0A704B19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 88FT6QZJP8;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0764A058EA541A720F7EE6FE /* Build configuration list for PBXProject "TapHapLab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED066AB005018F2E0A704B19 /* Debug */,
+				659A56014768ED35DA5D1303 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		267E9BA76EE07AB44283D774 /* Build configuration list for PBXNativeTarget "TapHapLab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6623346C3F4031BE9E39F912 /* Debug */,
+				1F4E1452F766164933D9C4DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DF56F80EC3FFF9CEF094A17D /* Build configuration list for PBXNativeTarget "TapHapLabTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000638E3B15051B43BC1EAC8 /* Debug */,
+				E4F8AB7488B14E17EEBB34C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 75CED9191DBEA803FABA8F39 /* Project object */;
+}

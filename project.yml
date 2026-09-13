@@ -1,0 +1,46 @@
+name: TapHapLab
+
+options:
+  bundleIdPrefix: ca.codepet
+  deploymentTarget:
+    iOS: "26.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    IPHONEOS_DEPLOYMENT_TARGET: "26.0"
+    CODE_SIGN_STYLE: Automatic
+    DEVELOPMENT_TEAM: 88FT6QZJP8
+
+targets:
+  TapHapLab:
+    type: application
+    platform: iOS
+    sources:
+      - path: TapHapLab
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: ca.codepet.taphap.lab
+        PRODUCT_NAME: TapHapLab
+        PRODUCT_MODULE_NAME: TapHapLab
+        GENERATE_INFOPLIST_FILE: false
+        INFOPLIST_FILE: TapHapLab/Info.plist
+        TARGETED_DEVICE_FAMILY: "1"
+        SUPPORTS_MACCATALYST: false
+        ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS: false
+    scheme:
+      testTargets:
+        - TapHapLabTests
+
+  TapHapLabTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: TapHapLabTests
+    dependencies:
+      - target: TapHapLab
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: ca.codepet.taphap.lab.tests
+        GENERATE_INFOPLIST_FILE: true

@@ -1,0 +1,70 @@
+{
+  "finalAppUnattendedLaunch": {
+    "anchors": 681,
+    "invalidations": [
+      "missingInput"
+    ],
+    "lastSample": 1634188,
+    "maximumClockResidualMS": 0.018458332167937963,
+    "score": null
+  },
+  "finalLifecycleGuards": {
+    "failures": 0,
+    "tests": 2
+  },
+  "historicalBuildForTesting": "passed",
+  "iOSSimulator": {
+    "failures": 0,
+    "gapEnergy": 0,
+    "model": "iPhone 17 Pro",
+    "offlineFrames": 1632000,
+    "renderClock": {
+      "acousticObservation": "NOT OBSERVED",
+      "anchorCount": 651,
+      "crossed": [
+        "end",
+        "fade",
+        "fullReturn",
+        "return",
+        "silent"
+      ],
+      "firstSample": 171,
+      "lastSample": 1634669,
+      "maximumClockResidualMS": 0.018583333119749634,
+      "route": {
+        "audioSHA256": "ad8eb39d1d1074cafdbac4b362c8eddc73c092943f16900c5bf09085c91488c6",
+        "ioBufferDurationSeconds": "0.0026666666666666666",
+        "latencyCorrection": "none; stable combined offset fitted from audible input",
+        "mapSHA256": "494190976e0cacaabf401e6101a990edc4666c8e02d1aaa2c6e0c92215540e15",
+        "outputLatencyReportedSeconds": "9.999999747378752e-05",
+        "outputs": "Speaker:Speaker",
+        "sessionSampleRate": "48000.0"
+      }
+    },
+    "runtime": "26.5",
+    "tests": 11
+  },
+  "physicalDevice": {
+    "acousticLoop": "not observed",
+    "coreDeviceError": 12040,
+    "developerMode": "enabled",
+    "installation": "blocked",
+    "mobileDeviceError": "0xe80000e2",
+    "model": "iPhone 16",
+    "os": "26.6.2 (23G90)",
+    "passcodeRequired": true,
+    "reason": "kAMDMobileImageMounterDeviceLocked",
+    "tapStrumRepeatability": "not observed",
+    "testExecution": "not started"
+  },
+  "rawEvidence": "local/ (ignored) and build/ (ignored)",
+  "signedDeviceBuildForTesting": "passed",
+  "sourceBase": "2e0310bc245525e82ace4110c103681e6facfe55",
+  "swiftPackage": {
+    "failures": 0,
+    "inheritedTests": 7,
+    "newTests": 6,
+    "tests": 13
+  },
+  "toolchain": "Xcode 26.6 (17F113)"
+}

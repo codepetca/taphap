@@ -1,0 +1,167 @@
+{
+  "strum/accelerated": {
+    "accelerationMSPerBeatSquared": -0.8999999999999669,
+    "baselineJitterMS": 0,
+    "baselinePeriodMS": 500,
+    "baselinePhaseMS": 41.999999999999815,
+    "consistencyMS": 8.502499632460731,
+    "diagnosis": "accelerated",
+    "inputCount": 31,
+    "phaseShiftMS": 15.300000000000438,
+    "reentryMS": -115.19999999999975,
+    "tempoDriftMSPerBeat": -7.650000000000026
+  },
+  "strum/decelerated": {
+    "accelerationMSPerBeatSquared": 0.8999999999999723,
+    "baselineJitterMS": 0,
+    "baselinePeriodMS": 500,
+    "baselinePhaseMS": 41.999999999999815,
+    "consistencyMS": 8.50249963246079,
+    "diagnosis": "decelerated",
+    "inputCount": 31,
+    "phaseShiftMS": -15.299999999999633,
+    "reentryMS": 115.19999999999975,
+    "tempoDriftMSPerBeat": 7.649999999999948
+  },
+  "strum/duplicate": {
+    "invalid": "duplicateInput"
+  },
+  "strum/jittered": {
+    "accelerationMSPerBeatSquared": 1.0570971181733668e-14,
+    "baselineJitterMS": 0,
+    "baselinePeriodMS": 500,
+    "baselinePhaseMS": 41.999999999999815,
+    "consistencyMS": 43.05348930315013,
+    "diagnosis": "jittered",
+    "inputCount": 31,
+    "phaseShiftMS": -4.852941176470275,
+    "reentryMS": 35.00000000000192,
+    "tempoDriftMSPerBeat": 0.6470588235294292
+  },
+  "strum/missing": {
+    "invalid": "missingInput"
+  },
+  "strum/nonfinite_clock": {
+    "invalid": "malformedInput"
+  },
+  "strum/route_changed": {
+    "invalid": "routeChanged"
+  },
+  "strum/shifted": {
+    "accelerationMSPerBeatSquared": 3.965082230804131e-14,
+    "baselineJitterMS": 0,
+    "baselinePeriodMS": 500,
+    "baselinePhaseMS": 41.999999999999815,
+    "consistencyMS": 5.100491008598669e-13,
+    "diagnosis": "shifted",
+    "inputCount": 31,
+    "phaseShiftMS": 89.99999999999943,
+    "reentryMS": 90.00000000000163,
+    "tempoDriftMSPerBeat": 1.0187928931854377e-13
+  },
+  "strum/steady": {
+    "accelerationMSPerBeatSquared": 3.965082230804131e-14,
+    "baselineJitterMS": 0,
+    "baselinePeriodMS": 500,
+    "baselinePhaseMS": 41.999999999999815,
+    "consistencyMS": 5.100491008598669e-13,
+    "diagnosis": "steady",
+    "inputCount": 31,
+    "phaseShiftMS": -4.3102776250153133e-13,
+    "reentryMS": 1.7763568394002505e-12,
+    "tempoDriftMSPerBeat": 1.0187928931854377e-13
+  },
+  "strum/unstable": {
+    "invalid": "unstableBaseline"
+  },
+  "strum/upstroke": {
+    "invalid": "invalidDirection"
+  },
+  "tap/accelerated": {
+    "accelerationMSPerBeatSquared": -0.8999999999999669,
+    "baselineJitterMS": 0,
+    "baselinePeriodMS": 500,
+    "baselinePhaseMS": 41.999999999999815,
+    "consistencyMS": 8.502499632460731,
+    "diagnosis": "accelerated",
+    "inputCount": 31,
+    "phaseShiftMS": 15.300000000000438,
+    "reentryMS": -115.19999999999975,
+    "tempoDriftMSPerBeat": -7.650000000000026
+  },
+  "tap/decelerated": {
+    "accelerationMSPerBeatSquared": 0.8999999999999723,
+    "baselineJitterMS": 0,
+    "baselinePeriodMS": 500,
+    "baselinePhaseMS": 41.999999999999815,
+    "consistencyMS": 8.50249963246079,
+    "diagnosis": "decelerated",
+    "inputCount": 31,
+    "phaseShiftMS": -15.299999999999633,
+    "reentryMS": 115.19999999999975,
+    "tempoDriftMSPerBeat": 7.649999999999948
+  },
+  "tap/duplicate": {
+    "invalid": "duplicateInput"
+  },
+  "tap/jittered": {
+    "accelerationMSPerBeatSquared": 1.0570971181733668e-14,
+    "baselineJitterMS": 0,
+    "baselinePeriodMS": 500,
+    "baselinePhaseMS": 41.999999999999815,
+    "consistencyMS": 43.05348930315013,
+    "diagnosis": "jittered",
+    "inputCount": 31,
+    "phaseShiftMS": -4.852941176470275,
+    "reentryMS": 35.00000000000192,
+    "tempoDriftMSPerBeat": 0.6470588235294292
+  },
+  "tap/missing": {
+    "invalid": "missingInput"
+  },
+  "tap/nonfinite_clock": {
+    "invalid": "malformedInput"
+  },
+  "tap/route_changed": {
+    "invalid": "routeChanged"
+  },
+  "tap/shifted": {
+    "accelerationMSPerBeatSquared": 3.965082230804131e-14,
+    "baselineJitterMS": 0,
+    "baselinePeriodMS": 500,
+    "baselinePhaseMS": 41.999999999999815,
+    "consistencyMS": 5.100491008598669e-13,
+    "diagnosis": "shifted",
+    "inputCount": 31,
+    "phaseShiftMS": 89.99999999999943,
+    "reentryMS": 90.00000000000163,
+    "tempoDriftMSPerBeat": 1.0187928931854377e-13
+  },
+  "tap/steady": {
+    "accelerationMSPerBeatSquared": 3.965082230804131e-14,
+    "baselineJitterMS": 0,
+    "baselinePeriodMS": 500,
+    "baselinePhaseMS": 41.999999999999815,
+    "consistencyMS": 5.100491008598669e-13,
+    "diagnosis": "steady",
+    "inputCount": 31,
+    "phaseShiftMS": -4.3102776250153133e-13,
+    "reentryMS": 1.7763568394002505e-12,
+    "tempoDriftMSPerBeat": 1.0187928931854377e-13
+  },
+  "tap/unstable": {
+    "invalid": "unstableBaseline"
+  },
+  "tap/upstroke": {
+    "accelerationMSPerBeatSquared": 3.965082230804131e-14,
+    "baselineJitterMS": 0,
+    "baselinePeriodMS": 500,
+    "baselinePhaseMS": 41.999999999999815,
+    "consistencyMS": 5.100491008598669e-13,
+    "diagnosis": "steady",
+    "inputCount": 31,
+    "phaseShiftMS": -4.3102776250153133e-13,
+    "reentryMS": 1.7763568394002505e-12,
+    "tempoDriftMSPerBeat": 1.0187928931854377e-13
+  }
+}

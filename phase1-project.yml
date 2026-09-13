@@ -1,0 +1,50 @@
+name: TapHapPhase1
+options:
+  bundleIdPrefix: ca.codepet
+  deploymentTarget:
+    iOS: "26.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    IPHONEOS_DEPLOYMENT_TARGET: "26.0"
+    CODE_SIGN_STYLE: Automatic
+    DEVELOPMENT_TEAM: 88FT6QZJP8
+targets:
+  TapHapPhase1:
+    type: application
+    platform: iOS
+    sources:
+      - path: Phase1Lab/Core
+      - path: Phase1Lab/App
+      - path: Phase1Lab/Resources
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: ca.codepet.taphap.phase1
+        GENERATE_INFOPLIST_FILE: true
+        INFOPLIST_KEY_CFBundleDisplayName: TapHap Phase 1
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: true
+        INFOPLIST_KEY_UILaunchScreen_Generation: true
+        INFOPLIST_KEY_UIFileSharingEnabled: true
+        INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace: true
+        TARGETED_DEVICE_FAMILY: "1"
+        SUPPORTS_MACCATALYST: false
+    scheme:
+      testTargets:
+        - TapHapPhase1Tests
+  TapHapPhase1Tests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Phase1LabTests
+        excludes: [Fixtures]
+      - path: Phase1LabTests/Fixtures
+        type: folder
+        buildPhase: resources
+      - path: Phase1LabIOSTests
+    dependencies:
+      - target: TapHapPhase1
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: true
+        PRODUCT_BUNDLE_IDENTIFIER: ca.codepet.taphap.phase1.tests
