@@ -1,0 +1,46 @@
+{
+  "label": "Strum 3",
+  "scope": "Owner-requested retry, same reviewed implementation, iPhone and built-in speaker. Retrieved read-only after owner reported done.",
+  "priorRecordsPreservedByteForByte": 10,
+  "schema": 2,
+  "eventCount": 65,
+  "eventMonotonic": true,
+  "directionCounts": {
+    "down": 65
+  },
+  "runtimeInvalidations": [],
+  "assessment": {
+    "baseline": {
+      "inputCount": 12,
+      "periodMS": 502.33738321706755,
+      "phaseMS": 39.51157165768867,
+      "residualRMSMS": 11.803057528600817
+    },
+    "kind": "partial",
+    "observedIntervals": {
+      "inputCount": 14,
+      "intervalCount": 13,
+      "intervalSDMS": 13.232224142709804,
+      "largestIntervalMS": 559.959093661746,
+      "longIntervalCount": 0,
+      "medianSpacingMS": 530.6525272026192,
+      "shortIntervalCount": 0
+    },
+    "scoreIssue": "ambiguousInput"
+  },
+  "officialScore": null,
+  "anchorCount": 746,
+  "maximumClockResidualMS": 0.006000004941594805,
+  "crossingBracketMS": {
+    "median": 8.319999993545935,
+    "p95NearestRank": 8.322999987285584,
+    "max": 16.6400000161957
+  },
+  "allRecordedIntervalsMS": {
+    "count": 64,
+    "min": 461.8564309494104,
+    "max": 559.959093661746
+  },
+  "independentVerification": "Recomputed silent interval count, median, population standard deviation and maximum match persisted assessment within 0.000001 ms. All 50 reviewed source hashes unchanged.",
+  "conclusion": "Clean continuous Strum trace with no long/short interval flags, reliable opening baseline, and descriptive slowdown feedback. Substantial positive repeatability evidence; earlier long intervals remain historically unexplained, and this recording does not rule out intermittent missed capture. No full-score requirement or arbitrary further trial quota."
+}

@@ -1,0 +1,27 @@
+{
+  "startupVerified": 29,
+  "startupDiscrepancies": [],
+  "currentChangedInheritedFiles": [
+    ".ai/CURRENT.md",
+    ".ai/START-HERE.md",
+    ".gitignore",
+    "AGENTS.md",
+    "Package.swift",
+    "README.md",
+    "ROADMAP.md",
+    "docs/ai-instructions.md"
+  ],
+  "historicalLabPreserved": true,
+  "sourceHEAD": "2e0310bc245525e82ace4110c103681e6facfe55",
+  "changesExplained": {
+    ".ai/CURRENT.md": "copied coordinator current authority",
+    ".gitignore": "append private raw evidence exclusion",
+    "Package.swift": "add separate Phase1 library/tests; preserve old targets",
+    ".ai/START-HERE.md": "Owner-authorized final documentation reconciliation: current sequential phase authority and accepted Phase 1 status; product requirements unchanged.",
+    "AGENTS.md": "Owner-authorized final documentation reconciliation: current sequential phase authority and accepted Phase 1 status; product requirements unchanged.",
+    "README.md": "Owner-authorized final documentation reconciliation: current sequential phase authority and accepted Phase 1 status; product requirements unchanged.",
+    "ROADMAP.md": "Owner-authorized final documentation reconciliation: current sequential phase authority and accepted Phase 1 status; product requirements unchanged.",
+    "docs/ai-instructions.md": "Owner-authorized final documentation reconciliation: current sequential phase authority and accepted Phase 1 status; product requirements unchanged."
+  },
+  "finalReconciliation": "Archived inherited-baseline.json unchanged; frozen historical lab/test/project/evidence bytes unchanged. Additional guidance changes explicitly authorized by coordinator at checkpoint acceptance."
+}

@@ -1,195 +1,220 @@
-# TapHap Product Brief
+# TapHap Product Direction
 
 ## Product statement
 
-TapHap is a simple music-based internal-clock trainer. It establishes the pulse
-a person is already tapping, temporarily removes the audible reference, and
-measures how their timing changes while they continue unaided.
+**TapHap is the rhythm game where the music disappears.**
 
-The product is not a song detector, streaming client, synchronized group
-metronome, or content-licensing workaround.
+It is a song-based internal-clock trainer. A player locks onto a musical track,
+continues the pulse after the track fades to silence, and learns how accurately
+they held the rhythm when the music returns.
 
-## Primary users
+TapHap should feel like a game first and remain an honest training instrument
+underneath. It is not a conventional metronome with rewards added to it.
 
-- Musicians who want to improve tempo stability away from their instrument or
-  as part of practice.
-- Music students learning to hold a pulse without continuous cues.
-- General users who want a short, approachable rhythm exercise.
+## Audience and positioning
+
+Build first for musicians and music students who want steadier time. Present
+the challenge in language that anyone can understand:
+
+> When the music comes back, will you still be on beat?
+
+Singer-players and singer-songwriters are an important future audience because
+maintaining rhythm while attention moves to lyrics or melody is a natural
+extension of the core skill. The initial product does not need to listen to a
+physical instrument or voice.
 
 ## Core promise
 
-The primary exercise requires no BPM entry. A user should be able to choose a
-groove, press Start, tap naturally, experience a silent gap, and receive useful
-feedback in roughly one minute.
+> Play for a few minutes a day and measurably improve your ability to maintain
+> rhythm without an external cue.
 
-## Canonical session
+The first session must be enjoyable without music-theory knowledge, BPM entry,
+time-signature setup, or metronome configuration.
 
-### 1. Prepare
+## What makes it different
 
-- The user chooses a groove, difficulty, and optional assistance level.
-- For a conditional Apple Music mode, the user explicitly selects and starts a
-  full song through standard MusicKit controls.
+- Traditional rhythm games show the player when to act. TapHap removes the cue
+  and asks the player to generate the missing pulse.
+- Gap metronomes use clicks and expose configuration. TapHap uses enjoyable
+  musical tracks and prebuilt challenges.
+- A normal metronome supplies time. TapHap measures whether the player can
+  continue carrying time after the reference disappears.
 
-### 2. Calibrate
+The absence of the song is the gameplay, and its return is the payoff.
 
-- Music remains audible.
-- The user taps for enough beats to establish a stable pulse.
-- TapHap fits a tempo and phase to the taps, rejects obvious outliers, and
-  estimates a session-specific baseline.
-- The exercise does not demand machine-perfect opening taps. It measures later
-  change relative to the user's stable starting behavior.
+## Canonical game loop
 
-### 3. Warn
+1. Choose a song challenge.
+2. Choose **Tap** or **Strum**.
+3. Play with the audible song until locked onto its pulse.
+4. Receive a clear, non-rhythmic warning that a gap is approaching.
+5. The song fades to silence while its playback timeline continues.
+6. Keep tapping or strumming without beat, bar, visual, or haptic cues.
+7. The song fades back in at its correct continuing position.
+8. See whether the pulse stayed steady, accelerated, slowed, or shifted.
+9. Retry, beat a personal best, or move to the next challenge.
 
-- The interface announces that a gap is approaching.
-- Any pre-gap indication must be clear but must not add a new rhythmic cue that
-  competes with the music.
+## Input modes
 
-### 4. Silent gap
+### Tap
 
-- The audio output disappears while the reference timeline continues.
-- The user continues tapping.
-- No visual or haptic element supplies individual beats.
-- A continuous, one-way ring may show overall progress toward the return.
+- Present one large, drum-inspired surface.
+- Timestamp touch-down as the rhythmic event.
+- Permit a small response to the player's own touch, but never generate a
+  continuing beat cue during silence.
+- Later exercises may add alternating hands, backbeats, or subdivisions.
 
-### 5. Return
+### Strum
 
-- The ring gradually indicates proximity to the return without pulsing,
-  ticking, segmenting beats, or displaying a beat countdown.
-- Music becomes audible again at the scheduled point.
-- The user hears whether their internal pulse still aligns.
+- Present virtual strings that the player swipes across.
+- Timestamp a defined reference crossing, not gesture completion.
+- Record down/up direction separately from rhythmic timing.
+- Begin with downstrums on quarter notes; later exercises may add alternating
+  strums and simple learned patterns.
 
-### 6. Result
+Both modes use the same audio timeline, gap scheduler, baseline model, scoring,
+and history. They are touchscreen game inputs, not claims that TapHap hears a
+real drum or guitar.
 
-- Show a plain-language result first, such as `72 ms early`, `steady`, or
-  `gradually speeding up`.
-- Offer detail without requiring the user to understand statistical terms.
-- Save the result locally for comparison with like-for-like sessions.
+## Audio and beat-map contract
+
+- The guaranteed product uses app-controlled, fully owned or expressly
+  licensed musical audio.
+- Every included track has a verified beat map. A variable-tempo performance
+  may be used only when its beat positions are explicitly mapped.
+- The player never has to discover or enter a BPM.
+- During a gap, audio gain fades to zero; playback does not pause or skip.
+- The hidden song and beat timelines continue continuously through silence.
+- The return is scheduled from the audio timeline rather than a UI timer.
+- Song audio, beat maps, and rights provenance must be reproducible build
+  inputs. Private contracts stay outside the public repository.
 
 ## Visual contract
 
-During the gap, visuals may communicate position in the exercise but must not
-communicate the beat.
+The game may communicate that silence is approaching and approximately when
+the music will return. It must not provide another beat to follow.
 
-Allowed:
+Allowed during silence:
 
 - A single continuous progress arc across the entire gap.
-- Overall song progress.
-- A gradual, non-pulsing change in color or brightness near the return.
-- A small response caused by the user's own tap.
+- Overall song or challenge progress.
+- A gradual, non-pulsing change near the return.
+- A small response caused only by the player's own tap or swipe.
 
-Not allowed in the standard gap:
+Not allowed during the standard challenge:
 
-- Beat-synchronized pulses, flashes, bounces, or haptics.
-- Tick marks or segments corresponding to beats or bars.
+- Beat-synchronized pulses, flashes, animation, or haptics.
+- Beat or bar tick marks.
 - Numeric beat countdowns.
-- Repeating rotations or oscillations that become a visual metronome.
+- Repeating movement that functions as a visual metronome.
 
-Assisted and blind sessions must be recorded separately because they represent
-different levels of support.
+## Honest scoring
 
-## Scoring model
+The opening audible section establishes the player's session baseline and
+stable phase preference. Scoring should emphasize change through the hidden
+section rather than demanding an artificial zero-millisecond opening offset.
 
-The baseline should account for the user's consistent phase offset and the
-current device route. A person who naturally taps slightly ahead of the audible
-beat should not be penalized simply for that stable preference.
+Core measures:
 
-Candidate measures:
+- **Consistency:** variation between rhythmic inputs.
+- **Tempo drift:** whether the player accelerates or decelerates.
+- **Re-entry error:** early or late position when the song returns.
+- **Reliable gap:** longest gap held within the selected tolerance.
 
-- End drift: early or late at the end of the gap.
-- Tempo slope: whether taps progressively accelerate or decelerate.
-- Consistency: variation between consecutive silent taps.
-- Mean hidden-beat error after subtracting the audible baseline.
-- Longest gap completed within an agreed tolerance.
+Show one simple result first, followed by optional detail. A composite score or
+grade must be traceable to these measures. Compare improvement only across
+compatible track, section, difficulty, input mode, assistance, and audio-route
+conditions.
 
-Progress comparisons must control for source, tempo, gap length, assistance
-mode, input device, and audio route where those conditions materially affect
-the score. Do not collapse incomparable exercises into a misleading single
-number.
+## Game and training structure
 
-## Audio-source strategy
+### Baseline
 
-### Guaranteed core: bundled original audio
+Day 1 uses repeated short trials on a designated benchmark track to establish
+the player's starting ability. Do not treat one lucky or missed tap as a
+baseline.
 
-TapHap must ship with a small catalog of enjoyable, fully owned or expressly
-licensed grooves. The app controls their gain and timeline precisely, enabling
-deterministic gaps and reliable testing.
+### Daily play
 
-### Conditional: Apple Music
+A normal session should take roughly three to five minutes:
 
-Apple Music is the only streaming integration currently worth investigating.
-The intended mode uses user-initiated full-song playback and opening taps for
-calibration. It does not require raw audio, BPM metadata, recording, or song
-recognition.
+1. Warm-up.
+2. Two progressive challenges.
+3. One personalized challenge.
+4. Result, personal best, and next goal.
 
-This feature remains conditional on physical-device timing tests and a
-defensible interpretation of Apple's current MusicKit terms. See
-[platform constraints](platform-constraints.md).
+Difficulty adapts through longer gaps, less preparation, unpredictable gap
+placement, different tempos, subtler grooves, and more demanding tap or strum
+patterns.
 
-### Post-MVP: user-imported audio
+### Proof of improvement
 
-DRM-free files chosen by the user could provide exact local playback control.
-Rights, file handling, variable-tempo behavior, and product complexity must be
-reviewed before adding this path.
+- Repeat the same benchmark song section under the same conditions on later
+  checkpoint days.
+- Report the change from the player's own baseline in plain language.
+- Periodically use a different track as a transfer test so familiarity with
+  one song is not mistaken for a general improvement in internal time.
 
-### Excluded: Spotify
+### Gamification principles
 
-Do not implement or market a Spotify integration. The current Spotify developer
-policy prohibits game use and analysis of Spotify content.
+Use personal bests, stars, grades, skill chapters, adaptive difficulty, and a
+clear perfect-landing moment. Rewards must represent demonstrated skill.
 
-## Metronome role
+Do not add coins, energy, consumable lives, ads, compulsory social mechanics,
+or rewards based only on opening the app. Global leaderboards are inappropriate
+until scoring is demonstrably comparable across devices and conditions.
 
-The metronome is a secondary, immediately useful tool rather than the product's
-main differentiator. It may include:
+## MVP boundary
 
-- Tap tempo.
-- Optional direct BPM adjustment.
-- Meter and downbeat accent.
-- Audible and supported haptic output.
-- A simple gap-click mode.
+The first release is intentionally narrow:
 
-The training flow must not send users through the metronome or require them to
-know a BPM value.
+- Native iPhone app.
+- A small launch set of app-controlled, rights-cleared songs with verified beat
+  maps.
+- Tap and Strum touchscreen modes.
+- Song fade, silent continuation, precise return, and trustworthy scoring.
+- Day 1 baseline, short daily challenges, checkpoint retests, transfer tests,
+  personal bests, and local history.
+- No required account, network, microphone, or subscription.
+- No BPM, meter, or subdivision configuration in the primary flow.
 
-## Platform roles
+## Post-MVP direction
 
-- iPhone is the canonical audio, timing, scoring, history, and product UI host.
-- Apple Watch is a conditional companion for controls, tap input, and a
-  separate haptic metronome experience.
-- Watch background privileges must match the product's real purpose. Never use
-  fake workouts, silent audio, or unrelated runtime categories.
+### Split Focus
 
-## Privacy and data
+Train rhythmic independence by asking the player to read, speak, count, or sing
+from memory while tapping or strumming. Static text and prompts may occupy
+attention but may not advance in time with the hidden beat. Compare the result
+with the player's normal baseline to show the cost of divided attention.
 
-The baseline product:
+### Other gated possibilities
 
-- Does not use the microphone.
-- Does not record or upload audio.
-- Stores practice history locally.
-- Requires no account or backend.
-- Does not collect Apple Music listening data beyond what is needed to run and
-  compare the user's own exercises.
+- User-imported DRM-free audio with on-device beat analysis and a correction
+  path for uncertain beat maps.
+- Physical-instrument onset detection through microphone, USB audio, or MIDI.
+- Teacher-assigned challenges and progress sharing.
+- Apple Watch or social features only after the standalone iPhone product is
+  successful and a separate feasibility plan is approved.
 
-Any later analytics or cloud synchronization requires a separate product and
-privacy decision.
+## Explicit non-goals for the MVP
 
-## Explicit non-goals for the initial release
-
-- Automatic BPM or song detection.
-- Shazam-style recognition.
-- Streaming-service audio extraction.
-- Beat-map acquisition or sharing.
-- Real-time group synchronization.
-- Peer-to-peer networking.
-- Competitive multiplayer or social feeds.
-- A catalog of recognizable commercial clips.
-- A full rhythm game.
+- Apple Music or Spotify playback.
+- A generic metronome control panel.
+- Physical-instrument or vocal recognition.
+- Falling-note charts or imitation of Guitar Hero, DDR, or another game's
+  protected presentation.
+- A commercial-song catalog or licensing workaround.
+- Apple Watch, synchronized groups, multiplayer, social feeds, or a backend.
+- Claims that one universal score measures every kind of musicianship.
 
 ## Definition of a successful first release
 
-- A new user understands the exercise without prior music-theory knowledge.
-- The core works without Apple Music, Apple Watch, an account, or a network.
-- Results feel stable and fair across repeated identical exercises.
-- The progress display prepares users for the return without becoming a hidden
-  metronome.
-- The app provides a reason to return by showing honest personal improvement.
+- A new player reaches the first song gap without needing instructions outside
+  the game.
+- The fade, silence, return, and score feel reliable on supported devices.
+- Tap and Strum feel distinct while producing comparable timing evidence.
+- Repeated benchmark results are stable enough to show real change.
+- A transfer challenge distinguishes song familiarity from broader skill.
+- Players voluntarily retry to improve their result.
+- The product is useful offline and without streaming services or extra
+  hardware.

@@ -1,0 +1,45 @@
+{
+  "acousticLoop": "Owner confirms: yes, music did as expected - silent then returned. No independent acoustic timestamp measurement.",
+  "appLaunch": "passed; three completed human trials retrieved read-only",
+  "command": "xcodebuild -project TapHapPhase1.xcodeproj -scheme TapHapPhase1 -destination \"platform=iOS,id=$TAPHAP_DEVICE_UDID\" -derivedDataPath build/Phase1Device -resultBundlePath build/Phase1PhysicalUnlocked.xcresult test-without-building",
+  "developerMode": "enabled",
+  "failures": 0,
+  "humanEvidence": "owner-observations.json",
+  "initialAttempt": {
+    "installation": "blocked",
+    "reason": "kAMDMobileImageMounterDeviceLocked",
+    "resolvedBy": "owner unlocked paired phone"
+  },
+  "installation": "passed after owner unlocked device",
+  "model": "iPhone 16",
+  "os": "26.6.2 (23G90)",
+  "renderClock": {
+    "acousticObservation": "NOT OBSERVED",
+    "anchorCount": 643,
+    "crossed": [
+      "end",
+      "fade",
+      "fullReturn",
+      "return",
+      "silent"
+    ],
+    "firstSample": 1033,
+    "lastSample": 1632313,
+    "maximumClockResidualMS": 0.003916669520549754,
+    "route": {
+      "audioSHA256": "ad8eb39d1d1074cafdbac4b362c8eddc73c092943f16900c5bf09085c91488c6",
+      "ioBufferDurationSeconds": "0.005",
+      "latencyCorrection": "none; stable combined offset fitted from audible input",
+      "mapSHA256": "494190976e0cacaabf401e6101a990edc4666c8e02d1aaa2c6e0c92215540e15",
+      "outputLatencyReportedSeconds": "0.015354166738688946",
+      "outputs": "Speaker:Speaker",
+      "sessionSampleRate": "48000.0"
+    }
+  },
+  "runLocalTime": "2026-09-12 23:07:44\u201323:08:23 America/Toronto",
+  "sourceCommit": "71b695d48f26e7680da29df3566a38664ec2a8ba",
+  "tapStrumRepeatability": "Two Tap trials and one Strum trial captured; all scores withheld as ambiguousInput. Capture consistency is promising, full scoring/repeatability gate remains open.",
+  "testExecution": "passed",
+  "testWallSeconds": 38.737,
+  "tests": 11
+}

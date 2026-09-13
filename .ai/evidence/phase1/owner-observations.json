@@ -1,0 +1,122 @@
+{
+  "excludedZeroInputLifecycleRecords": 5,
+  "gate": "Acoustic loop observed. Full Phase1 gate NOT PASSED: 0/3 trials yielded official scores; one Strum session does not establish between-trial repeatability.",
+  "humanTrials": [
+    {
+      "baseline": {
+        "periodMS": 498.6361139274338,
+        "phaseMeanMS": -3.0384027886611875,
+        "residualRMSMS": 12.581174996111233,
+        "slopeMSPerBeat": -1.3638860725661759
+      },
+      "crossingBracketMS": null,
+      "directionCounts": null,
+      "eventCount": 64,
+      "eventMonotonic": true,
+      "firstScoringRejection": {
+        "distanceMS": 248.8267083390383,
+        "inputOrdinal": 22,
+        "trackSeconds": 11.744057541654911
+      },
+      "gapIntervalSDMS": 21.185373492468155,
+      "gapIntervalsAbove750MS": 0,
+      "gapLargestIntervalMS": 582.3534583323635,
+      "gapMeanIntervalMS": 551.0721346161938,
+      "gapMedianIntervalMS": 557.4797083245357,
+      "gapObservedInputCount": 14,
+      "inputDispatchDelayMS": {
+        "max": 26.018958335043862,
+        "median": 18.713562509219628
+      },
+      "invalidations": [
+        "ambiguousInput"
+      ],
+      "label": "Tap 1",
+      "lastTrackObservedSeconds": 34.01654166666667,
+      "maximumClockResidualMS": 0.0035833392757894655,
+      "mode": "tap",
+      "officialScore": null
+    },
+    {
+      "baseline": {
+        "periodMS": 501.27836217926904,
+        "phaseMeanMS": -5.927708343127354,
+        "residualRMSMS": 13.60237598892702,
+        "slopeMSPerBeat": 1.278362179269047
+      },
+      "crossingBracketMS": null,
+      "directionCounts": null,
+      "eventCount": 63,
+      "eventMonotonic": true,
+      "firstScoringRejection": {
+        "distanceMS": 226.83104166935664,
+        "inputOrdinal": 23,
+        "trackSeconds": 12.270394541657879
+      },
+      "gapIntervalSDMS": 18.02904325504351,
+      "gapIntervalsAbove750MS": 0,
+      "gapLargestIntervalMS": 599.0929166728165,
+      "gapMeanIntervalMS": 562.626288460496,
+      "gapMedianIntervalMS": 557.5159583386267,
+      "gapObservedInputCount": 14,
+      "inputDispatchDelayMS": {
+        "max": 24.88370833452791,
+        "median": 18.275625014211982
+      },
+      "invalidations": [
+        "ambiguousInput"
+      ],
+      "label": "Tap 2",
+      "lastTrackObservedSeconds": 34.016645833333335,
+      "maximumClockResidualMS": 0.008833335596133973,
+      "mode": "tap",
+      "officialScore": null
+    },
+    {
+      "baseline": {
+        "periodMS": 496.17489127258455,
+        "phaseMeanMS": 34.820889039110625,
+        "residualRMSMS": 12.542836049428239,
+        "slopeMSPerBeat": -3.825108727415408
+      },
+      "crossingBracketMS": {
+        "max": 16.642000002320856,
+        "median": 8.321000001160428,
+        "p95": 8.323999994900078
+      },
+      "directionCounts": {
+        "down": 61,
+        "up": 0
+      },
+      "eventCount": 61,
+      "eventMonotonic": true,
+      "firstScoringRejection": {
+        "distanceMS": 243.01415860827547,
+        "inputOrdinal": 22,
+        "trackSeconds": 12.778874700263259
+      },
+      "gapIntervalSDMS": 149.39250326545013,
+      "gapIntervalsAbove750MS": 1,
+      "gapLargestIntervalMS": 1070.5809612991288,
+      "gapMeanIntervalMS": 582.4263946354525,
+      "gapMedianIntervalMS": 542.9637479828671,
+      "gapObservedInputCount": 13,
+      "inputDispatchDelayMS": {
+        "max": 27.205752208828926,
+        "median": 17.193133768159896
+      },
+      "invalidations": [
+        "ambiguousInput"
+      ],
+      "label": "Strum 1",
+      "lastTrackObservedSeconds": 34.016645833333335,
+      "maximumClockResidualMS": 0.006458332063627448,
+      "mode": "strum",
+      "officialScore": null
+    }
+  ],
+  "observationSource": "Owner report relayed by coordinator; two Tap trials and one Strum trial retrieved read-only.",
+  "ownerAcousticObservation": "yes, music did as expected - silent then returned.",
+  "recommendation": "First fix diagnostic handling of ordinary gradual drift: preserve safe interval trend/consistency and explain unscorable beat-relative landing separately. Keep missing/duplicate-contact uncertainty invalid; do not widen nearest-beat tolerance or invent beat identities. Replay three normalized human recordings and explicit missed/duplicate/phase-wrap fixtures locally before asking for another targeted physical check.",
+  "scope": "One owner, one iPhone16, built-in speaker; chronological Tap/Tap/Strum; no independent acoustic/contact timestamp measurement."
+}

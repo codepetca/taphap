@@ -1,0 +1,79 @@
+{
+  "scope": "One owner, same physical iPhone and built-in speaker, reviewed assessment implementation 4be17f7824d08c276fe36fd493d9ad78491de26e. Read-only retrieval after owner confirmed completion.",
+  "priorRecordsPreservedByteForByte": 8,
+  "newHumanTrials": [
+    {
+      "label": "Tap 3",
+      "schema": 2,
+      "mode": "tap",
+      "eventCount": 63,
+      "eventMonotonic": true,
+      "directionCounts": null,
+      "crossingBracketMS": null,
+      "runtimeInvalidations": [],
+      "assessment": {
+        "baseline": {
+          "inputCount": 12,
+          "periodMS": 495.1501837127656,
+          "phaseMS": -0.9278923729046559,
+          "residualRMSMS": 11.357650435259368
+        },
+        "kind": "partial",
+        "observedIntervals": {
+          "inputCount": 14,
+          "intervalCount": 13,
+          "intervalSDMS": 22.680529240394144,
+          "largestIntervalMS": 582.2764582990203,
+          "longIntervalCount": 0,
+          "medianSpacingMS": 549.0307083528023,
+          "shortIntervalCount": 0
+        },
+        "scoreIssue": "missingInput"
+      },
+      "officialScore": null,
+      "anchorCount": 744,
+      "maximumClockResidualMS": 0.004874996375289764
+    },
+    {
+      "label": "Strum 2",
+      "schema": 2,
+      "mode": "strum",
+      "eventCount": 64,
+      "eventMonotonic": true,
+      "directionCounts": {
+        "down": 64
+      },
+      "crossingBracketMS": {
+        "median": 8.319999993545935,
+        "p95NearestRank": 16.639000008581206,
+        "max": 33.276000001933426
+      },
+      "runtimeInvalidations": [],
+      "assessment": {
+        "baseline": {
+          "inputCount": 12,
+          "periodMS": 503.31206757219513,
+          "phaseMS": 26.180467049319606,
+          "residualRMSMS": 13.17819905925537
+        },
+        "kind": "partial",
+        "observedIntervals": {
+          "inputCount": 14,
+          "intervalCount": 13,
+          "intervalSDMS": 137.48084907812915,
+          "largestIntervalMS": 1030.337626725668,
+          "longIntervalCount": 1,
+          "medianSpacingMS": 533.9506483578589,
+          "shortIntervalCount": 0
+        },
+        "scoreIssue": "ambiguousInput"
+      },
+      "officialScore": null,
+      "anchorCount": 745,
+      "maximumClockResidualMS": 0.005416676867750492
+    }
+  ],
+  "independentVerification": "Recomputed silent interval count, median, population standard deviation and maximum from recorded track-relative events; matched saved assessment within 0.000001 ms.",
+  "conclusion": "Corrected physical assessment persistence path exercised successfully in both modes. Both partial results withhold landing/full score. Strum has another approximately one-second gap between recorded strokes; actual omitted gesture versus missed capture remains unresolved. No arbitrary additional trial quota.",
+  "pendingOwnerObservation": "Asked whether a stroke was skipped or held during silence; answer pending. Displayed-feedback subjective accuracy not yet confirmed."
+}
